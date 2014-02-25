@@ -1,7 +1,6 @@
 <div id="content">
-	<p>
-		YAAARRRRR put yer conetent here you landlubber
-	</p>
-	<br/>
-	<span class="something_different"><cfoutput>#ucase("tell meh im purrty")#</cfoutput></span>
+	In Admin template
+	<!--decide which page we are on and display the related sidebar for that.-->
+	<cfinclude template="application.cfm">
+
 </div>

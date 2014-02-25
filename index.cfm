@@ -17,7 +17,7 @@
 
 			<!--this will go away, Its just for testing purposes-->
 			<cfset user.loggedin = true>
-
+kjlfnwfnrf
 			<cfif IsDefined("user.loggedin")>
 				<!--If admin is logged in load this content-->
 				<cfinclude template="templates/contentAdmin.cfm">

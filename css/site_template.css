@@ -29,25 +29,24 @@ body{
 	
 }
 
-#side_navigation{
-	width:10%;
-	height: 100%;
-	border:1px solid green;
-}
-#side_navigation .side_nav_button{
-
-}
-
 #content{
 	width: 70%;
 	height: 40%;
 	border:1px solid red;
 }
 
-#content .something_different {
-	background-color: green;
+#content #side_navigation{
+	width:10%;
+	height: 100%;
+	border:1px solid green;
+}
+#content #side_navigation .side_nav_button{
+
 }
 
+#content #employee_info{
+
+} 
 #search_box{
 	float: right;
 	padding: 3px;
@@ -55,3 +54,4 @@ body{
 	margin: 0px 15px 0px 0px;
 
 }
+

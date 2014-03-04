@@ -1,5 +1,5 @@
 <div id="employee_info">
-	<p>
+	<cfform>
 		<center><b>Somerset Trust Company Health and Welfare Benefits Plan Election Form</b></center>
 		<b>1. Personal Data</b> (Required whether or not you are a participant)<br>
 		Name: <cfinput type="text" name="name" size="50"><br>
@@ -14,5 +14,5 @@
 		Spouse's Name: <cfinput type="text" name="spouseName" size="50"><br>
 		Spouse's SSN #: <cfinput type="text" name="ssn" size="9"><br>
 		Spouse's Date of Birth: <input date code><br>
-	</p>
+	</cfform>
 </div>

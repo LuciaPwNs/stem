@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 12, 2014 at 02:51 AM
+-- Generation Time: Mar 04, 2014 at 08:02 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -33,6 +33,13 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `permission` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `first_name`, `last_name`, `permission`) VALUES
+('1234567890123456789012345', 'Brooke', 'Engle', 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `file_number` varchar(25) NOT NULL,
   `company_email` varchar(25) NOT NULL,
   `type` varchar(25) NOT NULL,
-  `adjusted_securtiy` date NOT NULL,
+  `adjusted_seniority` date NOT NULL,
   `job_title` varchar(25) NOT NULL,
   `officer` tinyint(1) NOT NULL,
   `eeo_class` varchar(25) NOT NULL,
@@ -109,6 +116,13 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `hire_date` date NOT NULL,
   `w4_exemptions` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`401k_location`, `id`, `photo`, `last_modified`, `first_name`, `last_name`, `address`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
+('', '123456789012345678901234', '', '2014-02-13', 'Brooke', 'Engle', '580 Haysmill Road', 'Meyersdale', 'PA', '15552', '123456789', '8142339185', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'i don''t know', 'active', '2014-01-01', 'i don''t know');
 
 -- --------------------------------------------------------
 

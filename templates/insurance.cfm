@@ -3,4 +3,7 @@
 </div>
 <cfif isDefined('URL.electionOptOut')>
 	<cfinclude template="subTabs/electionOptOut.cfm">
+<cfelse>
+	<!--if the url only contains the template variable and not a subTab variable, then load the first button by default so we don't load a blank page-->
+	<cfinclude template="subTabs/electionOptOut.cfm">
 </cfif>

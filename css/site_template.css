@@ -1,6 +1,7 @@
 body{
 	width: 99%;
 	height: 100%;
+	min-height: 600px;
 	border: 1px solid red;
 	color: black;
 }
@@ -30,6 +31,7 @@ body{
 #content{
 	width: 70%;
 	height: 40%;
+	min-height: 300px;
 	border:1px solid red;
 }
 
@@ -42,7 +44,7 @@ body{
 	border:1px solid green;
 }
 #content #side_navigation .side_nav_button{
-
+	width:100%;
 }
 
 #content #employee_info{

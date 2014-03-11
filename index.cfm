@@ -1,7 +1,7 @@
 <html>
 	<cfinclude template="templates/header.cfm">
 	<body>
-		<div id="logo"></div>
+		<div id="logo" onclick="window.location.href='index.cfm'"></div>
 		<div id="search_box">Searching</div>
 
 		<div id="meat_and_potatoes">

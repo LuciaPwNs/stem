@@ -1,10 +1,12 @@
 <html>
+	<cfapplication name="stem" sessionmanagement="Yes" sessiontimeout=#CreateTimeSpan(0,0,45,0)#>
+	<cfparam name = "Session.logged_in" default = false>
+	<cfajaximport/>
 	<cfinclude template="templates/header.cfm">
 	<body>
-
 		<!--If someone is logged in then load the signed in templates-->
-		<cfset user.loggedin = true>
-		<cfif user.loggedin eq true>
+		<cfif Session.logged_in eq true>
+			
 			<div id="logo" onclick="window.location.href='index.cfm'"></div>
 			<div id="search_box">Searching</div>
 
@@ -20,7 +22,7 @@
 				</div>
 
 				<!--this will go away, Its just for testing purposes this is what ids will look like-->
-				<cfset user.admin = "9328fe9dnrefslf67gh8430jh">
+				
 				<cfif IsDefined("user.admin")>
 					<!--If admin is logged in load this admin views-->
 					<link rel="stylesheet" type="text/css" href="css/admin.css">
@@ -31,7 +33,9 @@
 					<cfinclude template="templates/contentEmployee.cfm">
 					
 				</cfif>
+			
 			</div>
+			
 		<cfelse>
 			<!--no one is logged in so show the sign up stuff-->
 

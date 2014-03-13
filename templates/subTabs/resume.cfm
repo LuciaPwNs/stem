@@ -1,4 +1,5 @@
 <div id="employee_info">
+	
 	<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true">
 		SELECT * FROM employee;
 	</cfquery>
@@ -13,4 +14,5 @@
 		Likes: Alcohol, Cats
 		Cup Size: 32C
 	</cfoutput>
+	
 </div>

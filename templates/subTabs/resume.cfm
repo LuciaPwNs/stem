@@ -11,8 +11,6 @@
 		City: #city#<br/>
 		State: #state#<br/>
 		Cell: #cell_phone#<br/>
-		Likes: Alcohol, Cats
-		Cup Size: 32C
 	</cfoutput>
 	
 </div>

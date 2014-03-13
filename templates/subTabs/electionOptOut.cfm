@@ -1,7 +1,7 @@
 <div id="employee_info">
 	<cfform>
 		<center><b>Somerset Trust Company Health and Welfare Benefits Plan Election Form</b></center>
-		<b>1. Personal Data</b> (Required whether or not you are a participant)<br>
+		<b>1. Personal Data</b> (Required whether or not you are a participant)<br/>
 		
 			<label for="name">Name: </label>
 			<cfinput type="text" name="name" size="50"><br/>
@@ -35,5 +35,15 @@
 
 			<label for="spouseDob">Spouse Date of Birth: </label>
 			<cfinput type="datefield" name="spouseDob" width="50"><br/><br/>
+
+		<b>2. Medical / Vision / Dental Insurance</b>
+
+			<cfinput type="radio" name="insurance_type" value="yes">
+				I hearby elect the following medical/vision/dental coverage under the plan and hereby agree to pay for the coverage in the specified for each pay period, through payroll deduction.
+			</cfinput>
+			<cfinput type="radio" name="insurance_type" value="yes">
+				I hereby elect to <b>OPT OUT</b> for the medical/
+			</cfinput>
+
 	</cfform>
 </div>

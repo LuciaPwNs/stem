@@ -5,7 +5,7 @@
 	<cfinclude template="templates/header.cfm">
 	<body>
 		<!--If someone is logged in then load the signed in templates-->
-		<cfif Session.logged_in eq true>
+		<cfif Session.logged_in eq false>
 			
 			<div id="logo" onclick="window.location.href='index.cfm'"></div>
 			<div id="search_box">Searching</div>
@@ -23,7 +23,7 @@
 
 				<!--this will go away, Its just for testing purposes this is what ids will look like-->
 				
-				<cfif IsDefined("user.admin")>
+				<cfif Session.logged_in eq false>
 					<!--If admin is logged in load this admin views-->
 					<link rel="stylesheet" type="text/css" href="css/admin.css">
 					<cfinclude template="templates/contentAdmin.cfm">

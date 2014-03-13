@@ -1,17 +1,9 @@
 <div id="side_navigation">
-	<button type="button" class="side_nav_button">Proposal</button>
-	<button type="button" class="side_nav_button">New Employee Sheet</button>
-	<button type="button" class="side_nav_button">Residency Cert.</button>
-	<button type="button" class="side_nav_button">New Hire Report</button>
-	<button type="button" class="side_nav_button">Affirmative Action</button>
-	<button type="button" class="side_nav_button">W4</button>
-	<button type="button" class="side_nav_button">Pay Entry</button>
-	<button type="button" class="side_nav_button">Identification</button>
+	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?employee&affirmativeAction'">affirmativeAction</button>
 </div>
-<div id="employee_info">
-	In employee
-	<form name="employee_info">
-		<input type="text" name="Employee Name" />
-	</form>
-	
-</div>
+<cfif isDefined('URL.affirmativeAction')>
+	<cfinclude template="subTabs/affirmativeAction.cfm">
+<cfelse>
+	<!--if the url only contains the template variable and not a subTab variable, then load the first button by default so we don't load a blank page-->
+	<cfinclude template="subTabs/affirmativeAction.cfm">
+</cfif>

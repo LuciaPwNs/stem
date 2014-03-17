@@ -13,8 +13,6 @@
     {
     	
         console.log("Callback: " + text);
-        location.reload();
-        
     }
     
     function errorHandler(code, msg)
@@ -30,5 +28,12 @@
 		<label for="password">Password: </label>
 		<cfinput type="password" name="password" size="50" required="false"><br/>
 		<cfinput type="submit" name="submit" value="Submit">
+	</cfform>
+	<cfform name="loginform" action="#CGI.script_name#?#CGI.query_string#" method="Post">
+        user name: <cfinput type="text" name="j_username" required="yes" message="A user name is required"><br/>
+        password: <cfinput type="password" name="j_password" required="no" message="A password is required"><br/>
+
+	    <br/>
+	    <input type="submit" value="Log In">
 	</cfform>
 </div>

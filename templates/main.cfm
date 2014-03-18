@@ -14,7 +14,7 @@
 
     <!--this will go away, Its just for testing purposes this is what ids will look like-->
     
-    <cfif Session.logged_in eq false>
+    <cfif IsDefined(Cookie.admin)>
         <!--If admin is logged in load this admin views-->
         <link rel="stylesheet" type="text/css" href="css/admin.css">
         <cfinclude template="contentAdmin.cfm">

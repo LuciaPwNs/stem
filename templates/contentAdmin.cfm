@@ -1,5 +1,5 @@
+In Admin template
 <div id="content">
-	In Admin template
 	<cfif isDefined('URL.application')>
 		<cfinclude template="application.cfm">
 	<cfelseif isDefined('URL.employee')>

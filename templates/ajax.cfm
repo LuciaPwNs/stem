@@ -8,7 +8,7 @@
 		<cfset Cookie.admin = true>
 	</cfif>
 <cfelse>
-	'crap something went wrong'
+	<cfoutput>user id or password is incorrect</cfoutput>
 </cfif> 
 
 <!---<cflocation url="../index.cfm" addtoken="false">--->

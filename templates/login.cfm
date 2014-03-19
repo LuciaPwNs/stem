@@ -22,7 +22,7 @@
         console.log("Error!!! " + code + ": " + msg);
     }
 </script>
-
+<div id="login_error"></div>
 <div id="login_box">
 	<cfform id="login" action="javascript:submitForm()">
 		<label for="id">ID: </label>

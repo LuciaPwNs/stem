@@ -1,6 +1,5 @@
 	<div id="employee_info">
--		<p>
-+		<cfform>
+		<cfform>
  			<b>Affirmative Action Voluntary Information</b> 
  			
 			
@@ -46,13 +45,6 @@
     		<option value="referal5">referal5
 			</cfselect>
 			</div>
-
-
-
-			</p>
-
-
--		</p>
-+		</cfform>
+		</cfform>
  	</div>
- 	 No newline at end of file
+

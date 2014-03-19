@@ -1,3 +1,3 @@
 <div id="employee_info">
-	pdfImportTemplate.cfm
+	<cfinclude template="importPDF.cfm">
 </div>

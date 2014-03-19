@@ -1,25 +1,24 @@
 	<div id="employee_info">
 		<cfform>
- 			<b>Affirmative Action Voluntary Information</b> 
+ 			<h2> Affirmative Action Voluntary Information</h3> 
  			
-			
-			<br>We consider all applicants for positions without regard to race, color, 
+			<p>We consider all applicants for positions without regard to race, color, 
 			religion, sex, national origin, citizenship, age, mental or physical disabilities, 
 			vietem/reserve/national guard or any other similarly protected status. We also 
 			comply with all applicable laws governing employment practices and do not discriminate 
-			on the basis of any unlawful criteria.
-			<br>
-			<br>To be completed by applicant on a voluntary basis. In an effort to comply with 
+			on the basis of any unlawful criteria.</p>
+			
+			<p>To be completed by applicant on a voluntary basis. In an effort to comply with 
 			requirements regarding government recordkeeping. Reporting and other legal obligations 
 			which may not apply. We invite you to complete this applicant data survey. Providing 
 			this information is strictly voluntary. Failure to provide it will not subject you 
-			to any adverse personnel decision or action. Your cooperation is appreciated.</b>
-			<br>
-			<br>Please be advised that this survey is not part of your official application for 
-			employment. It will not be used in any hiring decision. The information will be used 
-			and kept confidential in accordance with applicable laws and regulations.
+			to any adverse personnel decision or action. Your cooperation is appreciated.</p>
 			
-			<b>Applicant Information</b> 
+			<p>Please be advised that this survey is not part of your official application for 
+			employment. It will not be used in any hiring decision. The information will be used 
+			and kept confidential in accordance with applicable laws and regulations.</p>
+			
+			<h3>Applicant Information</h3> 
  			Name: <cfinput type="text" name="name" size="50" float="right"><br>
  			
  			Address: <cfinput type="text" name="address" size="50"><br>

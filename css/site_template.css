@@ -6,6 +6,21 @@ body {
 	color: black;
 	overflow: auto;
 }
+h1 {
+
+}
+h2 {
+
+}
+h3 {
+
+}
+b {
+	font-weight: bold; 	
+}
+p {
+	margin: 5px;
+}
 #logo {
 	margin:0px 0px 0px 50px;
 	width:200px;
@@ -61,6 +76,20 @@ body {
 	width: 89%;
 	height: 100%;
 	border:1px solid grey;
+} 
+#content #employee_info #uploadedForms{
+	position: relative;
+	float: left;
+	display: inline-block;
+	width: 75%;
+	height: 100%;
+	border:1px solid brown;
+} 
+#content #employee_info #uploadPDFButton{
+	position: relative;
+	float: left;
+	display: inline-block;
+	border:1px solid brown;
 } 
 #search_box {
 	float: right;

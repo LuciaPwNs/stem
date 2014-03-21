@@ -1,4 +1,4 @@
-<div id="search_box">Searching</div>
+<div id="search_box"><cfinput type="text" name="session.searchValue" onchange=""/></div>
 <div id="logo" onclick="window.location.href='index.cfm'"></div>
 
 

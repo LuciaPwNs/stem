@@ -1,8 +1,5 @@
-<cffile  
-    action = "uploadAll" 
-    destination = "uploads" 
-    accept = "list of MIME types" 
-    attributes = "file attribute or list" 
-    mode = "permission" 
-    nameConflict = "behavior" 
-    result = "result name">
+<!--- Assign file an id for the database --->
+
+<!--- Grab the file info and insert it into a query --->
+
+<!--- Send query and redirect to updated page --->

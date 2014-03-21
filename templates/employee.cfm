@@ -1,5 +1,5 @@
 <div id="side_navigation">
-	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?employee&affirmativeAction'">affirmativeAction</button>
+	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?employee&affirmativeAction'">Affirmative Action</button>
 </div>
 <cfif isDefined('URL.affirmativeAction')>
 	<cfinclude template="subTabs/affirmativeAction.cfm">

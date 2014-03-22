@@ -1,3 +1,15 @@
+<script type="text/javascript">
+    $(document).on( "cfSessionLoaded", function() {
+        getEmployeeData(document.session.selectedemployee);
+    });
+
+    var $inputs = $('#form :input');
+    var values = {};
+    $inputs.each(function() {
+        values[this.name] = $(this).val();
+    });
+    
+</script>
 In Admin template
 <div id="content">
 	<cfif isDefined('URL.application')>

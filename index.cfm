@@ -11,14 +11,14 @@
 		//Make a global variable session to match document.cookie (just in case we decide to use it)
 		$.ajax({
 		    type: 'GET',
-		    url: 'components/populate.cfc?method=getSession',
+		    url: 'components/load.cfc?method=getSession',
 		    dataType: "json"
 		})
 		.done(function (data) {
     		document.session = data;
     		console.log('document.cookie', document.cookie);
 			console.log('document.session', document.session);
-			$(document).trigger('employeeLoaded');
+			$(document).trigger('cfSessionLoaded');
 		})
   		.fail(function(jqXHR, textStatus) {
 			console.log( "Request failed: " + textStatus );
@@ -45,4 +45,5 @@
 
 		All the browser cookies currently set and their values:<cfdump var="#cookie#" label="Current Cookies"/>
 		All the session variable that are set (CFID and CFTOKEN are by coldfusion to verify access):<cfdump var="#Session#"></cfdump><br/><br/>
+	</body>
 </html>

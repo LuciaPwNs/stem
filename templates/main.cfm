@@ -1,16 +1,18 @@
 <script type="text/javascript" src="js/loadFormData.js"></script>
-<script type="text/javascript">
-    $(document).on( "employeeLoaded", function() {
-        loadForm();
-    });
-</script>
 <div id="search_box">
-    <cfform action='components/search.cfc'>
-        <input type="Hidden" name="method" value="search">
-        <cfinput type="text" name="searchValue"/>
-        <cfinput type="submit" name="submit" value="search">
-    </cfform>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#searchSubmit").click(function () {
+            searchForEmployee($('#searchValue').val());
+        });
+    })
+    </script>
+    <form id='searchBox'>
+        <input type="text" id="searchValue"/>
+        <input type="button" id="searchSubmit" value="search">
+    </form>
 </div>
+
 <div id="logo" onclick="window.location.href='index.cfm'"></div>
 
 

@@ -1,4 +1,10 @@
-<div id="search_box"><cfinput type="text" name="session.searchValue" onchange=""/></div>
+<div id="search_box">
+    <cfform action='components/search.cfc'>
+        <input type="Hidden" name="method" value="search">
+        <cfinput type="text" name="searchValue"/>
+        <cfinput type="submit" name="submit" value="search">
+    </cfform>
+</div>
 <div id="logo" onclick="window.location.href='index.cfm'"></div>
 
 

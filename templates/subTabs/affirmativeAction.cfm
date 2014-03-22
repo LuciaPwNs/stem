@@ -1,22 +1,11 @@
+<cfset session.selectedEmployee = 123456> 
 <cfif isDefined(session.selectedEmployee)>
-	<!--- Use session variable to pull employee data from data source--->
-	<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true">
-		SELECT * FROM employee;
-	</cfquery>
-	<cfoutput query="basic_employee_info" startrow="1">
-		Id: #id#<br/>
-		First Name: #first_name#<br/>
-		Last Name: #last_name#<br/>
-		Address: #address#<br/>
-		City: #city#<br/>
-		State: #state#<br/>
-		Cell: #cell_phone#<br/>
-	</cfoutput>
-	
 
+	display something 
+	<!--- Use session variable to pull employee data from data source--->
 
 </cfif>
-<div id="employee_info">
+
 	<cfform>
 		<h2> Affirmative Action Voluntary Information</h3> 
 			
@@ -37,7 +26,8 @@
 		and kept confidential in accordance with applicable laws and regulations.</p>
 		
 		<h3>Applicant Information</h3> 
-			Name: <cfinput type="text" name="name" size="50" float="right"><br>
+			Name: <cfinput type="text" name="first_name" size="50" float="right"><br>
+			<cfinput type="text" name="last_name" size="50" float="right"><br>
 			
 			Address: <cfinput type="text" name="address" size="50"><br>
 			<cfinput type="text" name="address" size="50"><br>
@@ -63,5 +53,5 @@
 		</cfselect>
 		</div>
 	</cfform>
-	</div>
-
+	<cfdiv id="employee_info" bind="cfc:stem.components.populate.getEmployeeData(#session.selectedEmployee#)">
+	</cfdiv>

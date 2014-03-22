@@ -1,11 +1,27 @@
 <cfcomponent>
 
-	<cffunction name="getEmployeeData" access="remote" returnType="query">
+	<cffunction name="getEmployeeData" access="remote" returnformat="json">
 		<cfargument name="selectedEmployee" type="string" required="yes">
-		<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true">
+		<cfargument name="field" type="string" required="yes">
+		
+		<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true" cachedWithin = "#CreateTimeSpan(0, 0, 60, 0)#">
 			SELECT * FROM employee;
 		</cfquery>
-		<cfreturn basic_employee_info >
+
+
+		<cfset something = basic_employee_info.first_name>
+		<cfreturn something >
 	</cffunction>
 
+	<cffunction name="getSession" access="remote" returnFormat="JSON">
+		
+		<cftry>
+		    <cfreturn session>
+		    <cfcatch>
+		        <cfoutput>
+		            Oh, Crap! Something bad happened! (#cfcatch.message#)
+		        </cfoutput>
+		    </cfcatch>
+		</cftry>
+	</cffunction>
 </cfcomponent>

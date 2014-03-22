@@ -6,7 +6,9 @@
 
 </cfif>
 
-	<cfform>
+
+
+	<form>
 		<h2> Affirmative Action Voluntary Information</h3> 
 			
 		<p>We consider all applicants for positions without regard to race, color, 
@@ -26,32 +28,31 @@
 		and kept confidential in accordance with applicable laws and regulations.</p>
 		
 		<h3>Applicant Information</h3> 
-			Name: <cfinput type="text" name="first_name" size="50" float="right"><br>
-			<cfinput type="text" name="last_name" size="50" float="right"><br>
+			Name: <input type="text" name="first_name" size="50" float="right" bind='cfc:stem.components.populate.getEmployeeData({#session.selectedEmployee#, "first_name"})'><br>
+			<input type="text" name="last_name" size="50" float="right"><br>
 			
-			Address: <cfinput type="text" name="address" size="50"><br>
-			<cfinput type="text" name="address" size="50"><br>
-			<cfinput type="text" name="address" size="50"><br>
+			Address: <input type="text" name="address" size="50"><br>
+			<input type="text" name="address" size="50"><br>
+			<input type="text" name="address" size="50"><br>
 			
-			Telephone: <cfinput type="text" name="telephone" size="10"><br>
+			Telephone: <input type="text" name="telephone" size="10"><br>
 			
-			<cfselect name="positions_applied">
-		<option value="Job1">Job1
-		<option value="Job2">Job2
-		<option value="Job3">Job3
-		<option value="Job4">Job4
-		<option value="Job5">Job5
-		</cfselect>
+			<select name="positions_applied">
+				<option value="Job1">Job1
+				<option value="Job2">Job2
+				<option value="Job3">Job3
+				<option value="Job4">Job4
+				<option value="Job5">Job5
+			</select>
 
-		<div style= "float:right;">
-		<cfselect name="Referral Source">
-		<option value="referal1">referal1
-		<option value="referal2">referal2
-		<option value="referal3">referal3
-		<option value="referal4">referal4
-		<option value="referal5">referal5
-		</cfselect>
-		</div>
-	</cfform>
-	<cfdiv id="employee_info" bind="cfc:stem.components.populate.getEmployeeData(#session.selectedEmployee#)">
-	</cfdiv>
+			<div style= "float:right;">
+				<select name="Referral Source">
+					<option value="referal1">referal1
+					<option value="referal2">referal2
+					<option value="referal3">referal3
+					<option value="referal4">referal4
+					<option value="referal5">referal5
+				</select>
+			</div>
+	</form>
+

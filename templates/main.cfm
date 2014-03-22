@@ -1,3 +1,9 @@
+<script type="text/javascript" src="js/loadFormData.js"></script>
+<script type="text/javascript">
+    $(document).on( "employeeLoaded", function() {
+        loadForm();
+    });
+</script>
 <div id="search_box">
     <cfform action='components/search.cfc'>
         <input type="Hidden" name="method" value="search">

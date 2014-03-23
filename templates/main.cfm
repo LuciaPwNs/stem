@@ -1,14 +1,16 @@
 <script type="text/javascript" src="js/loadFormData.js"></script>
 <div id="search_box">
     <script type="text/javascript">
-    $(document).ready(function(){
-        $("#searchSubmit").click(function () {
-            searchForEmployee($('#searchValue').val());
-        });
-    })
+
+        $(document).ready(function(){
+            //When the webpage is ready bind javascript function to the button on the search box
+            $("#searchSubmit").click(function () {
+                searchForEmployee($('#searchValue').val());
+            });
+        })
     </script>
     <form id='searchBox'>
-        <input type="text" id="searchValue"/>
+        <input type="text" id="searchValue">
         <input type="button" id="searchSubmit" value="search">
     </form>
 </div>

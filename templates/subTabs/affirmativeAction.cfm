@@ -1,4 +1,4 @@
-<form>
+<form name='form'>
 	<h2> Affirmative Action Voluntary Information</h3> 
 		
 	<p>We consider all applicants for positions without regard to race, color, 

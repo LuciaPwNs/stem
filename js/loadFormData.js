@@ -7,8 +7,15 @@ function getEmployeeData (selectedEmployee) {
 		    dataType: "json"
 		})
 		.done(function (data) {
-    		document.employee = data;
+			//console.log('data', data);
+    		document.employee = {};
+    		for(var i = 0; i < data.COLUMNS.length; i++) {
+    			//console.log('data.COLUMNS[i]', data.COLUMNS[i]);
+    			document.employee[data.COLUMNS[i].toLowerCase()] = data.DATA[0][i];
+    		}
+
     		console.log('document.employee', document.employee);
+    		$(document).trigger('employeeDataReady');
 		})
   		.fail(function(jqXHR, textStatus) {
 			console.log( "Request failed: " + textStatus );
@@ -24,8 +31,11 @@ function searchForEmployee (searchValue) {
 	})
 	.done(function (data) {
 		//DO THIS!! display page that they can pick which employee to view/edit
-		document.session.selectedemployee = data;
-		$(document).trigger('cfSessionLoaded');
+		console.log('searched', data);
+		//Update selectedEmployee to hold id of searched employee
+		document.session.selectedEmployee = data;
+		$(document).trigger('reloadEmployeeData');
+		getEmployeeData(data);
 
 	})
 	.fail(function(jqXHR, textStatus) {

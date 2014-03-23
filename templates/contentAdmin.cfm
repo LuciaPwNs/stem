@@ -1,13 +1,21 @@
 <script type="text/javascript">
-    $(document).on( "cfSessionLoaded", function() {
-        getEmployeeData(document.session.selectedemployee);
-    });
+	//When the event "cfSessionLoaded" fires us use the session variable to get employee data
+	$(document).ready(function() {
+		//Load employee data when session.selectedEmployee is set or after search
+		$(document).on( "cfSessionLoaded", "reloadEmployeeData", function() {
+	        getEmployeeData(document.session.selectedEmployee);
+	    });
 
-    var $inputs = $('#form :input');
-    var values = {};
-    $inputs.each(function() {
-        values[this.name] = $(this).val();
-    });
+		$(document).on("employeeDataReady", function(){
+		    $('form[name="form"] :input').each(function() {
+		        //values[this.name] = $(this).val();
+		        //use this.name to get the value for that field from document.employee
+		        $(this).val(document.employee[this.name])
+		    });
+
+		});
+	    
+	})
     
 </script>
 In Admin template

@@ -15,18 +15,18 @@
     </form>
 </div>
 
-<div id="logo" onclick="window.location.href='index.cfm'"></div>
+<div id="logo" onclick="window.location.href='index.cfm'"><img src="images/logo.png"></div>
 
 
 <div id="meat_and_potatoes">
     <div id="navigation">
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?application'">Application</button>
+        <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>
         <button type="button" class="nav_button" onclick="window.location.href='index.cfm?employee'">Employee</button>
         <button type="button" class="nav_button" onclick="window.location.href='index.cfm?calendar'">Calendar</button>
         <button type="button" class="nav_button" onclick="window.location.href='index.cfm?performance'">Performance</button>
         <button type="button" class="nav_button" onclick="window.location.href='index.cfm?insurance'">Insurance</button>
         <button type="button" class="nav_button" onclick="window.location.href='index.cfm?retirement'">Retirement</button>
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?misc'">Misc</button>
+        <button type="button" class="nav_button end_right" onclick="window.location.href='index.cfm?misc'">Misc</button>
     </div>
 
     <!--this will go away, Its just for testing purposes this is what ids will look like-->

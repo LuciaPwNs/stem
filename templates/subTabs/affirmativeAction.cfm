@@ -1,5 +1,5 @@
 <form name='form'>
-	<h2> Affirmative Action Voluntary Information</h3> 
+	<h2> Affirmative Action Voluntary Information</h2> 
 		
 	<p>We consider all applicants for positions without regard to race, color, 
 	religion, sex, national origin, citizenship, age, mental or physical disabilities, 

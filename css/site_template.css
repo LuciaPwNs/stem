@@ -5,7 +5,9 @@ body {
 	border: 1px solid red;
 	color: black;
 	overflow: auto;
+	background: rgba(255,255,206,1);
 }
+
 h1 {
 
 }
@@ -25,35 +27,89 @@ p {
 	margin:0px 0px 0px 50px;
 	width:200px;
 	height:100px;
-	background-color: pink;
 }
+#logo img {
+	width:200px;
+	height:100px;
+}
+
 #logout {
 	float:right;
 	padding:25px;
 }
 #meat_and_potatoes {
 	margin:0px 0px 0px 50px;
+	width:1280px;
 	overflow: hidden;
 
 }
 
 #navigation {
-	width: 70%;
-	background: grey;
-	padding:0px 0px 0px 150px;
-	margin: 50px 0px 0px 0px;
+	width:1280px;
+	padding:0px 0px 0px 10px;
+	margin: 10px 0px 0px 0px;
 
 }
 
 #navigation .nav_button {
 	
+	background: rgba(38, 157, 14, 1);
+	margin: 0px -4px;
+	padding: 10px;
+	min-width: 130px;
+	border:none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+
+	-moz-border-top-left-radius: 0px;
+	-moz-border-top-right-radius: 0px;
+	-moz-border-bottom-right-radius: 0px;
+	-moz-border-bottom-left-radius: 0px;
+
+	
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+#navigation .nav_button:hover {
+    background: rgba(38, 157, 14, .6);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.5);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.5);
+	box-shadow: 0 1px 2px rgba(0,0,0,.5);
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#navigation .end_right{
+	border-top-right-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+}
+
+#navigation .end_left{
+	border-top-left-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
 }
 
 #content {
 	width: 70%;
 	height: auto;
+	padding: 10px 0px 0px 0px;
 	min-height: 300px;
-	border:1px solid red;
+	background: rgba(255, 255, 255, 1);
 	overflow: hidden;
 }
 
@@ -63,7 +119,9 @@ p {
 	display: inline-block;
 	width: 10%;
 	height: 100%;
-	border: 1px solid green;
+	background: rgba(249, 249, 227, 1);
+	padding: 0px 10px 0px 0px;
+	
 }
 #content #side_navigation .side_nav_button {
 	width:100%;
@@ -75,7 +133,7 @@ p {
 	display: inline-block;
 	width: 89%;
 	height: 100%;
-	border:1px solid grey;
+	padding: 0px, 0px, 0px, 10px;
 } 
 #content #employee_info #uploadedForms{
 	position: relative;
@@ -83,20 +141,23 @@ p {
 	display: inline-block;
 	width: 65%;
 	height: 100%;
-	border:1px solid brown;
 } 
 #content #employee_info #uploadPDFButton{
 	position: relative;
 	float: left;
 	display: inline-block;
-	border:1px solid brown;
 } 
 #search_box {
-	float: right;
+	position: absolute;
 	padding: 3px;
-	border:1px solid black;
-	margin: 0px 15px 0px 0px;
+	
+	top:30px;
+	left:725px;
 	display: inline-block;
-
 }
-
+#logout {
+	position: absolute;
+	top:80px;
+	left:875px;
+	text-decoration: none;
+}

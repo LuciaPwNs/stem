@@ -18,7 +18,6 @@
 	})
     
 </script>
-In Admin template
 <div id="content">
 	<cfif isDefined('URL.application')>
 		<cfinclude template="application.cfm">

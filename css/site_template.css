@@ -2,7 +2,6 @@ body {
 	width: 100%;
 	height: 100%;
 	min-height: 600px;
-	border: 1px solid red;
 	color: black;
 	overflow: auto;
 	background: rgba(255,255,206,1);
@@ -11,26 +10,70 @@ body {
 h1 {
 
 }
+
 h2 {
-
+	font-size: 20px; 
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: rgba(203, 134, 0, .9);
 }
+
 h3 {
-
+	font-size: 20px; 
+	font-weight: normal;
+	margin-bottom: 10px;
+	color: rgba(203, 134, 0, .9);
 }
+
 b {
 	font-weight: bold; 	
 }
+
 p {
 	margin: 5px;
+	font-size: 17px;
 }
+
+input {
+	background: rgba(238, 238, 238, 1);
+	border: 2px solid rgba(217, 217, 217, 1);
+	padding: 10px;
+	font-size: 18px; 
+	color: rgba(191, 191, 191, 1);
+}
+
 #logo {
 	margin:0px 0px 0px 50px;
 	width:200px;
 	height:100px;
+	cursor: pointer;
 }
 #logo img {
 	width:200px;
 	height:100px;
+}
+
+#currentEmployeeInfo {
+	display: inline;
+	height: 100px;
+	border: 1px solid red;
+	position: absolute;
+	top: 20px;
+	left: 300px;
+
+}
+
+#currentEmployeeInfo #employeePhoto {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	float: left;
+}
+
+#currentEmployeeInfo #basicInfo {
+	height: 100px;
+	display: inline-block;
+	float: right;
 }
 
 #logout {
@@ -45,10 +88,10 @@ p {
 }
 
 #navigation {
-	width:1280px;
+	width:900px;
 	padding:0px 0px 0px 10px;
 	margin: 10px 0px 0px 0px;
-
+	z-index: 99;
 }
 
 #navigation .nav_button {
@@ -58,8 +101,7 @@ p {
 	padding: 10px;
 	min-width: 130px;
 	border:none;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-
+	
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
@@ -80,16 +122,25 @@ p {
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 20px;
+	color: rgba(255, 255, 206, 1);
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	/*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	opacity: 1;
+
 }
 
 #navigation .nav_button:hover {
-    background: rgba(38, 157, 14, .6);
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.5);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.5);
-	box-shadow: 0 1px 2px rgba(0,0,0,.5);
-	font-family: Verdana, Geneva, sans-serif;
+    
+    
+	-moz-box-shadow: 0 0px 20px rgba(0,0,0,1);
+	-webkit-box-shadow: 0px 0px 20px rgba(0,0,0,1);
+	/*-webkit-box-shadow: inset 0px 0px 5px rgba(0,0,0,1);*/
+
+	color: rgba(240, 245, 239, 1);
+	
+
 }
 
 #navigation .end_right{
@@ -105,36 +156,79 @@ p {
 }
 
 #content {
-	width: 70%;
+	width: 890px;
 	height: auto;
-	padding: 10px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 5px;
 	min-height: 300px;
 	background: rgba(255, 255, 255, 1);
 	overflow: hidden;
 }
 
 #content #side_navigation {
+
 	position: relative;
 	float: left;
 	display: inline-block;
-	width: 10%;
+	width: 150px;
 	height: 100%;
 	background: rgba(249, 249, 227, 1);
-	padding: 0px 10px 0px 0px;
+	margin: 0px 10px 0px 0px;
+	padding: 0px 0px 5px 0px;
+	border: 2px solid rgba(220, 219, 219, .9);
+
 	
 }
 #content #side_navigation .side_nav_button {
 	width:100%;
+	background: rgba(249, 249, 227, 1);
+	font-size: 12px;
+	margin: 0px -4px 0px 0px;
+	padding: 10px;
+	min-width: 130px;
+	border:none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	border: 1px solid rgba(220, 219, 219, .9);
+
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+
+	-moz-border-top-left-radius: 0px;
+	-moz-border-top-right-radius: 0px;
+	-moz-border-bottom-right-radius: 0px;
+	-moz-border-bottom-left-radius: 0px;
+
+	
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	z-index: 98;
 }
+
+#content #side_navigation .side_nav_button:hover {
+	-moz-box-shadow: inset 0px 0px 10px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,.3);
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,.3);
+}	
 
 #content #employee_info {
 	position: relative;
 	float: left;
 	display: inline-block;
-	width: 89%;
+	width: 80%;
 	height: 100%;
-	padding: 0px, 0px, 0px, 10px;
+	padding: 10px 0px 0px 10px;
 } 
+
 #content #employee_info #uploadedForms{
 	position: relative;
 	float: left;
@@ -142,11 +236,13 @@ p {
 	width: 65%;
 	height: 100%;
 } 
+
 #content #employee_info #uploadPDFButton{
 	position: relative;
 	float: left;
 	display: inline-block;
 } 
+
 #search_box {
 	position: absolute;
 	padding: 3px;
@@ -155,6 +251,7 @@ p {
 	left:725px;
 	display: inline-block;
 }
+
 #logout {
 	position: absolute;
 	top:80px;

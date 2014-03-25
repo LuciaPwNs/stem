@@ -1,5 +1,5 @@
 <div id="side_navigation">
-	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?application&resume'">Application/Resume</button>
+	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?application&resume'"><p>Application/</p>Resume</button>
 	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?application&disclosure'">Disclosure</button>
 	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?application&criminalReport'">Criminal Report</button>
 	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?application&creditReport'">Credit Report</button>

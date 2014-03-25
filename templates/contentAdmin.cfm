@@ -7,7 +7,14 @@
 	    });
 
 		$(document).on("employeeDataReady", function(){
+			//find the form named form on the page and get the inputs it contains so we know what to load
 		    $('form[name="form"] :input').each(function() {
+		        //values[this.name] = $(this).val();
+		        //use this.name to get the value for that field from document.employee
+		        $(this).val(document.employee[this.name])
+		    });
+		    //load basic info on top of page
+		    $('#basicInfo :input').each(function() {
 		        //values[this.name] = $(this).val();
 		        //use this.name to get the value for that field from document.employee
 		        $(this).val(document.employee[this.name])

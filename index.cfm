@@ -1,34 +1,45 @@
 <html>
-	<script src="bin/jquery-1.11.0.js"></script>
-	<script type="text/javascript">
-		//Check if Query is loaded
-		if (typeof jQuery != 'undefined') {
-		    console.log("jQuery library is loaded!");
-		} else {
-		    console.log("jQuery library is not found!");
-		}
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/css_reset.css">
+		<link rel="stylesheet" type="text/css" href="/stem/css/site_template.css">
+		<!--Depending on who is logged in we will load either the employee or admin style sheet (i think)-->
+		<link rel="stylesheet" type="text/css" href="/stem/css/admin.css">
+		<!--<link rel="stylesheet" type="text/css" href="/stem/css/employee.css">-->
+		<title>STEM</title>
+
+		<script src="bin/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			//Check if Query is loaded
+			if (typeof jQuery != 'undefined') {
+			    console.log("jQuery library is loaded!");
+			} else {
+			    console.log("jQuery library is not found!");
+			}
+			
+			//Make a global variable session to match document.cookie (just in case we decide to use it)
+			$.ajax({
+			    type: 'GET',
+			    url: 'components/load.cfc?method=getSession',
+			    dataType: "json"
+			})
+			.done(function (data) {
+	    		document.session = data;
+	    		console.log('document.cookie', document.cookie);
+				console.log('document.session', document.session);
+				$(document).trigger('cfSessionLoaded');
+			})
+	  		.fail(function(jqXHR, textStatus) {
+				console.log( "Request failed: " + textStatus );
+			});
+
+		</script>
+
+		<cfajaximport/>	
+
+		<cfinclude template="templates/header.cfm">
 		
-		//Make a global variable session to match document.cookie (just in case we decide to use it)
-		$.ajax({
-		    type: 'GET',
-		    url: 'components/load.cfc?method=getSession',
-		    dataType: "json"
-		})
-		.done(function (data) {
-    		document.session = data;
-    		console.log('document.cookie', document.cookie);
-			console.log('document.session', document.session);
-			$(document).trigger('cfSessionLoaded');
-		})
-  		.fail(function(jqXHR, textStatus) {
-			console.log( "Request failed: " + textStatus );
-		});
-
-	</script>
-
-	<cfajaximport/>	
-	<cfinclude template="templates/header.cfm">
-	<link rel="stylesheet" type="text/css" href="css/css_reset.css">
+	</head>
 	<body>
 		<a id="logout" href="templates/logout.cfm">Logout</a><br/>
 		<!--If someone is logged in then load the signed in templates-->

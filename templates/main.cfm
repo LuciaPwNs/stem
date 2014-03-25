@@ -19,12 +19,12 @@
 
 <div id="currentEmployeeInfo">
     <div id="employeePhoto"></div>
-    <div id="basicInfo">
+   <!-- <div id="basicInfo">
         ID: <input type="text" name="id" size="25"><br/>
         First Name: <input type="text" name="first_name" ><br/>
         Last Name: <input type="text" name="last_name" ><br/>
         Address: <input type="text" name="address1" ><br/>
-                 <input type="text" name="address2" ><br/>
+                 <input type="text" name="address2" ><br/> -->
     </div>
 </div>
 <div id="meat_and_potatoes">

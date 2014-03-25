@@ -26,7 +26,7 @@
 			<input type="text" name="address" size="50"><br/>
 			<input type="text" name="address" size="50"><br/>
 			
-			<input type="text" name="telephone" size="10" placeholder="Phone"><br/>
+			<input type="text" name="telephone" size="10" placeholder="Phone"><br/> 
 			
 			<select name="positions_applied">
 				<option value="Job1">Job1

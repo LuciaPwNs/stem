@@ -1,9 +1,35 @@
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+/*
+html,body {
+	height:100%;
+}
+*/
+
 body {
 	width: 100%;
-	height: 100%;
+	height:auto;
 	min-height: 600px;
 	color: black;
-	overflow: auto;
+	overflow: hidden;
 	background: rgba(255,255,206,1);
 }
 
@@ -27,6 +53,10 @@ h3 {
 
 b {
 	font-weight: bold; 	
+}
+
+i {
+	font-style: italic;
 }
 
 p {
@@ -157,10 +187,9 @@ input {
 
 #content {
 	width: 890px;
-	height: auto;
+	height:auto;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 5px;
-	min-height: 300px;
 	background: rgba(255, 255, 255, 1);
 	overflow: hidden;
 }
@@ -225,7 +254,6 @@ input {
 	float: left;
 	display: inline-block;
 	width: 80%;
-	height: 100%;
 	padding: 10px 0px 0px 10px;
 } 
 

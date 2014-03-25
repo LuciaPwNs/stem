@@ -27,7 +27,7 @@
                  <input type="text" name="address2" ><br/> -->
     </div>
 </div>
-<div id="meat_and_potatoes">
+<div id="meat_and_potatoes" class="clearfix">
     <div id="navigation">
         <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>
         <button type="button" class="nav_button" onclick="window.location.href='index.cfm?employee'">Employee</button>

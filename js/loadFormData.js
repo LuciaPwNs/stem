@@ -4,17 +4,25 @@ function getEmployeeData (selectedEmployee) {
 		$.ajax({
 		    type: 'GET',
 		    url: 'components/load.cfc?method=getEmployeeData&selectedEmployee=' + selectedEmployee,
-		    dataType: "json"
+		    dataType: "json",
+		    beforeSend: function () {
+		    	
+		    	//if current selected employee is loaded dont get data again.
+		    	if(window.localStorage.employee['id'] === selectedEmployee){
+		    		return false;
+		    	}
+		    }
 		})
 		.done(function (data) {
 			//console.log('data', data);
     		document.employee = {};
     		for(var i = 0; i < data.COLUMNS.length; i++) {
-    			//console.log('data.COLUMNS[i]', data.COLUMNS[i]);
     			document.employee[data.COLUMNS[i].toLowerCase()] = data.DATA[0][i];
     		}
 
-    		console.log('document.employee', document.employee);
+    		window.localStorage.setItem('employee', JSON.stringify(document.employee));
+
+    		console.log('localStorage.employee', localStorage.employee);
     		$(document).trigger('employeeDataReady');
 		})
   		.fail(function(jqXHR, textStatus) {

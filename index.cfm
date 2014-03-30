@@ -14,7 +14,7 @@
 			if (typeof jQuery != 'undefined') {
 			    console.log("jQuery library is loaded!");
 			} else {
-			    console.log("jQuery library is not found!");
+			    
 			}
 			
 			//Make a global variable session to match document.cookie (just in case we decide to use it)
@@ -25,9 +25,7 @@
 			})
 			.done(function (data) {
 	    		document.session = data;
-	    		console.log('document.cookie', document.cookie);
-				console.log('document.session', document.session);
-				$(document).trigger('cfSessionLoaded');
+	    		$(document).trigger('cfSessionLoaded');
 			})
 	  		.fail(function(jqXHR, textStatus) {
 				console.log( "Request failed: " + textStatus );

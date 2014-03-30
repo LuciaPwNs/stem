@@ -1,5 +1,6 @@
 <div id="employee_info">
-	<form name='form'>
+	<form name='form' id='affirmativeAction'>
+
 		<h2> Affirmative Action Voluntary Information</h2> 
 			
 		<p>We consider all applicants for positions without regard to race, color, 
@@ -36,7 +37,7 @@
 				<option value="Job5">Job5
 			</select>
 
-			<div style= "float:right;">
+			<div>
 				<select name="Referral Source">
 					<option value="referal1">referal1
 					<option value="referal2">referal2
@@ -45,5 +46,7 @@
 					<option value="referal5">referal5
 				</select>
 			</div>
+			<div id="message"></div>
+			<input type="submit" value="Submit">
 	</form>
 </div>

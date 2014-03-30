@@ -5,29 +5,33 @@ function getEmployeeData (selectedEmployee) {
 		    type: 'GET',
 		    url: 'components/load.cfc?method=getEmployeeData&selectedEmployee=' + selectedEmployee,
 		    dataType: "json",
-		    beforeSend: function () {
+		    beforesend: function () {
 		    	
 		    	//if current selected employee is loaded dont get data again.
-		    	if(window.localStorage.employee['id'] === selectedEmployee){
+		    	var employee = JSON.parse(window.localStorage.employee);
+		    	console.log("employee['id']", employee['id']);
+		    	if(employee['id'] === selectedEmployee){
 		    		return false;
+		    	} else {
+		    		return true;
 		    	}
-		    }
-		})
-		.done(function (data) {
-			//console.log('data', data);
-    		document.employee = {};
-    		for(var i = 0; i < data.COLUMNS.length; i++) {
-    			document.employee[data.COLUMNS[i].toLowerCase()] = data.DATA[0][i];
-    		}
+		    },
+		    success: function (data) {
+				//console.log('data', data);
+	    		var employee = {};
+	    		for(var i = 0; i < data.COLUMNS.length; i++) {
+	    			employee[data.COLUMNS[i].toLowerCase()] = data.DATA[0][i];
+	    		}
 
-    		window.localStorage.setItem('employee', JSON.stringify(document.employee));
+	    		window.localStorage.setItem('employee', JSON.stringify(employee));
 
-    		console.log('localStorage.employee', localStorage.employee);
-    		$(document).trigger('employeeDataReady');
+	    		console.log('localStorage.employee', localStorage.employee);
+	    		$(document).trigger('employeeDataReady');
+			},
+			error: function(jqXHR, textStatus) {
+				console.log( "Request failed: " + textStatus );
+			}
 		})
-  		.fail(function(jqXHR, textStatus) {
-			console.log( "Request failed: " + textStatus );
-		});
 	}
 }
 
@@ -41,7 +45,7 @@ function searchForEmployee (searchValue) {
 		//DO THIS!! display page that they can pick which employee to view/edit
 		console.log('searched', data);
 		//Update selectedEmployee to hold id of searched employee
-		document.session.selectedEmployee = data;
+		document.localStorage.selectedEmployee = data;
 		$(document).trigger('reloadEmployeeData');
 		getEmployeeData(data);
 
@@ -53,26 +57,28 @@ function searchForEmployee (searchValue) {
 }
 
 function saveEmployeeData (formID) {
+	console.log('Form Id', formID);
 
-	var values = {};
-    $.each($('#formID').serializeArray(), function(i, field) {
-        values[field.name] = field.value;
-    });
+	$.ajax({
+	    type: 'GET',
+	    url: 'components/load.cfc?method=saveEmployeeData&employee='  + window.localStorage.selectedEmployee + '&formBeingUpdated=' + formID,
+	    dataType: "json",
+	    data: window.localStorage.employee,
+	})
+	.done(function (data) {
+		//fetch employee data and refresg form data???
 
-    /*
-	if (typeof searchValue !== 'undefined') {
-		$.ajax({
-		    type: 'GET',
-		    url: 'components/load.cfc?method=searchForEmployee&searchValue=' + searchValue,
-		    dataType: "json"
-		})
-		.done(function (data) {
-    		document.employee = data;
-    		console.log('document.employee', document.employee);
-		})
-  		.fail(function(jqXHR, textStatus) {
-			console.log( "Request failed: " + textStatus );
-		});
-	}*/
+		//display message informing the user what is going on
+		console.log('data',data);
+		
+		$('#message').html(data);
+		//after the message fade it out after like 5 seconds
+		
+
+	})
+	.fail(function(jqXHR, textStatus) {
+		console.log( "Request failed: " + textStatus );
+	});
+	
 }
 			

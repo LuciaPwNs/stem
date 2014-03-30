@@ -1,10 +1,16 @@
 <script type="text/javascript">
-	//When the event "cfSessionLoaded" fires us use the session variable to get employee data
 	$(document).ready(function() {
+	//Load form when the document is completely done loading
+		console.log('Currently Loaded Employee', JSON.parse(window.localStorage.employee));
+
 		$('form[name="form"] :input').each(function() {
-	        //values[this.name] = $(this).val();
+	        
 	        //use this.name to get the value for that field from document.employee
-	        $(this).val(employeeData[this.name]);
+	        var employeeData = JSON.parse(window.localStorage.employee);
+	      	//ignore the submit input
+	        if ($(this).attr('type') !== "submit") {
+	        	$(this).val(employeeData[this.name]);
+        	}
 	    });
 
 	    //load basic info on top of page
@@ -14,14 +20,17 @@
 	        console.log('this', this);
 	        $(this).val(document.employee[this.name])
 	    });
-	    
+
+	    //When the event "cfSessionLoaded" fires us use the session variable to get employee data
 		//Load employee data when session.selectedEmployee is set or after search
 		$(document).on( "cfSessionLoaded", "reloadEmployeeData", function() {
-	        getEmployeeData(document.session.selectedEmployee);
+	        getEmployeeData(document.localStorage.selectedEmployee);
 	    });
+	    
 
 		$(document).on("employeeDataReady", function(){
-			//find the form named form on the page and get the inputs it contains so we know what to load
+			console.log('window.localStorage',window.localStorage);
+			//find the form named "form" on the page and get the inputs it contains so we know what to load
 			var employeeData = JSON.parse(window.localStorage.employee);
 		    $('form[name="form"] :input').each(function() {
 		        //values[this.name] = $(this).val();
@@ -33,10 +42,18 @@
 		    $('#basicInfo :input').each(function() {
 		        //values[this.name] = $(this).val();
 		        //use this.name to get the value for that field from document.employee
-		        console.log('this', this);
+		        
 		        $(this).val(document.employee[this.name])
 		    });
 
+		});
+
+		$('form').on('submit', function(event) {
+		    //when the form with the name "form" submits save data to correct table
+		    event.preventDefault();
+		    console.log('submitting form!');
+		    console.log("$(this).attr('id')", $(this).attr('id'));
+		    saveEmployeeData($(this).attr('id'));
 		});
 	    
 	})

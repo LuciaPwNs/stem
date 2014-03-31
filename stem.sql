@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 04, 2014 at 08:02 PM
+-- Generation Time: Mar 31, 2014 at 03:05 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -31,6 +31,8 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `permission` tinyint(1) NOT NULL,
+  `password` varchar(25) NOT NULL,
+  `roles` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `first_name`, `last_name`, `permission`) VALUES
-('1234567890123456789012345', 'Brooke', 'Engle', 1);
+INSERT INTO `admins` (`id`, `first_name`, `last_name`, `permission`, `password`, `roles`) VALUES
+('123456', 'Brooke', 'Engle', 1, 'pass', 'admin');
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `last_modified` date NOT NULL,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
-  `address` varchar(25) NOT NULL,
+  `address_1` varchar(25) NOT NULL,
+  `address_2` varchar(25) NOT NULL,
   `city` varchar(25) NOT NULL,
   `state` varchar(2) NOT NULL,
   `zip` varchar(10) NOT NULL,
@@ -121,8 +124,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`401k_location`, `id`, `photo`, `last_modified`, `first_name`, `last_name`, `address`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
-('', '123456789012345678901234', '', '2014-02-13', 'Brooke', 'Engle', '580 Haysmill Road', 'Meyersdale', 'PA', '15552', '123456789', '8142339185', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'i don''t know', 'active', '2014-01-01', 'i don''t know');
+INSERT INTO `employee` (`401k_location`, `id`, `photo`, `last_modified`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
+('', '123', '', '2014-02-13', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know');
 
 -- --------------------------------------------------------
 
@@ -162,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `employee_health_welfare` (
 
 CREATE TABLE IF NOT EXISTS `employee_health_welfare_dependents` (
   `id` varchar(25) NOT NULL,
-  `dependent_first)name` varchar(25) NOT NULL,
+  `dependent_first_name` varchar(25) NOT NULL,
   `dependent_last_name` varchar(25) NOT NULL,
   `dependent_middle_name` varchar(25) NOT NULL,
   `dependent_dob` date NOT NULL,

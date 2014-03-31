@@ -10,24 +10,27 @@
         })
     </script>
     <form id='searchBox'>
+        <a id="clear" href="javascript:clearEmployee()">Clear</a>
         <input type="text" id="searchValue">
         <input type="button" id="searchSubmit" value="search">
     </form>
 </div>
 
 <div id="logo" onclick="window.location.href='index.cfm'"><img src="images/logo.png"></div>
-<!--
+
 <div id="currentEmployeeInfo">
-    <div id="employeePhoto"></div>
+    <div id="employeePhoto">
+        <img src="images/profile_default.png"/>
+    </div>
     <div id="basicInfo">
-        ID: <input type="text" name="id" size="25"><br/>
-        First Name: <input type="text" name="first_name" ><br/>
-        Last Name: <input type="text" name="last_name" ><br/>
-        Address: <input type="text" name="address1" ><br/>
-                 <input type="text" name="address2" ><br/> 
+        ID: <span name="id"></span><br/>
+        First Name: <span name="first_name"></span><br/>
+        Last Name: <span name="last_name"></span><br/>
+        Address: <span name="address_1"></span><br/>
+                 <span name="address_2"></span><br/> 
     </div>
 </div>
--->
+
 <div id="meat_and_potatoes" class="clearfix">
     <div id="navigation">
         <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>

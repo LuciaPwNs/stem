@@ -22,8 +22,6 @@
 
 	<cffunction name="onSessionStart">
 		<cfscript>
-			cookie.logged_in = true;
-			cookie.admin = true;
 		</cfscript>
 		<cfreturn true>
 	</cffunction>

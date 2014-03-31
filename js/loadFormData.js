@@ -9,7 +9,6 @@ function getEmployeeData (selectedEmployee) {
 		    	
 		    	//if current selected employee is loaded dont get data again.
 		    	var employee = JSON.parse(window.localStorage.employee);
-		    	console.log("employee['id']", employee['id']);
 		    	if(employee['id'] === selectedEmployee){
 		    		return false;
 		    	} else {
@@ -25,8 +24,9 @@ function getEmployeeData (selectedEmployee) {
 
 	    		window.localStorage.setItem('employee', JSON.stringify(employee));
 
-	    		console.log('localStorage.employee', localStorage.employee);
+	    		console.log('localStorage.employee', JSON.parse(localStorage.employee));
 	    		$(document).trigger('employeeDataReady');
+	    		location.reload();
 			},
 			error: function(jqXHR, textStatus) {
 				console.log( "Request failed: " + textStatus );
@@ -45,7 +45,7 @@ function searchForEmployee (searchValue) {
 		//DO THIS!! display page that they can pick which employee to view/edit
 		console.log('searched', data);
 		//Update selectedEmployee to hold id of searched employee
-		document.localStorage.selectedEmployee = data;
+		window.localStorage.selectedEmployee = data;
 		$(document).trigger('reloadEmployeeData');
 		getEmployeeData(data);
 
@@ -60,9 +60,9 @@ function saveEmployeeData (formID) {
 	console.log('Form Id', formID);
 
 	$.ajax({
-	    type: 'GET',
-	    url: 'components/load.cfc?method=saveEmployeeData&employee='  + window.localStorage.selectedEmployee + '&formBeingUpdated=' + formID,
-	    dataType: "json",
+	    type: 'POST',
+	    url: 'components/load.cfc?method=saveEmployeeData&formBeingUpdated=' + formID,
+	    contentType: 'application/json',
 	    data: window.localStorage.employee,
 	})
 	.done(function (data) {

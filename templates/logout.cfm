@@ -18,6 +18,6 @@ will be cleared.
 
     <cfset count++>
 </cfloop>
-<cfdump var='#cookie#' label="test">
-<!--- Redirect back to index page. --->
-<cflocation url="../index.cfm" addtoken="false"/>---->
+<cfif isDefined("session")>
+	<cfset StructClear(session)>	
+</cfif>

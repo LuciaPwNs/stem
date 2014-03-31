@@ -31,6 +31,33 @@
 				console.log( "Request failed: " + textStatus );
 			});
 
+			function logout () {
+				 
+				document.cookie = "ADMIN=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+				document.cookie = "CFCLIENT_STEM=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+				document.cookie = "CFGLOBALS=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+				document.cookie = "CFID=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+				document.cookie = "CFTOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+				document.cookie = "LOGGED_IN=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+				window.localStorage.removeItem('employee');
+
+				$.ajax({
+					type: 'GET',
+					url: 'templates/logout.cfm',
+					success: function () {
+						console.log('session deleted!!!!!');
+						window.location = "index.cfm";
+					},
+				})
+			}
+			
+			function clearEmployee () {
+				window.localStorage.removeItem('employee');
+				console.log('window.localStorage.employee cleared', window.localStorage.employee);
+				location.reload();
+			}
+
 		</script>
 
 		<cfajaximport/>	
@@ -39,13 +66,13 @@
 		
 	</head>
 	<body>
-		<a id="logout" href="templates/logout.cfm">Logout</a><br/>
 		<!--If someone is logged in then load the signed in templates-->
 		<cfif IsDefined('cookie.logged_in')>
+			<a id="logout" href="javascript:logout()">Logout</a><br/>
 			<cfinclude template="templates/main.cfm">
 		<cfelse>
 			<!--no one is logged in so show the sign up stuff-->
-			<cfinclude template="templates/login.cfm">
+			<cfinclude template="templates/loginForm.cfm">
 		</cfif>
 		<br/>
 	</body>

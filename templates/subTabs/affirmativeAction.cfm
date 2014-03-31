@@ -23,11 +23,10 @@
 			<input type="text" name="first_name" size="50" placeholder="First Name"><br/>
 			<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
 			
-			<input type="text" name="address" size="50" placeholder="Address"><br/>
-			<input type="text" name="address" size="50"><br/>
-			<input type="text" name="address" size="50"><br/>
+			<input type="text" name="address_1" size="50" placeholder="Address"><br/>
+			<input type="text" name="address_2" size="50"><br/>
 			
-			<input type="text" name="telephone" size="10" placeholder="Phone"><br/> 
+			<input type="text" name="cell_phone" size="10" placeholder="Cell Phone"><br/> 
 			
 			<select name="positions_applied">
 				<option value="Job1">Job1

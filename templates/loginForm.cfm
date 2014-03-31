@@ -43,4 +43,8 @@
 		<cfinput type="password" name="password" required="false"><br/>
 		<cfinput type="submit" name="submit" value="Submit">
 	</cfform>
+
+    admin id: 123456<br/>
+    password: pass<br/>
+    (only admin in database)
 </div>

@@ -13,6 +13,7 @@
         <a id="clear" href="javascript:clearEmployee()">Clear</a>
         <input type="text" id="searchValue">
         <input type="button" id="searchSubmit" value="search">
+        search for employee 123 (only one in database)
     </form>
 </div>
 

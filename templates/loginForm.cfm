@@ -15,7 +15,7 @@
     }*/
         function submitForm() {
             console.log('running...');
-            ColdFusion.Ajax.submitForm('login', 'templates/login.cfm', callback, errorHandler);
+            ColdFusion.Ajax.submitForm('login', 'templates/ajax.cfm', callback, errorHandler);
             console.log('done...');
         }
         

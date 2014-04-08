@@ -3,7 +3,7 @@ function getEmployeeData (selectedEmployee) {
 	if (typeof selectedEmployee !== 'undefined') {
 		$.ajax({
 		    type: 'GET',
-		    url: 'components/load.cfc?method=getEmployeeData&selectedEmployee=' + selectedEmployee,
+		    url: 'components/stem_components.cfc?method=getEmployeeData&selectedEmployee=' + selectedEmployee,
 		    dataType: "json",
 		    beforesend: function () {
 		    	
@@ -38,7 +38,7 @@ function getEmployeeData (selectedEmployee) {
 function searchForEmployee (searchValue) {
 	$.ajax({
 	    type: 'GET',
-	    url: 'components/load.cfc?method=searchForEmployee&searchValue=' + searchValue,
+	    url: 'components/stem_components.cfc?method=searchForEmployee&searchValue=' + searchValue,
 	    dataType: "json"
 	})
 	.done(function (data) {
@@ -61,7 +61,7 @@ function saveEmployeeData (formID) {
 
 	$.ajax({
 	    type: 'POST',
-	    url: 'components/load.cfc?method=saveEmployeeData&formBeingUpdated=' + formID,
+	    url: 'components/stem_components.cfc?method=saveEmployeeData&formBeingUpdated=' + formID,
 	    contentType: 'application/json',
 	    data: window.localStorage.employee,
 	})

@@ -20,7 +20,7 @@
 			//Make a global variable session to match document.cookie (just in case we decide to use it)
 			$.ajax({
 			    type: 'GET',
-			    url: 'components/load.cfc?method=getSession',
+			    url: 'components/stem_components.cfc?method=getSession',
 			    dataType: "json"
 			})
 			.done(function (data) {

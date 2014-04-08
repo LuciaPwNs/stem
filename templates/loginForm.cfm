@@ -23,7 +23,7 @@
         {
             
             console.log("Callback: " + text);
-            location.reload();
+            //location.reload();
             
         }
         

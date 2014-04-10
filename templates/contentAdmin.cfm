@@ -71,53 +71,53 @@
 
 		});
 	    
-	})
-    
+	})  
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>
+<div id="container">
+	<a 
+	<div id="search_box">
+	    <script type="text/javascript">
+	        $(document).ready(function(){
+	            //When the webpage is ready, bind javascript function to the button on the search box
+	            $("#searchSubmit").click(function () {
+	                searchForEmployee($('#searchValue').val());
+	            });
+	        })
+	    </script>
+	    <form id='searchBox'>
+	        <a id="clear" href="javascript:clearEmployee()">Clear</a>
+	        <input type="text" id="searchValue">
+	        <input type="button" id="searchSubmit" value="search">
+	        search for employee 123 (only one in database)
+	    </form>
+	</div>
 
-<div id="search_box">
-    <script type="text/javascript">
-        $(document).ready(function(){
-            //When the webpage is ready, bind javascript function to the button on the search box
-            $("#searchSubmit").click(function () {
-                searchForEmployee($('#searchValue').val());
-            });
-        })
-    </script>
-    <form id='searchBox'>
-        <a id="clear" href="javascript:clearEmployee()">Clear</a>
-        <input type="text" id="searchValue">
-        <input type="button" id="searchSubmit" value="search">
-        search for employee 123 (only one in database)
-    </form>
-</div>
+	<div id="logo" onclick="window.location.href='index.cfm'"><img src="images/logo.png"></div>
 
-<div id="logo" onclick="window.location.href='index.cfm'"><img src="images/logo.png"></div>
+	<div id="currentEmployeeInfo">
+	    <div id="employeePhoto">
+	        <img src="images/profile_default.png"/>
+	    </div>
+	    <div id="basicInfo">
+	        ID: <span name="id"></span><br/>
+	        First Name: <span name="first_name"></span><br/>
+	        Last Name: <span name="last_name"></span><br/>
+	        Address: <span name="address_1"></span><br/>
+	                 <span name="address_2"></span><br/> 
+	    </div>
+	</div>
 
-<div id="currentEmployeeInfo">
-    <div id="employeePhoto">
-        <img src="images/profile_default.png"/>
-    </div>
-    <div id="basicInfo">
-        ID: <span name="id"></span><br/>
-        First Name: <span name="first_name"></span><br/>
-        Last Name: <span name="last_name"></span><br/>
-        Address: <span name="address_1"></span><br/>
-                 <span name="address_2"></span><br/> 
-    </div>
-</div>
-
-<div id="meat_and_potatoes" class="clearfix">
-    <div id="navigation">
-        <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?employee'">Employee</button>
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?calendar'">Calendar</button>
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?performance'">Performance</button>
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?insurance'">Insurance</button>
-        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?retirement'">Retirement</button>
-        <button type="button" class="nav_button end_right" onclick="window.location.href='index.cfm?misc'">Misc</button>
-    </div>
+	<div id="main_section" class="clearfix">
+	    <div id="navigation">
+	        <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>
+	        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?employee'">Employee</button>
+	        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?calendar'">Calendar</button>
+	        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?performance'">Performance</button>
+	        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?insurance'">Insurance</button>
+	        <button type="button" class="nav_button" onclick="window.location.href='index.cfm?retirement'">Retirement</button>
+	        <button type="button" class="nav_button end_right" onclick="window.location.href='index.cfm?misc'">Misc</button>
+	    </div>
 		<div id="content">
 			<cfif isDefined('URL.application')>
 				<cfinclude template="tabs/application.cfm">
@@ -133,9 +133,12 @@
 				<cfinclude template="tabs/retirement.cfm">
 			<cfelseif isDefined('URL.misc')>
 				<cfinclude template="tabs/misc.cfm">
+			<cfelseif isDefined('URL.admin_panel')>
+				<cfinclude template="tabs/admin_panel.cfm">	
 			<cfelse>
 				<!--if the url only contains the template variable and not a subTab variable, then load the first button by default so we don't load a blank page-->
 				<cfinclude template="tabs/application.cfm">
 			</cfif>
 		</div>
+	</div>
 </div>

@@ -44,7 +44,15 @@
 		<cfinput type="submit" name="submit" value="Submit">
 	</cfform>
 
-    admin id: 123456<br/>
-    password: pass<br/>
-    (only admin in database)
+    <div style="float:left">
+        admin id: 123456<br/>
+        password: pass<br/>
+        (only admin in database)
+    </div>
+
+    <div stlye="float:right">
+        employee id: 123<br/>
+        password: password<br/>
+        (only employee in database)
+    </div>
 </div>

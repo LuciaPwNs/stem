@@ -1,4 +1,4 @@
-  
+<a id="logout" href="javascript:logout()">Logout</a><br/>
 <cfif IsDefined('cookie.admin')>
     <!--If admin is logged in load this admin views-->
     <link rel="stylesheet" type="text/css" href="css/admin.css">

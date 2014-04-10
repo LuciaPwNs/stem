@@ -3,12 +3,8 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/css_reset.css">
 		<link rel="stylesheet" type="text/css" href="/stem/css/site_template.css">
-		<!--Depending on who is logged in we will load either the employee or admin style sheet (i think)-->
-		<link rel="stylesheet" type="text/css" href="/stem/css/admin.css">
-		<!--<link rel="stylesheet" type="text/css" href="/stem/css/employee.css">-->
-		<title>STEM</title>
-
 		<script src="bin/jquery-1.11.0.js"></script>
+
 		<script type="text/javascript">
 			//Check if Query is loaded
 			if (typeof jQuery != 'undefined') {
@@ -62,13 +58,11 @@
 
 		<cfajaximport/>	
 
-		<cfinclude template="templates/header.cfm">
-		
+		<title>STEM</title>
 	</head>
 	<body>
 		<!--If someone is logged in then load the signed in templates-->
 		<cfif IsDefined('cookie.logged_in')>
-			<a id="logout" href="javascript:logout()">Logout</a><br/>
 			<cfinclude template="templates/main.cfm">
 		<cfelse>
 			<!--no one is logged in so show the sign up stuff-->

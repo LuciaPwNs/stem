@@ -75,7 +75,7 @@
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>
 <div id="container">
-	<a 
+	
 	<div id="search_box">
 	    <script type="text/javascript">
 	        $(document).ready(function(){

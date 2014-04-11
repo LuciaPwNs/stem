@@ -32,6 +32,18 @@
 	display: inline-block;
 	float: right;
 }
+
+#admin_panel {
+	display:inline;
+	position: absolute;
+	top: 105px;
+	left: 800px;
+}
+
+#admin_panel a {
+	text-decoration: none;
+}
+
 #logout {
 	position: absolute;
 	top:80px;
@@ -42,7 +54,7 @@
 }
 
 #clear {
-
+	text-decoration: none;
 }
 
 #container {
@@ -214,6 +226,16 @@
 	display: inline-block;
 	width: 80%;
 	padding: 10px 0px 0px 10px;
+} 
+
+#content #employee_info #createNewEmployee {
+	border: 1px grey solid;
+	padding:25px;
+} 
+
+#content #employee_info #editAdmin {
+	border: 1px grey solid;
+	margin-top:25px;
 } 
 
 #content #employee_info #uploadedForms{

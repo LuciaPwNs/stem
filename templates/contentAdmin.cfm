@@ -107,7 +107,9 @@
 	                 <span name="address_2"></span><br/> 
 	    </div>
 	</div>
-
+	<div id="admin_panel">
+		<button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?adminPanel'">Admin Panel</button>
+	</div>
 	<div id="main_section" class="clearfix">
 	    <div id="navigation">
 	        <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>
@@ -133,7 +135,7 @@
 				<cfinclude template="tabs/retirement.cfm">
 			<cfelseif isDefined('URL.misc')>
 				<cfinclude template="tabs/misc.cfm">
-			<cfelseif isDefined('URL.admin_panel')>
+			<cfelseif isDefined('URL.adminPanel')>
 				<cfinclude template="tabs/admin_panel.cfm">	
 			<cfelse>
 				<!--if the url only contains the template variable and not a subTab variable, then load the first button by default so we don't load a blank page-->

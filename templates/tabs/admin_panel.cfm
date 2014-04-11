@@ -17,3 +17,49 @@
 
 
 -->
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		function addNewEmployee () {
+			///make add new employee function work
+			dfdsfd
+			console.log('In addNewEmployee function');
+			var newEmployeePassword = (Math.random().toString(36)+'00000000000000000').slice(2, N+2);
+			console.log('newEmployeePassword',newEmployeePassword);
+		}
+
+		function editAdmins () {
+			console.log('In editAdmins function');
+		}
+
+		function loadAdminAccounts () {
+			//get admin account via ajax
+			//create elements in editAdmins form (admin first and last name/password?/(delete/save button)
+			console.log('In loadAdminAccounts function');
+		}
+
+	})
+	
+</script>
+<div id="employee_info">
+	<div id="createNewEmployee">
+		<h2>Create a new employee</h2>
+		<form id="newEmployee" action="javascript:addNewEmployee()">
+			<input type="text" id="newEmpFirstName" placeholder="First Name"/>
+			<input type="text" id="newEmpLastName" placeholder="Last Name"/>
+			<input type="submit" value="Create Employee"/>
+		</form>
+	</div>
+	<div id="editAdmin">
+		<h2>Edit Admin Accounts</h2>
+		<form id="editAdmins" action="javascript:editAdmins()">
+			<div class="newAdmin">
+				<input type="text" id="newAdminFirstName" placeholder="First Name"/>
+				<input type="text" id="newAdminFirstName" placeholder="Last Name"/>
+				<input type="text" id="newAdminFirstName" placeholder="Password"/>
+				<input type="submit" value="Create Admin"/>
+			</div>
+		</form>
+	</div>	
+
+</div>

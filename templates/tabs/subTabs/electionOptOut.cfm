@@ -14,7 +14,7 @@
 
 			<input type="text" name="zip" size="5" placeholder="Zip Code"><br/>
 
-			<input type="text" name="ssn" size="9"><br/><br/>
+			<input type="text" name="ssn" size="9" placeholder="SSN"><br/><br/>
 
 			<input type="date" name="dob" width="50"> Date of Birth<br/><br/>
 

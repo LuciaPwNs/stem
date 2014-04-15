@@ -1,5 +1,5 @@
 <div id="employee_info">
-	<form name='form' id='affirmativeAction'>
+	<form name='employeeDataForm' id='affirmativeAction'>
 
 		<h2> Affirmative Action Voluntary Information</h2> 
 			

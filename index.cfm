@@ -28,7 +28,6 @@
 			});
 
 			function logout () {
-				 
 				document.cookie = "ADMIN=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 				document.cookie = "CFCLIENT_STEM=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 				document.cookie = "CFGLOBALS=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
@@ -53,7 +52,6 @@
 				console.log('window.localStorage.employee cleared', window.localStorage.employee);
 				location.reload();
 			}
-
 		</script>
 
 		<cfajaximport/>	

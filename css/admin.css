@@ -1,5 +1,5 @@
 #currentEmployeeInfo {
-	margin: 0px 0px 0px 50px;
+	margin: 0px 0px 0px 25px;
 	display: inline;
 	position: absolute;
 	top: 15px;
@@ -230,12 +230,13 @@
 
 #content #employee_info #createNewEmployee {
 	border: 1px grey solid;
-	padding:25px;
+	padding: 25px;
+	margin-bottom: 25px;
 } 
 
 #content #employee_info #editAdmin {
 	border: 1px grey solid;
-	margin-top:25px;
+	padding: 25px;
 } 
 
 #content #employee_info #uploadedForms{

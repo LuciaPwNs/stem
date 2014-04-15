@@ -18,14 +18,18 @@
 
 -->
 <script type="text/javascript">
-	
+
+
 	$(document).ready(function(){
-		function addNewEmployee () {
-			///make add new employee function work
-			dfdsfd
-			console.log('In addNewEmployee function');
-			var newEmployeePassword = (Math.random().toString(36)+'00000000000000000').slice(2, N+2);
-			console.log('newEmployeePassword',newEmployeePassword);
+
+		$('#newEmployee').submit(function (e) {
+		    e.preventDefault();
+		    addNewEmployee($(this).children('#newEmpFirstName').val(), $(this).children('#newEmpLastName').val());
+		});
+
+
+		var newEmployeeSubmit = function() {
+			console.log('print something');
 		}
 
 		function editAdmins () {
@@ -44,7 +48,7 @@
 <div id="employee_info">
 	<div id="createNewEmployee">
 		<h2>Create a new employee</h2>
-		<form id="newEmployee" action="javascript:addNewEmployee()">
+		<form id="newEmployee">
 			<input type="text" id="newEmpFirstName" placeholder="First Name"/>
 			<input type="text" id="newEmpLastName" placeholder="Last Name"/>
 			<input type="submit" value="Create Employee"/>

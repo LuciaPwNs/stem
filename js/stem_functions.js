@@ -81,4 +81,27 @@ function saveEmployeeData (formID) {
 	});
 	
 }
-			
+
+function addNewEmployee (first_name, last_name) {
+	$.ajax({
+	    type: 'POST',
+	    url: 'components/stem_components.cfc?method=addNewEmployee&first=' + first_name + '&last=' + last_name,
+	    contentType: 'application/json',
+	    //data: window.localStorage.employee,
+	})
+	.done(function (data) {
+		//fetch employee data and refresg form data???
+
+		//display message informing the user what is going on
+		console.log('data',data);
+		
+		$('#message').html(data);
+		//after the message fade it out after like 5 seconds
+		
+
+	})
+	.fail(function(jqXHR, textStatus) {
+		console.log( "Request failed: " + textStatus );
+	});
+
+}

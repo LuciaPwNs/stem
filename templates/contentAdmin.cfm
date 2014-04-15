@@ -1,26 +1,30 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		//Load form when the document is completely done loading
-		console.log('Currently Loaded Employee', JSON.parse(window.localStorage.employee));
+		//console.log('Currently Loaded Employee', JSON.parse(window.localStorage.employee));
 
-		$('form[name="form"] :input').each(function() {
-	        
-	        //use this.name to get the value for that field from document.employee
-	        var employeeData = JSON.parse(window.localStorage.employee);
-	      	//ignore the submit input
-	        if ($(this).attr('type') !== "submit") {
-	        	//update everything that isnt a submit button
-	        	$(this).val(employeeData[this.name]);
-        	}
+		$('form[name="employeeDataForm"] :input').each(function() {
+	        if (typeof window.localStorage.employee !== 'undefined') {
+		        //use this.name to get the value for that field from document.employee
+		        var employeeData = JSON.parse(window.localStorage.employee);
+		      	//ignore the submit input
+		        if ($(this).attr('type') !== "submit") {
+		        	//update everything that isnt a submit button
+		        	$(this).val(employeeData[this.name]);
+	        	}
+	        }
 	    });
 
 	    //load basic info on top of page
 	    $('#basicInfo').children('span').each(function() {
-	    	var employeeData = JSON.parse(window.localStorage.employee);
-	        //values[this.name] = $(this).val();
-	        //use this.name to get the value for that field from document.employee
-	        console.log('this', $(this).attr('name'));
-	        $(this).text(employeeData[$(this).attr('name')]);
+	    	if (typeof window.localStorage.employee !== 'undefined') {
+	    		var employeeData = JSON.parse(window.localStorage.employee);
+	    		//values[this.name] = $(this).val();
+		        //use $(this).attr('name') to get the value for that field from document.employee
+		        $(this).text(employeeData[$(this).attr('name')]);
+	    	}
+	    	
+	        
 	    });
 
 	    //When the event "cfSessionLoaded" fires us use the session variable to get employee data
@@ -29,30 +33,10 @@
 	        getEmployeeData(window.localStorage.selectedEmployee);
 	    });
 	    
-		/*
-		$(document).on("employeeDataReady", function(){
-			console.log('in employee data ready');
-			//find the form named "form" on the page and get the inputs it contains so we know what to load
-			var employeeData = JSON.parse(window.localStorage.employee);
-		    $('form[name="form"] :input').each(function() {
-		        //values[this.name] = $(this).val();
-		        //use this.name to get the value for that field from document.employee
-		        $(this).val(employeeData[this.name]);
-		    });
 
-		    //load basic info on top of page
-		    $('#basicInfo :input').each(function() {
-		        //values[this.name] = $(this).val();
-		        //use this.name to get the value for that field from document.employee
-		        
-		        $(this).val(employeeData[this.name])
-		    });
-
-		    console.log('shit should have changed');
-		});
-		*/
-		$('form').on('submit', function(event) {
-		    //when the form with the name "form" submits save data to correct table
+		//This should happen when an admin saves a form that updates employee information.
+		$('form[name="employeeDataForm"]').on('submit', function(event) {
+		    //when the form a form submits save data to correct table
 		    event.preventDefault();
 		    console.log('submitting form!');
 		    console.log("$(this).attr('id')", $(this).attr('id'));
@@ -60,15 +44,11 @@
 		});
 
 
-
-		$('form :input').change(function(){
-
+		//This should happen when an admin saves a form that updates employee information.
+		$('form[name="employeeDataForm"] :input').change(function(){
 			var employeeData = JSON.parse(window.localStorage.employee);
-			console.log(this.value);
 			employeeData[this.name] = this.value;
-
 		   	window.localStorage.setItem('employee', JSON.stringify(employeeData));
-
 		});
 	    
 	})  

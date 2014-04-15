@@ -25,26 +25,31 @@
 			
 			<input type="text" name="address_1" size="50" placeholder="Address"><br/>
 			<input type="text" name="address_2" size="50"><br/>
-			
-			<input type="text" name="cell_phone" size="10" placeholder="Cell Phone"><br/> 
-			
-			<select name="positions_applied">
-				<option value="Job1">Job1
-				<option value="Job2">Job2
-				<option value="Job3">Job3
-				<option value="Job4">Job4
-				<option value="Job5">Job5
-			</select>
 
-			<div>
-				<select name="Referral Source">
-					<option value="referal1">referal1
-					<option value="referal2">referal2
-					<option value="referal3">referal3
-					<option value="referal4">referal4
-					<option value="referal5">referal5
-				</select>
-			</div>
+			<input type="text" name="state_1" size="50" placeholder="State"><br/>
+
+			<input type="text" name="zip_code" size="50" placeholder="Zip Code"><br/>
+			
+			<input type="text" name="Tele_phone" size="50" placeholder="Telephone #"><br/> 
+
+			<input type="text" name="Positions_Applied" size="50" placeholder="Position(s) applied for "><br/> 
+			
+			<br/><h3>Referral Source</h3>
+			<select name="Referral Source">
+			    <option value="">- Please select one -</option>
+				<option value="referral1">Walk-in
+				<option value="referral2">Employee
+				<option value="referral3">Relative
+				<option value="referral4">Friend
+				<option value="referral5">Employment Agency
+				<option value="referral6">Advertisment
+				<option value="referral7">School
+				<option value="referral8">Private Employment Agency
+				<option value="referral9">Other
+			</select>
+			<input type="text" name="Other" size="25" placeholder="Other"><br/> 
+
+			
 			<div id="message"></div>
 			<input type="submit" value="Submit">
 	</form>

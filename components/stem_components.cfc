@@ -90,7 +90,6 @@
     	<cfscript>
     		var password = RandString(5);
 
-    		var 
     	</cfscript>
     	<cfquery datasource="stem" name="saveEmployee" result="queryStatus" debug="true">
 			INSERT INTO employee (first_name, last_name, password)
@@ -101,8 +100,6 @@
 		</cfquery>
 		<cfdump var="#getLastEmployeeCreated#">
     	<cfdump var="#password#">
-
-    	<cfreturn 
     	<!---Return the new employees stem id along with name and password so they can give that to the employee--->
 	</cffunction>	
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 10, 2014 at 08:43 PM
+-- Generation Time: Apr 15, 2014 at 08:38 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -29,21 +29,21 @@ USE `stem`;
 --
 
 CREATE TABLE IF NOT EXISTS `admins` (
-  `id` varchar(25) NOT NULL DEFAULT '',
+  `id` int(25) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `permission` tinyint(1) NOT NULL,
   `password` varchar(25) NOT NULL,
   `roles` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123457 ;
 
 --
 -- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `first_name`, `last_name`, `permission`, `password`, `roles`) VALUES
-('123456', 'Brooke', 'Engle', 1, 'pass', 'admin');
+(123456, 'Brooke', 'Engle', 1, 'pass', 'admin');
 
 -- --------------------------------------------------------
 
@@ -74,62 +74,64 @@ CREATE TABLE IF NOT EXISTS `eeo_job_classifications` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-  `401k_location` varchar(50) NOT NULL,
-  `id` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
-  `roles` varchar(25) NOT NULL,
-  `photo` varchar(50) NOT NULL,
-  `last_modified` date NOT NULL,
-  `first_name` varchar(25) NOT NULL,
-  `last_name` varchar(25) NOT NULL,
-  `address_1` varchar(25) NOT NULL,
-  `address_2` varchar(25) NOT NULL,
-  `city` varchar(25) NOT NULL,
-  `state` varchar(2) NOT NULL,
-  `zip` varchar(10) NOT NULL,
-  `social_security` varchar(9) NOT NULL,
-  `cell_phone` varchar(10) NOT NULL,
-  `home_phone` varchar(10) NOT NULL,
-  `driver_license` varchar(25) NOT NULL,
-  `issue_date` date NOT NULL,
-  `expiration_date` date NOT NULL,
-  `driver_license_state` varchar(25) NOT NULL,
-  `email` varchar(25) NOT NULL,
-  `local_tax` tinyint(1) NOT NULL,
-  `bank_account` varchar(25) NOT NULL,
-  `bank_type` varchar(25) NOT NULL,
-  `marital_status` varchar(25) NOT NULL,
-  `accept_stc_policy` tinyint(1) NOT NULL,
-  `accept_stc_policy_date` date NOT NULL,
-  `branch` varchar(25) NOT NULL,
-  `dept` varchar(25) NOT NULL,
-  `file_number` varchar(25) NOT NULL,
-  `company_email` varchar(25) NOT NULL,
-  `type` varchar(25) NOT NULL,
-  `adjusted_seniority` date NOT NULL,
-  `job_title` varchar(25) NOT NULL,
-  `officer` tinyint(1) NOT NULL,
-  `eeo_class` varchar(25) NOT NULL,
-  `pay_type_salary` tinyint(1) NOT NULL,
-  `resident_psd_code` varchar(25) NOT NULL,
-  `gender` varchar(25) NOT NULL,
-  `ethnicity` varchar(25) NOT NULL,
-  `veteran_status` varchar(25) NOT NULL,
-  `fringe_cell_phone` tinyint(1) NOT NULL,
-  `fringe_travel_stipend` tinyint(1) NOT NULL,
-  `fringe_medical_prem_deduction` tinyint(1) NOT NULL,
-  `employment_proposal` varchar(25) NOT NULL,
-  `status` varchar(25) NOT NULL,
-  `hire_date` date NOT NULL,
-  `w4_exemptions` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `401k_location` varchar(50) DEFAULT NULL,
+  `id` int(25) NOT NULL AUTO_INCREMENT,
+  `password` varchar(25) DEFAULT NULL,
+  `roles` varchar(25) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL,
+  `last_modified` date DEFAULT NULL,
+  `first_name` varchar(25) DEFAULT NULL,
+  `last_name` varchar(25) DEFAULT NULL,
+  `address_1` varchar(25) DEFAULT NULL,
+  `address_2` varchar(25) DEFAULT NULL,
+  `city` varchar(25) DEFAULT NULL,
+  `state` varchar(2) DEFAULT NULL,
+  `zip` varchar(10) DEFAULT NULL,
+  `social_security` varchar(9) DEFAULT NULL,
+  `cell_phone` varchar(10) DEFAULT NULL,
+  `home_phone` varchar(10) DEFAULT NULL,
+  `driver_license` varchar(25) DEFAULT NULL,
+  `issue_date` date DEFAULT NULL,
+  `expiration_date` date DEFAULT NULL,
+  `driver_license_state` varchar(25) DEFAULT NULL,
+  `email` varchar(25) DEFAULT NULL,
+  `local_tax` tinyint(1) DEFAULT NULL,
+  `bank_account` varchar(25) DEFAULT NULL,
+  `bank_type` varchar(25) DEFAULT NULL,
+  `marital_status` varchar(25) DEFAULT NULL,
+  `accept_stc_policy` tinyint(1) DEFAULT NULL,
+  `accept_stc_policy_date` date DEFAULT NULL,
+  `branch` varchar(25) DEFAULT NULL,
+  `dept` varchar(25) DEFAULT NULL,
+  `file_number` varchar(25) DEFAULT NULL,
+  `company_email` varchar(25) DEFAULT NULL,
+  `type` varchar(25) DEFAULT NULL,
+  `adjusted_seniority` date DEFAULT NULL,
+  `job_title` varchar(25) DEFAULT NULL,
+  `officer` tinyint(1) DEFAULT NULL,
+  `eeo_class` varchar(25) DEFAULT NULL,
+  `pay_type_salary` tinyint(1) DEFAULT NULL,
+  `resident_psd_code` varchar(25) DEFAULT NULL,
+  `gender` varchar(25) DEFAULT NULL,
+  `ethnicity` varchar(25) DEFAULT NULL,
+  `veteran_status` varchar(25) DEFAULT NULL,
+  `fringe_cell_phone` tinyint(1) DEFAULT NULL,
+  `fringe_travel_stipend` tinyint(1) DEFAULT NULL,
+  `fringe_medical_prem_deduction` tinyint(1) DEFAULT NULL,
+  `employment_proposal` varchar(25) DEFAULT NULL,
+  `status` varchar(25) DEFAULT NULL,
+  `hire_date` date DEFAULT NULL,
+  `w4_exemptions` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=125 ;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
-('', '123', 'password', '', '', '2014-02-13', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know');
+('', 123, 'password', '', '', '2014-02-13', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know'),
+(NULL, 1245, 'NRZDY', NULL, NULL, NULL, 'adam', 'lucia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

@@ -32,7 +32,7 @@
 				I hearby elect the following medical/vision/dental coverage under the plan and hereby agree to pay for the coverage in the specified for each pay period, through payroll deduction.<br/>
 			<input type="radio" name="fullCoverage" value="yes">
 				I hereby elect to <b>OPT OUT</b> for the medical, vision, and dental coverage.<br/><br/>
-			<table border="1">
+			<table class="table">
 				<tr>
 					<th>EPO <i>In Net work $500/$1000 with Vision & Dental</i></th>
 					<th><b><u>Per Pay</u></b></th>

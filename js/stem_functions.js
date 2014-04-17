@@ -35,27 +35,6 @@ function getEmployeeData (selectedEmployee) {
 	}
 }
 
-function searchForEmployee (searchValue) {
-	$.ajax({
-	    type: 'GET',
-	    url: 'components/stem_components.cfc?method=searchForEmployee&searchValue=' + searchValue,
-	    dataType: "json"
-	})
-	.done(function (data) {
-		//DO THIS!! display page that they can pick which employee to view/edit
-		console.log('searched', data);
-		//Update selectedEmployee to hold id of searched employee
-		window.localStorage.selectedEmployee = data;
-		$(document).trigger('reloadEmployeeData');
-		getEmployeeData(data);
-
-	})
-	.fail(function(jqXHR, textStatus) {
-		console.log( "Request failed: " + textStatus );
-	});
-
-}
-
 function saveEmployeeData (formID) {
 	console.log('Form Id', formID);
 
@@ -82,6 +61,27 @@ function saveEmployeeData (formID) {
 	
 }
 
+function searchForEmployee (searchValue) {
+	$.ajax({
+	    type: 'GET',
+	    url: 'components/stem_components.cfc?method=searchForEmployee&searchValue=' + searchValue,
+	    dataType: "json"
+	})
+	.done(function (data) {
+		//DO THIS!! display page that they can pick which employee to view/edit
+		console.log('searched', data);
+		//Update selectedEmployee to hold id of searched employee
+		window.localStorage.selectedEmployee = data;
+		$(document).trigger('reloadEmployeeData');
+		getEmployeeData(data);
+
+	})
+	.fail(function(jqXHR, textStatus) {
+		console.log( "Request failed: " + textStatus );
+	});
+
+}
+
 function addNewEmployee (first_name, last_name) {
 	$.ajax({
 	    type: 'POST',
@@ -93,9 +93,11 @@ function addNewEmployee (first_name, last_name) {
 		//fetch employee data and refresg form data???
 
 		//display message informing the user what is going on
-		console.log('data',data);
+		console.log('data', data);
 		
-		$('#message').html(data);
+		window.localStorage.newestEmployee = data;
+		
+		$('#message').html('<a id="printEmployeeLogin" href="#">Click here</a>');
 		//after the message fade it out after like 5 seconds
 		
 
@@ -104,4 +106,29 @@ function addNewEmployee (first_name, last_name) {
 		console.log( "Request failed: " + textStatus );
 	});
 
+}
+
+function printPage (page, data) {
+	$.ajax({
+	    type: 'POST',
+	    url: 'components/stem_components.cfc?method=printPage',
+	    contentType: 'application/json',
+	    data: window.localStorage.newestEmployee,
+	})
+	.done(function (data) {
+		//fetch employee data and refresg form data???
+
+		//display message informing the user what is going on
+		console.log('data', data);
+		
+		window.localStorage.newestEmployee = data;
+		
+		$('#message').html('<a id="printEmployeeLogin" href="#">Click here</a>');
+		//after the message fade it out after like 5 seconds
+		
+
+	})
+	.fail(function(jqXHR, textStatus) {
+		console.log( "Request failed: " + textStatus );
+	});
 }

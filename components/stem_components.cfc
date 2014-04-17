@@ -87,24 +87,55 @@
     <cffunction name="addNewEmployee" access="remote" returnFormat="JSON">
     	<cfargument name="first" type="string" required="true">
     	<cfargument name="last" type="string" required="true">
-    	<cfscript>
-    		var password = RandString(5);
-
-    	</cfscript>
-    	<cfquery datasource="stem" name="saveEmployee" result="queryStatus" debug="true">
+    	<cfset password = RandString(5)>
+    	<cfquery datasource="stem" name="newEmployee" result="result1" debug="true">
 			INSERT INTO employee (first_name, last_name, password)
 				VALUES('#first#', '#last#', '#password#');
 		</cfquery>
-		<cfquery datasource="stem" name="getLastEmployeeCreated" debug="true">
-			SELECT LAST_INSERT_ID();
+
+		<cfquery datasource="stem" name="newEmployeeAffirativeAction" result="result2" debug="true">
+			INSERT INTO employee_affirmative_action (id)
+				VALUES('#result1.generated_key#');
 		</cfquery>
-		<cfdump var="#getLastEmployeeCreated#">
-    	<cfdump var="#password#">
-    	<!---Return the new employees stem id along with name and password so they can give that to the employee--->
+
+		<cfquery datasource="stem" name="newEmployeeHealthWelfare" result="result2" debug="true">
+			INSERT INTO employee_health_welfare (id)
+				VALUES('#result1.generated_key#');
+		</cfquery>
+
+		<cfquery datasource="stem" name="newEmployeeHealthWelfareDependents" result="result2" debug="true">
+			INSERT INTO employee_health_welfare_dependents (id)
+				VALUES('#result1.generated_key#');
+		</cfquery>
+
+		<cfquery datasource="stem" name="newEmployeePensionPlan" result="result2" debug="true">
+			INSERT INTO employee_pension_plan (id)
+				VALUES('#result1.generated_key#');
+		</cfquery>
+
+		<cfquery datasource="stem" name="newEmployeeRecords" result="result2" debug="true">
+			INSERT INTO employee_reference (id)
+				VALUES('#result1.generated_key#');
+		</cfquery>
+
+		<cfquery datasource="stem" name="newEmployeeRecords" result="result2" debug="true">
+			INSERT INTO employee_stock_ownership (id)
+				VALUES('#result1.generated_key#');
+		</cfquery>
+
+		<cfquery datasource="stem" name="newEmployeeRecords" result="result2" debug="true">
+			INSERT INTO employee_vacation (id)
+				VALUES('#result1.generated_key#');
+		</cfquery>
+		<cfset newEmployee = ['#result1.generated_key#', '#first#', '#last#', '#password#']>
+
+		<!---Return the new employees stem id along with name and password so they can give that to the employee--->
+		<cfreturn newEmployee>
+    
 	</cffunction>	
 
 <!--- Generate random strings of specified length --->
-	<cffunction name="RandString" output="no" returntype="string">
+	<cffunction name="RandString" returntype="string">
 		<cfargument name="length" type="numeric" required="yes">
 	
 	    <!--- Local vars --->
@@ -119,6 +150,13 @@
 	
 	    <!--- Return it --->
 	    <cfreturn result>
+	</cffunction>
+
+<!---Generate PDF for admin to print out--->
+
+	<cffunction name="printPage" access="remote" returntype="any">
+		<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />
+		<cfdump var="employeeData">
 	</cffunction>
 
 </cfcomponent>

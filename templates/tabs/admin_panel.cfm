@@ -27,10 +27,12 @@
 		    addNewEmployee($(this).children('#newEmpFirstName').val(), $(this).children('#newEmpLastName').val());
 		});
 
-
-		var newEmployeeSubmit = function() {
-			console.log('print something');
-		}
+		//has to be done like this because the element is not on the page when it loads. 
+		$(document).on('click', '#printEmployeeLogin', function(e) {
+			e.preventDefault
+			console.log('workin');
+			printPage('employeeLogin', window.localStorage.newestEmployee);
+		});
 
 		function editAdmins () {
 			console.log('In editAdmins function');
@@ -53,6 +55,7 @@
 			<input type="text" id="newEmpLastName" placeholder="Last Name"/>
 			<input type="submit" value="Create Employee"/>
 		</form>
+		<div id="message"></div>
 	</div>
 	<div id="editAdmin">
 		<h2>Edit Admin Accounts</h2>

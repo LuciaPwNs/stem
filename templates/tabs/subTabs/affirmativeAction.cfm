@@ -50,7 +50,81 @@
 			<input type="text" name="Other" size="25" placeholder="Other"><br/> 
 
 			
-			<div id="message"></div>
+			<br/><h3>Gender</h3>
+			<input type="radio" name="Gender1" value="yes">
+				Female <br/><br/>
+
+			<input type="radio" name="Gender2" value="yes">
+				Male <br/><br/>
+
+
+			<br/><h3>Please select one of the following Equal Employment Opportunity Identification Groups:</h3>
+			<select name="Referral Source">
+			    <option value="">- Please select one -</option>
+				<option value="Group1">Native American Indian/Alaskan Native
+				<option value="Group2">African American
+				<option value="Group3">White
+				<option value="Group4">Hispanic or Latino
+				<option value="Group5">Native Hawaiian or Other Pacific Islander
+				<option value="Group6">Two or more Races
+				<option value="Group7">Other
+			</select>
+			<input type="text" name="Other" size="25" placeholder="Other"><br/> 
+
+			<br/><br/><b>If American Indian, check if any of the following are applicable:</b>
+
+			<br/><br/><input type="checkbox" name="Group" value="checkbox5">Former member of a particular tribe
+			
+			<br/><input type="checkbox" name="Group" value="checkbox4">Have a membership card issued by the tribe
+
+			<br/><input type="checkbox" name="Group" value="checkbox3">Have a Certificate of Degree of Indian Blood issued by the Bureau of American Indian Affairs
+
+			<br/><input type="checkbox" name="Group" value="checkbox2">Are considered an American Indian in your community
+
+			<br/><input type="checkbox" name="Group" value="checkbox1">Used an American Indian School or hospital
+
+			<br/><br/><b>AN EQUAL OPPORTUNITY EMPLOYER</b>
+
+			<br/><br/><br/><h3>*For Administrative Use only*</h3>
+			<b>Hired</b><br/><br/>
+			<input type="radio" name="yes" value="yes">
+				Yes <br/><br/>
+
+			<input type="radio" name="no" value="yes">
+				No <br/><br/>
+
+			<input type="text" name="hired" size="50" placeholder="Position(s) hired for"><br/>
+
+			<input type="text" name="hired" size="50" placeholder="Date of Hire"><br/>	
+
+
+			<br/><br/><b>From the EEO job classifications listed below, which one best describes the position filled?</b>
+
+			<br/><br/><input type="checkbox" name="Group" value="checkbox5">Exec/Senior Level Officials and Managers
+			
+			<br/><input type="checkbox" name="Group" value="checkbox4">First/Mid Level Officials & Managers
+
+			<br/><input type="checkbox" name="Group" value="checkbox3">Professionals
+
+			<br/><input type="checkbox" name="Group" value="checkbox2">Technicians
+
+			<br/><input type="checkbox" name="Group" value="checkbox1">Administrative Support Workers
+
+			<br/><input type="checkbox" name="Group" value="checkbox1">Craft Workers (formerly "Craft Workers")(Skilled)
+
+			<br/><input type="checkbox" name="Group" value="checkbox1">Operative(formerly "Operatives")(Semi-Skilled)
+
+
+			<br/><br/><b>Notes:</b>
+
+			<br/><textarea name="comments" cols="25" rows="5">
+			</textarea><br>
+			
+			<br/><input type="text" name="zip_code" size="50" placeholder="Completed by:"><br/>
+
+			<input type="text" name="zip_code" size="50" placeholder="Todays Date:"><br/>
+
+			<br/><div id="message"></div>
 			<input type="submit" value="Submit">
 	</form>
 </div>

@@ -43,7 +43,7 @@
 
     	<cfswitch expression="#LCase(formBeingUpdated)#"> 
 		    <cfcase value="affirmativeaction">
-		       	<cfquery datasource="stem" name="saveEmployee" result="queryStatus" debug="true">
+		       	<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
 					UPDATE employee SET 
 						first_name = '#employeeData.first_name#',
 						last_name = '#employeeData.last_name#',
@@ -61,7 +61,7 @@
 				</cfif>
 				
 		    </cfcase> 
-		    <cfcase value="another form"> 
+		    <cfcase value="newEmployeeSheet"> 
 		       	<!---
 		       	<cfquery datasource="stem" name="saveEmployee" result="employee" debug="true">
 					UPDATE employee SET  WHERE id = #searchValue#;

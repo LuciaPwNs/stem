@@ -13,7 +13,7 @@
 			    
 			}
 			
-			//Make a global variable session to match document.cookie (just in case we decide to use it)
+			/*Make a global variable session to match document.cookie (just in case we decide to use it)
 			$.ajax({
 			    type: 'GET',
 			    url: 'components/stem_components.cfc?method=getSession',
@@ -26,7 +26,7 @@
 	  		.fail(function(jqXHR, textStatus) {
 				console.log( "Request failed: " + textStatus );
 			});
-
+			*/
 			function logout () {
 				document.cookie = "ADMIN=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 				document.cookie = "CFCLIENT_STEM=; expires=Thu, 01 Jan 1970 00:00:00 GMT";

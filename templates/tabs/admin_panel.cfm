@@ -10,14 +10,11 @@
 	pull current admins
 	ouput them in a list with editable fields and an x to delete them 
 	drop down for roles
-
-
-
-
-
-
 -->
 <script type="text/javascript">
+	function go () {
+		printPage('employeeLogin', window.localStorage.newestEmployee);
+	}
 
 
 	$(document).ready(function(){
@@ -25,13 +22,6 @@
 		$('#newEmployee').submit(function (e) {
 		    e.preventDefault();
 		    addNewEmployee($(this).children('#newEmpFirstName').val(), $(this).children('#newEmpLastName').val());
-		});
-
-		//has to be done like this because the element is not on the page when it loads. 
-		$(document).on('click', '#printEmployeeLogin', function(e) {
-			e.preventDefault
-			console.log('workin');
-			printPage('employeeLogin', window.localStorage.newestEmployee);
 		});
 
 		function editAdmins () {

@@ -36,7 +36,8 @@
     	<!---Get the data from the ajax request--->
     	<!---Get the form id so we know what tables we are going to use to save the data--->
     	<!---Case statement to send function down appropriate saving path?--->
-    	
+
+    	<!---!!!!IMPORTANT Nothing can be put between cffunctiona and the cfargument tag--->
     	<cfargument name="formBeingUpdated" type="string" required="yes">
 
     	<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />
@@ -127,7 +128,11 @@
 			INSERT INTO employee_vacation (id)
 				VALUES('#result1.generated_key#');
 		</cfquery>
-		<cfset newEmployee = ['#result1.generated_key#', '#first#', '#last#', '#password#']>
+		<cfset newEmployee = structNew() /> 
+		<cfset newEmployee.id =  '#result1.generated_key#' />
+		<cfset newEmployee.first = '#first#' />
+		<cfset newEmployee.last ='#last#' />
+		<cfset newEmployee.password = '#password#' />
 
 		<!---Return the new employees stem id along with name and password so they can give that to the employee--->
 		<cfreturn newEmployee>
@@ -154,9 +159,43 @@
 
 <!---Generate PDF for admin to print out--->
 
-	<cffunction name="printPage" access="remote" returntype="any">
-		<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />
-		<cfdump var="employeeData">
+	<cffunction name="printPage" access="remote" >
+		<!---!!!!IMPORTANT Nothing can be put between cffunctiona and the cfargument tag--->
+		<cfargument name="page" type="string">
+		<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />		
+	
+		<cfswitch expression="#LCase(page)#"> 
+		    <cfcase value="employeelogin">
+		       	<cfdocument format="pdf" name="employeeLoginInfo" filename="../output.pdf" overwrite="yes">
+	       			<div>
+						First Name: <cfoutput>#employeeData.first#</cfoutput> <br/>
+						Last Name: <cfoutput>#employeeData.last#</cfoutput> <br/>
+						ID: <cfoutput>#employeeData.id#</cfoutput> <br/>
+						Password: <cfoutput>#employeeData.password#</cfoutput> <br/>	
+	       			</div>
+				</cfdocument>
+			</cfcase> 
+		    <cfcase value="newEmployeeSheet"> 
+		       	<!---
+		       	<cfquery datasource="stem" name="saveEmployee" result="employee" debug="true">
+					UPDATE employee SET  WHERE id = #searchValue#;
+				</cfquery>
+				--->
+		    </cfcase> 
+		    <cfcase value="another form1"> 
+		       	<!---
+		       	<cfquery datasource="stem" name="saveEmployee" result="employee" debug="true">
+					UPDATE employee SET  WHERE id = #searchValue#;
+				</cfquery>
+				--->
+		   	</cfcase> 
+		    <cfdefaultcase> 
+		        default
+		    </cfdefaultcase> 
+		</cfswitch> 
+	
+	
+		<cfreturn>
 	</cffunction>
 
 </cfcomponent>

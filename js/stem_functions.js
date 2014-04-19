@@ -87,19 +87,11 @@ function addNewEmployee (first_name, last_name) {
 	    type: 'POST',
 	    url: 'components/stem_components.cfc?method=addNewEmployee&first=' + first_name + '&last=' + last_name,
 	    contentType: 'application/json',
-	    //data: window.localStorage.employee,
 	})
 	.done(function (data) {
-		//fetch employee data and refresg form data???
-
-		//display message informing the user what is going on
-		console.log('data', data);
-		
-		window.localStorage.newestEmployee = data;
-		
-		$('#message').html('<a id="printEmployeeLogin" href="#">Click here</a>');
-		//after the message fade it out after like 5 seconds
-		
+		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
+		console.log(window.localStorage.newestEmployee);
+		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:go()">Click here to print employees login information.</a>');
 
 	})
 	.fail(function(jqXHR, textStatus) {
@@ -108,22 +100,21 @@ function addNewEmployee (first_name, last_name) {
 
 }
 
-function printPage (page, data) {
+function printPage (page, dataToPrint) {
 	$.ajax({
 	    type: 'POST',
-	    url: 'components/stem_components.cfc?method=printPage',
+	    url: 'components/stem_components.cfc?method=printPage&page=' + page,
 	    contentType: 'application/json',
-	    data: window.localStorage.newestEmployee,
+	    data: JSON.parse(window.localStorage.newestEmployee),
 	})
 	.done(function (data) {
 		//fetch employee data and refresg form data???
 
 		//display message informing the user what is going on
-		console.log('data', data);
+
+		window.open('components/output.pdf');
 		
-		window.localStorage.newestEmployee = data;
 		
-		$('#message').html('<a id="printEmployeeLogin" href="#">Click here</a>');
 		//after the message fade it out after like 5 seconds
 		
 

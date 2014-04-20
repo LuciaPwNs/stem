@@ -34,13 +34,10 @@
 }
 
 #admin_panel {
-	display:inline;
+	display: inline;
 	position: absolute;
 	top: 105px;
 	left: 800px;
-}
-
-#admin_panel a {
 	text-decoration: none;
 }
 
@@ -234,7 +231,7 @@
 	margin-bottom: 25px;
 } 
 
-#content #employee_info #editAdmin {
+#content #employee_info #editAdmins {
 	border: 1px grey solid;
 	padding: 25px;
 } 

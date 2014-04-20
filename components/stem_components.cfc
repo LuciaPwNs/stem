@@ -13,7 +13,7 @@
 <!--Load Employee data --->
 	<cffunction name="getEmployeeData" access="remote" returnFormat="JSON">
 		<cfargument name="selectedEmployee" type="string" required="yes">
-		<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true" cachedWithin = "#CreateTimeSpan(0, 0, 60, 0)#">
+		<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true">
 			SELECT * FROM employee where id = #selectedEmployee#;
 		</cfquery>
 		<cfreturn basic_employee_info>
@@ -197,5 +197,14 @@
 	
 		<cfreturn>
 	</cffunction>
+
+<!---Get admin records --->
+	<cffunction name="getAdminData" access="remote" returnFormat="JSON">
+		<cfquery datasource="stem" name="getAdminRecords" result="admins" debug="true" >
+			SELECT id, first_name, last_name, password FROM admins;
+		</cfquery>
+		<cfreturn getAdminRecords>
+	</cffunction>
+
 
 </cfcomponent>

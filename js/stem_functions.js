@@ -98,17 +98,14 @@ function addNewEmployee (first_name, last_name) {
 	});
 }
 
-function addNewAdmin (first_name, last_name) {
+function addNewAdmin (first_name, last_name, password) {
 	$.ajax({
 	    type: 'POST',
-	    url: 'components/stem_components.cfc?method=addNewEmployee&first=' + first_name + '&last=' + last_name,
+	    url: 'components/stem_components.cfc?method=addNewAdmin&first=' + first_name + '&last=' + last_name + '&password=' + password,
 	    contentType: 'application/json',
 	})
 	.done(function (data) {
-		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
-		console.log(window.localStorage.newestEmployee);
-		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:go()">Click here to print employees login information.</a>');
-
+		location.reload();
 	})
 	.fail(function(jqXHR, textStatus) {
 		console.log( "Request failed: " + textStatus );

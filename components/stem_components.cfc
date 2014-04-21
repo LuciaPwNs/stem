@@ -206,5 +206,18 @@
 		<cfreturn getAdminRecords>
 	</cffunction>
 
+<!---Add new admin--->
+	<cffunction name="addNeAdmin" access="remote">
+    	<cfargument name="first" type="string" required="true">
+    	<cfargument name="last" type="string" required="true">
+    	<cfargument name="last" type="string" required="true">
+    	
+    	<cfquery datasource="stem" name="createNewAdmin" result="status" debug="true" >
+			INSERT INTO admin (first_name, last_name, password, roles)
+				VALUES (#first#, #last#, #password#, admin)
+		</cfquery>
+		<cfreturn getAdminRecords>
+
+	</cffunction>
 
 </cfcomponent>

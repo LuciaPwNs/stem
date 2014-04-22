@@ -87,9 +87,7 @@
 	                 <span name="address_2"></span><br/> 
 	    </div>
 	</div>
-	<div id="admin_panel">
-		<button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?adminPanel'">Admin Panel</button>
-	</div>
+	<a id="admin_panel" href="index.cfm?adminPanel">Admin Panel</a>
 	<div id="main_section" class="clearfix">
 	    <div id="navigation">
 	        <button type="button" class="nav_button end_left" onclick="window.location.href='index.cfm?application'">Application</button>

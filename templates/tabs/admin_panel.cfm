@@ -1,23 +1,12 @@
-<!-- 
-	create a new employee
-	get first and last name
-	get any other info they want to input when registering someone
-	generate the employee stem id using their name to make it random? maybe.
-	generate password
-	save employee record and print ticket? i think they are getting a ticket with the employee name and password right?
-
-	add / delete / change admin stuff
-	pull current admins
-	ouput them in a list with editable fields and an x to delete them 
-	drop down for roles
-
-
-
-
-
-
--->
+<style type="text/css">
+	#employee_info {
+		width: 98% !important;
+	}
+</style>
 <script type="text/javascript">
+	function go () {
+		printPage('employeeLogin', window.localStorage.newestEmployee);
+	}
 
 
 	$(document).ready(function(){
@@ -27,29 +16,25 @@
 		    addNewEmployee($(this).children('#newEmpFirstName').val(), $(this).children('#newEmpLastName').val());
 		});
 
-		//has to be done like this because the element is not on the page when it loads. 
-		$(document).on('click', '#printEmployeeLogin', function(e) {
-			e.preventDefault
-			console.log('workin');
-			printPage('employeeLogin', window.localStorage.newestEmployee);
+		$('#newAdmin').submit(function (e) {
+		    e.preventDefault();
+		    addNewAdmin($(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
 		});
 
-		function editAdmins () {
-			console.log('In editAdmins function');
-		}
-
-		function loadAdminAccounts () {
-			//get admin account via ajax
-			//create elements in editAdmins form (admin first and last name/password?/(delete/save button)
-			console.log('In loadAdminAccounts function');
-		}
+		$('.editAdmin').submit(function (e) {
+			console.log(this);
+		    e.preventDefault();
+		    editAdmin($(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
+		});
+		//fetch admin records
+		getAdmins();
 
 	})
 	
 </script>
 <div id="employee_info">
+	<h2>Create New Employee</h2>
 	<div id="createNewEmployee">
-		<h2>Create a new employee</h2>
 		<form id="newEmployee">
 			<input type="text" id="newEmpFirstName" placeholder="First Name"/>
 			<input type="text" id="newEmpLastName" placeholder="Last Name"/>
@@ -57,16 +42,21 @@
 		</form>
 		<div id="message"></div>
 	</div>
-	<div id="editAdmin">
-		<h2>Edit Admin Accounts</h2>
-		<form id="editAdmins" action="javascript:editAdmins()">
-			<div class="newAdmin">
+	<h2>Edit Admin Accounts</h2>
+	<div id="editAdmins">
+		<h3>Create New Admin</h3>
+		<form id="newAdmin">
+			<div id="newAdmin">
 				<input type="text" id="newAdminFirstName" placeholder="First Name"/>
-				<input type="text" id="newAdminFirstName" placeholder="Last Name"/>
-				<input type="text" id="newAdminFirstName" placeholder="Password"/>
+				<input type="text" id="newAdminLastName" placeholder="Last Name"/>
+				<input type="text" id="newAdminPassword" placeholder="Password"/>
 				<input type="submit" value="Create Admin"/>
 			</div>
 		</form>
-	</div>	
-
+		<hr/>
+		<h3>Edit Admin</h3>
+		<div id="editAdmin">
+			
+		</div>
+	</div>
 </div>

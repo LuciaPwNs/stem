@@ -146,7 +146,6 @@
 }
 
 #content #side_navigation {
-	position: relative;
 	float: left;
 	display: inline-block;
 	width: 150px;

@@ -112,10 +112,10 @@ function addNewAdmin (first_name, last_name, password) {
 	});
 }
 
-function editAdmin (first_name, last_name) {
+function editAdmin (ID, first_name, last_name, password) {
 	$.ajax({
 		type: 'POST',
-		url: 'components/stem_components.cfc?method=addNewEmployee&first=' + first_name + '&last=' + last_name,
+		url: 'components/stem_components.cfc?method=editAdmin&first=' + first_name + '&last=' + last_name,
 		contentType: 'application/json',
 	})
 	.done(function (data) {
@@ -144,12 +144,13 @@ function getAdmins () {
 				admins[t][data.COLUMNS[i].toLowerCase()] = data.DATA[t][i];
 			}
 		}
-		
+
 		//foreach admin create a row of admin stuff
 		for(var i = 0; i < admins.length; i++) {
 			//the "\" at the end of each line escapes the line break so you dont get an error.
 			$('#editAdmin').append('\
 				<form class="editAdmin">\
+					<input type="hidden" class="editAdminID" value="' + admins[i]["id"] + '"/>\
 					<input type="text" class="editAdminFirstName" placeholder="First Name" value="' + admins[i]["first_name"] + '"/>\
 					<input type="text" class="editAdminLastName" placeholder="Last Name" value="' + admins[i]["last_name"] + '"/>\
 					<input type="text" class="editAdminPassword" placeholder="Password" value="' + admins[i]["password"] + '"/>\
@@ -175,7 +176,7 @@ function printPage (page, dataToPrint) {
 	})
 	.done(function (data) {
 		//after the pdf is created open a new window that displays it
-		window.open('components/output.pdf');
+		window.open('output.pdf');
 
 	})
 	.fail(function(jqXHR, textStatus) {

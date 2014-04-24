@@ -158,7 +158,6 @@
 	</cffunction>
 
 <!---Generate PDF for admin to print out--->
-
 	<cffunction name="printPage" access="remote" >
 		<!---!!!!IMPORTANT Nothing can be put between cffunctiona and the cfargument tag--->
 		<cfargument name="page" type="string">
@@ -207,17 +206,27 @@
 	</cffunction>
 
 <!---Add new admin--->
-	<cffunction name="addNeAdmin" access="remote">
+	<cffunction name="addNewAdmin" access="remote">
     	<cfargument name="first" type="string" required="true">
-    	<cfargument name="last" type="string" required="true">
     	<cfargument name="last" type="string" required="true">
     	
     	<cfquery datasource="stem" name="createNewAdmin" result="status" debug="true" >
-			INSERT INTO admin (first_name, last_name, password, roles)
-				VALUES (#first#, #last#, #password#, admin)
+			INSERT INTO admins (first_name, last_name, password, roles)
+				VALUES (#first#, #last#, #password#, 'admin');
 		</cfquery>
 		<cfreturn getAdminRecords>
-
 	</cffunction>
+
+<!---Delete admin--->
+	<cffunction name="deleteAdmin" access="remote">
+		INSERT INTO admins (first_name, last_name, password, roles)
+				VALUES (#first#, #last#, #password#, 'admin');
+	</cffunction>
+
+<!---Edit admin--->
+	<cffunction name="editAdmin" access="remote">
+		
+	</cffunction>
+
 
 </cfcomponent>

@@ -4,6 +4,7 @@
 	}
 </style>
 <script type="text/javascript">
+	//This needs renamed *ASL
 	function go () {
 		printPage('employeeLogin', window.localStorage.newestEmployee);
 	}
@@ -17,16 +18,21 @@
 		});
 
 		$('#newAdmin').submit(function (e) {
+
+
 		    e.preventDefault();
+		    console.log('$(this).serialize()', $(this).serialize());
 		    addNewAdmin($(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
 		});
 
 		$('.editAdmin').submit(function (e) {
 			console.log(this);
 		    e.preventDefault();
-		    editAdmin($(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
+		    e.stopImmediatePropagation();
+		    //editAdmin($(this).children('#newAdminID').val(),$(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
 		});
-		//fetch admin records
+
+		//fetch admin records when page loads
 		getAdmins();
 
 	})
@@ -46,17 +52,16 @@
 	<div id="editAdmins">
 		<h3>Create New Admin</h3>
 		<form id="newAdmin">
-			<div id="newAdmin">
-				<input type="text" id="newAdminFirstName" placeholder="First Name"/>
-				<input type="text" id="newAdminLastName" placeholder="Last Name"/>
-				<input type="text" id="newAdminPassword" placeholder="Password"/>
-				<input type="submit" value="Create Admin"/>
-			</div>
+			
+			<input type="text" id="newAdminFirstName" placeholder="First Name"/>
+			<input type="text" id="newAdminLastName" placeholder="Last Name"/>
+			<input type="text" id="newAdminPassword" placeholder="Password"/>
+			<input type="submit" value="Create Admin"/>
+			
 		</form>
 		<hr/>
 		<h3>Edit Admin</h3>
 		<div id="editAdmin">
-			
 		</div>
 	</div>
 </div>

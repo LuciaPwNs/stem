@@ -6,7 +6,8 @@
 		<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
 			
 		<input type="text" name="address_1" size="50" placeholder="Address"><br/>
-		<input type="text" name="address_2" size="50"><br/>
+		<input type="text" name="address_2" size="50" placeholder="Address Line Two"><br/>
+		<input type="text" name="city" size="50" placeholder="City"><br/>
 
 	<p>State:
 		<select name="state_1">
@@ -65,7 +66,7 @@
 
 </form><br/>
 
-		<input type="text" name="zip_code" size="50" placeholder="Zip Code"><br/>
+		<input type="text" name="zip" size="20" placeholder="Zip Code"><br/>
 
 		<input type="text" name="social_security" size="20" placeholder="Social Security Number"><br/><br/>
 
@@ -73,9 +74,9 @@
 
 		<input type="text" name="Tele_phone" size="50" placeholder="Telephone #"><br/>
 
-		<input type="text" name="driver_license" size="9" placeholder="Driver License Number">
+		<input type="text" name="driver_license" size="20" placeholder="Driver License Number">
 
-		<input type="date" name="issue_date" width="50"> Issue Date<br/>
+		<input type="date" name="issue_date" width="49"> Issue Date<br/>
 
 		<input type="date" name="expiration_date" width="50"> Expiration Date<br/>
 

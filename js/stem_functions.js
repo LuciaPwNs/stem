@@ -98,34 +98,29 @@ function addNewEmployee (first_name, last_name) {
 	});
 }
 
-function addNewAdmin (first_name, last_name) {
+function addNewAdmin (first_name, last_name, password) {
 	$.ajax({
 	    type: 'POST',
-	    url: 'components/stem_components.cfc?method=addNewEmployee&first=' + first_name + '&last=' + last_name,
+	    url: 'components/stem_components.cfc?method=addNewAdmin&first=' + first_name + '&last=' + last_name + '&password=' + password,
 	    contentType: 'application/json',
 	})
 	.done(function (data) {
-		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
-		console.log(window.localStorage.newestEmployee);
-		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:go()">Click here to print employees login information.</a>');
-
+		location.reload();
 	})
 	.fail(function(jqXHR, textStatus) {
 		console.log( "Request failed: " + textStatus );
 	});
 }
 
-function editAdmin (first_name, last_name) {
+function editAdmin (ID, first_name, last_name, password, action) {
 	$.ajax({
 		type: 'POST',
-		url: 'components/stem_components.cfc?method=addNewEmployee&first=' + first_name + '&last=' + last_name,
+		url: 'components/stem_components.cfc?method=editAdmin&id=' + ID +'&first=' + first_name + '&last=' + last_name + '&password=' + password + '&action=' + action, 
 		contentType: 'application/json',
 	})
 	.done(function (data) {
-		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
-		console.log(window.localStorage.newestEmployee);
-		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:go()">Click here to print employees login information.</a>');
-
+		console.log(data);
+		location.reload();
 	})
 	.fail(function(jqXHR, textStatus) {
 		console.log( "Request failed: " + textStatus );
@@ -147,17 +142,18 @@ function getAdmins () {
 				admins[t][data.COLUMNS[i].toLowerCase()] = data.DATA[t][i];
 			}
 		}
-		
+
 		//foreach admin create a row of admin stuff
 		for(var i = 0; i < admins.length; i++) {
 			//the "\" at the end of each line escapes the line break so you dont get an error.
 			$('#editAdmin').append('\
 				<form class="editAdmin">\
-					<input type="text" class="editAdminFirstName" placeholder="First Name" value="' + admins[i]["first_name"] + '"/>\
-					<input type="text" class="editAdminLastName" placeholder="Last Name" value="' + admins[i]["last_name"] + '"/>\
-					<input type="text" class="editAdminPassword" placeholder="Password" value="' + admins[i]["password"] + '"/>\
-					<input type="submit" name="save" value="Save"/>\
-					<input type="submit" name="delete" value="Delete"/>\
+					<input type="hidden" name="editAdminID" value="' + admins[i]["id"] + '"/>\
+					<input type="text" name="editAdminFirstName" placeholder="First Name" value="' + admins[i]["first_name"] + '"/>\
+					<input type="text" name="editAdminLastName" placeholder="Last Name" value="' + admins[i]["last_name"] + '"/>\
+					<input type="text" name="editAdminPassword" placeholder="Password" value="' + admins[i]["password"] + '"/>\
+					<input type="submit" class="submit" value="Save"/>\
+					<input type="submit" class="submit" value="Delete"/>\
 				</form>\
 			');
 		}
@@ -178,7 +174,7 @@ function printPage (page, dataToPrint) {
 	})
 	.done(function (data) {
 		//after the pdf is created open a new window that displays it
-		window.open('components/output.pdf');
+		window.open('output.pdf');
 
 	})
 	.fail(function(jqXHR, textStatus) {

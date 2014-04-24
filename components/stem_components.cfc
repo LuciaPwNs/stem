@@ -158,7 +158,6 @@
 	</cffunction>
 
 <!---Generate PDF for admin to print out--->
-
 	<cffunction name="printPage" access="remote" >
 		<!---!!!!IMPORTANT Nothing can be put between cffunctiona and the cfargument tag--->
 		<cfargument name="page" type="string">
@@ -205,6 +204,47 @@
 		</cfquery>
 		<cfreturn getAdminRecords>
 	</cffunction>
+
+<!---Add new admin--->
+	<cffunction name="addNewAdmin" access="remote">
+    	<cfargument name="first" type="string" required="true">
+    	<cfargument name="last" type="string" required="true">
+    	<cfargument name="password" type="string" required="true">
+    	
+    	<cfquery datasource="stem" name="createNewAdmin" result="status" debug="true" >
+			INSERT INTO admins (first_name, last_name, password, roles)
+				VALUES ('#first#', '#last#', '#password#', 'admin');
+		</cfquery>
+		<cfreturn status>
+	</cffunction>
+
+<!---Edit admin--->
+	<cffunction name="editAdmin" access="remote">
+		<cfargument name="id" type="string" required="true">
+		<cfargument name="first" type="string" required="true">
+    	<cfargument name="last" type="string" required="true">
+    	<cfargument name="password" type="string" required="true">
+    	<cfargument name="action" type="string" required="true">
+
+
+    	<cfif LCase(action) eq 'save'>
+    		<cfquery datasource="stem" name="editAdmin" result="status" debug="true" >
+				UPDATE admins 
+				SET first_name='#first#', last_name='#last#', password='#password#'
+				WHERE id='#id#';
+			</cfquery>
+    		
+    	<cfelseif LCase(action) eq 'delete'>
+			<cfquery datasource="stem" name="editAdmin" result="status" debug="true" >
+				DELETE FROM admins WHERE id = "#id#";
+			</cfquery>
+
+    	</cfif>
+
+		
+		<cfreturn status>
+	</cffunction>
+
 
 
 </cfcomponent>

@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
+<<<<<<< HEAD
 -- Generation Time: Apr 24, 2014 at 06:12 PM
+=======
+-- Generation Time: Apr 24, 2014 at 06:07 PM
+>>>>>>> 6cc8612b64c12502ce39e82ab2a04da93e5b95ce
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -132,15 +136,26 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `w4_exemptions` varchar(25) DEFAULT NULL,
   `cert_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1246 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1247 ;
+>>>>>>> 6cc8612b64c12502ce39e82ab2a04da93e5b95ce
 
 --
 -- Dumping data for table `employee`
 --
 
+<<<<<<< HEAD
 INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `first_name`, `mi_initial`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `municipality`, `county`, `social_security`, `birthdate`, `cell_phone`, `home_phone`, `day_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `bank_salary`, `bank_hourly`, `pay_type_salary`, `resident_psd_code`, `eit_rate`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`, `cert_date`) VALUES
 ('', 123, 'password', '', '', '2014-02-13', 'Brooke', '0', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', NULL, NULL, '123456789', NULL, '7248756148', '8146348138', NULL, '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', NULL, NULL, 1, '123abc', NULL, 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know', NULL),
 (NULL, 1245, 'NRZDY', NULL, NULL, NULL, 'adam', NULL, 'lucia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+=======
+INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
+('', 123, 'password', '', '', '2014-02-13', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know'),
+(NULL, 1245, 'NRZDY', NULL, NULL, NULL, 'adam', 'lucia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(NULL, 1246, 'HYWTX', NULL, NULL, NULL, 'undefined', 'undefined', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+>>>>>>> 6cc8612b64c12502ce39e82ab2a04da93e5b95ce
 
 -- --------------------------------------------------------
 
@@ -179,10 +194,9 @@ CREATE TABLE IF NOT EXISTS `employee_health_welfare` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee_health_welfare_dependents` (
+  `dependent_type` varchar(30) NOT NULL,
   `id` varchar(25) NOT NULL,
-  `dependent_first_name` varchar(25) NOT NULL,
-  `dependent_last_name` varchar(25) NOT NULL,
-  `dependent_middle_name` varchar(25) NOT NULL,
+  `dependent_name` varchar(40) NOT NULL,
   `dependent_dob` date NOT NULL,
   `dependent_ssn` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

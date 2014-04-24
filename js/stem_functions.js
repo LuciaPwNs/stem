@@ -112,17 +112,15 @@ function addNewAdmin (first_name, last_name, password) {
 	});
 }
 
-function editAdmin (ID, first_name, last_name, password) {
+function editAdmin (ID, first_name, last_name, password, action) {
 	$.ajax({
 		type: 'POST',
-		url: 'components/stem_components.cfc?method=editAdmin&first=' + first_name + '&last=' + last_name,
+		url: 'components/stem_components.cfc?method=editAdmin&id=' + ID +'&first=' + first_name + '&last=' + last_name + '&password=' + password + '&action=' + action, 
 		contentType: 'application/json',
 	})
 	.done(function (data) {
-		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
-		console.log(window.localStorage.newestEmployee);
-		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:go()">Click here to print employees login information.</a>');
-
+		console.log(data);
+		location.reload();
 	})
 	.fail(function(jqXHR, textStatus) {
 		console.log( "Request failed: " + textStatus );
@@ -150,12 +148,12 @@ function getAdmins () {
 			//the "\" at the end of each line escapes the line break so you dont get an error.
 			$('#editAdmin').append('\
 				<form class="editAdmin">\
-					<input type="hidden" class="editAdminID" value="' + admins[i]["id"] + '"/>\
-					<input type="text" class="editAdminFirstName" placeholder="First Name" value="' + admins[i]["first_name"] + '"/>\
-					<input type="text" class="editAdminLastName" placeholder="Last Name" value="' + admins[i]["last_name"] + '"/>\
-					<input type="text" class="editAdminPassword" placeholder="Password" value="' + admins[i]["password"] + '"/>\
-					<input type="submit" name="save" value="Save"/>\
-					<input type="submit" name="delete" value="Delete"/>\
+					<input type="hidden" name="editAdminID" value="' + admins[i]["id"] + '"/>\
+					<input type="text" name="editAdminFirstName" placeholder="First Name" value="' + admins[i]["first_name"] + '"/>\
+					<input type="text" name="editAdminLastName" placeholder="Last Name" value="' + admins[i]["last_name"] + '"/>\
+					<input type="text" name="editAdminPassword" placeholder="Password" value="' + admins[i]["password"] + '"/>\
+					<input type="submit" class="submit" value="Save"/>\
+					<input type="submit" class="submit" value="Delete"/>\
 				</form>\
 			');
 		}

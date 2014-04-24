@@ -18,18 +18,18 @@
 		});
 
 		$('#newAdmin').submit(function (e) {
-
-
 		    e.preventDefault();
 		    console.log('$(this).serialize()', $(this).serialize());
-		    addNewAdmin($(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
-		});
+		    var newAdminInfo = $(this).serializeArray();
+		    addNewAdmin(newAdminInfo[0].value,newAdminInfo[1].value, newAdminInfo[2].value);
+	    });
 
-		$('.editAdmin').submit(function (e) {
-			console.log(this);
-		    e.preventDefault();
-		    e.stopImmediatePropagation();
-		    //editAdmin($(this).children('#newAdminID').val(),$(this).children('#newAdminFirstName').val(), $(this).children('#newAdminLastName').val(), $(this).children('#newAdminPassword').val());
+		$(document).on('submit', '.editAdmin', function (e) {
+			e.preventDefault();
+			var clickedButton =  $( ":input[type=submit]:focus");
+		    //serialize form data
+		   	var newAdminInfo = $(this).serializeArray();
+		    editAdmin(newAdminInfo[0].value, newAdminInfo[1].value, newAdminInfo[2].value, newAdminInfo[3].value, clickedButton[0].value);
 		});
 
 		//fetch admin records when page loads
@@ -42,8 +42,8 @@
 	<h2>Create New Employee</h2>
 	<div id="createNewEmployee">
 		<form id="newEmployee">
-			<input type="text" id="newEmpFirstName" placeholder="First Name"/>
-			<input type="text" id="newEmpLastName" placeholder="Last Name"/>
+			<input type="text" name="newEmpFirstName" placeholder="First Name"/>
+			<input type="text" name="newEmpLastName" placeholder="Last Name"/>
 			<input type="submit" value="Create Employee"/>
 		</form>
 		<div id="message"></div>
@@ -52,12 +52,10 @@
 	<div id="editAdmins">
 		<h3>Create New Admin</h3>
 		<form id="newAdmin">
-			
-			<input type="text" id="newAdminFirstName" placeholder="First Name"/>
-			<input type="text" id="newAdminLastName" placeholder="Last Name"/>
-			<input type="text" id="newAdminPassword" placeholder="Password"/>
+			<input type="text" name="newAdminFirstName" placeholder="First Name"/>
+			<input type="text" name="newAdminLastName" placeholder="Last Name"/>
+			<input type="text" name="newAdminPassword" placeholder="Password"/>
 			<input type="submit" value="Create Admin"/>
-			
 		</form>
 		<hr/>
 		<h3>Edit Admin</h3>

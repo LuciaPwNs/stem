@@ -209,24 +209,42 @@
 	<cffunction name="addNewAdmin" access="remote">
     	<cfargument name="first" type="string" required="true">
     	<cfargument name="last" type="string" required="true">
+    	<cfargument name="password" type="string" required="true">
     	
     	<cfquery datasource="stem" name="createNewAdmin" result="status" debug="true" >
 			INSERT INTO admins (first_name, last_name, password, roles)
-				VALUES (#first#, #last#, #password#, 'admin');
+				VALUES ('#first#', '#last#', '#password#', 'admin');
 		</cfquery>
-		<cfreturn getAdminRecords>
-	</cffunction>
-
-<!---Delete admin--->
-	<cffunction name="deleteAdmin" access="remote">
-		INSERT INTO admins (first_name, last_name, password, roles)
-				VALUES (#first#, #last#, #password#, 'admin');
+		<cfreturn status>
 	</cffunction>
 
 <!---Edit admin--->
 	<cffunction name="editAdmin" access="remote">
+		<cfargument name="id" type="string" required="true">
+		<cfargument name="first" type="string" required="true">
+    	<cfargument name="last" type="string" required="true">
+    	<cfargument name="password" type="string" required="true">
+    	<cfargument name="action" type="string" required="true">
+
+
+    	<cfif LCase(action) eq 'save'>
+    		<cfquery datasource="stem" name="editAdmin" result="status" debug="true" >
+				UPDATE admins 
+				SET first_name='#first#', last_name='#last#', password='#password#'
+				WHERE id='#id#';
+			</cfquery>
+    		
+    	<cfelseif LCase(action) eq 'delete'>
+			<cfquery datasource="stem" name="editAdmin" result="status" debug="true" >
+				DELETE FROM admins WHERE id = "#id#";
+			</cfquery>
+
+    	</cfif>
+
 		
+		<cfreturn status>
 	</cffunction>
+
 
 
 </cfcomponent>

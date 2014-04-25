@@ -4,14 +4,8 @@
 	}
 </style>
 <script type="text/javascript">
-	//This needs renamed *ASL
-	function go () {
-		printPage('employeeLogin', window.localStorage.newestEmployee);
-	}
-
-
 	$(document).ready(function(){
-
+		//since the element is there when the page loads, we can directly bind an event to the form that fires when the its submitted
 		$('#newEmployee').submit(function (e) {
 		    e.preventDefault();
 		    console.log('$(this).serializeArray();',$(this).serializeArray())
@@ -19,12 +13,15 @@
 		    addNewEmployee(newEmployeeInfo[0].value, newEmployeeInfo[1].value);
 		});
 
+		//since the element is there when the page loads, we can directly bind an event to the form that fires when the its submitted
 		$('#newAdmin').submit(function (e) {
 		    e.preventDefault();
 		    var newAdminInfo = $(this).serializeArray();
 		    addNewAdmin(newAdminInfo[0].value,newAdminInfo[1].value, newAdminInfo[2].value);
 	    });
 
+		//We CAN NOT directly attach an event to the "edit admin" form since its not there when the page loads.
+		//So we attach it to the document.  
 		$(document).on('submit', '.editAdmin', function (e) {
 			e.preventDefault();
 			var clickedButton =  $( ":input[type=submit]:focus");
@@ -32,6 +29,10 @@
 		   	var newAdminInfo = $(this).serializeArray();
 		    editAdmin(newAdminInfo[0].value, newAdminInfo[1].value, newAdminInfo[2].value, newAdminInfo[3].value, clickedButton[0].value);
 		});
+
+		function print () {
+			printPage('employeeLogin', window.localStorage.newestEmployee);
+		}
 
 		//fetch admin records when page loads
 		getAdmins();

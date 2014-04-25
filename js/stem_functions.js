@@ -90,7 +90,7 @@ function addNewEmployee (first_name, last_name) {
 	})
 	.done(function (data) {
 		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
-		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:go()">Click here to print employees login information.</a>');
+		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:print()">Click here to print employees login information.</a>');
 
 	})
 	.fail(function(jqXHR, textStatus) {

@@ -7,7 +7,6 @@
 <br/>
 <br/>
 <br/>
-<br/>
 <center><h3>Employer Information</h3></center>
 <center><img src="http://www.somersetcountychamber.com/Portals/23/Somerset%20Trust%20logo%20NEW%20Color.jpg"
 height="70px" width="160px"/></center>
@@ -15,7 +14,6 @@ height="70px" width="160px"/></center>
 <b><center>814-443-9200</center></b>
 <b><center>Federal Employer Identification # 25-0807970</center></b>
 <b><center>Contact: Gloria J. Pritts, Vice President</center></b>
-<br/>
 <br/>
 <br/>
 <br/>

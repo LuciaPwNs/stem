@@ -50,26 +50,24 @@
 			employeeData[this.name] = this.value;
 		   	window.localStorage.setItem('employee', JSON.stringify(employeeData));
 		});
+
+		//when the search box submits run this function
+		$("#searchBox").submit(function (e) {
+			e.preventDefault();
+			var newAdminInfo = $(this).serializeArray();
+			searchForEmployee(newAdminInfo[0].value);
+		});
 	    
 	})  
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>
 <div id="container">
-	
 	<div id="search_box">
-	    <script type="text/javascript">
-	        $(document).ready(function(){
-	            //When the webpage is ready, bind javascript function to the button on the search box
-	            $("#searchSubmit").click(function () {
-	                searchForEmployee($('#searchValue').val());
-	            });
-	        })
-	    </script>
-	    <form id='searchBox'>
+	    <form id="searchBox">
 	        <a id="clear" href="javascript:clearEmployee()">Clear</a>
-	        <input type="text" id="searchValue">
-	        <input type="button" id="searchSubmit" value="search">
-	        search for employee 123 (only one in database)
+	        <input type="text" name="searchValue">
+	        <input type="submit" value="search"/>
+	        <br/>search for employee 123 (only one in database)
 	    </form>
 	</div>
 

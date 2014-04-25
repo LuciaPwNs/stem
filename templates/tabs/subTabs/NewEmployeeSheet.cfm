@@ -10,7 +10,7 @@
 		<input type="text" name="city" size="50" placeholder="City"><br/>
 
 	<p>State:
-		<select name="state_1">
+		<select name="state">
 			<option value="AL">AL</option>
 			<option value="AK">AK</option>
 			<option value="AZ">AZ</option>
@@ -64,7 +64,7 @@
 			<option value="WY">WY</option>
 		</select></p>
 
-</form><br/>
+
 
 		<input type="text" name="zip" size="20" placeholder="Zip Code"><br/>
 
@@ -72,7 +72,7 @@
 
 		<input type="date" name="birthdate" width="50"> Date of Birth<br/><br/>
 
-		<input type="text" name="Tele_phone" size="50" placeholder="Telephone #"><br/>
+		<input type="text" name="home_phone" size="50" placeholder="Home Phone Number"><br/>
 
 		<input type="text" name="driver_license" size="20" placeholder="Driver License Number">
 
@@ -202,19 +202,19 @@
 			</select></p><br><br/>
 		<p><b>Fringe:</b></p>
 		<p>Cell Phone
-		<input type="radio" name="cell_phone1" value="yes">
+		<input type="radio" name="fringe_cell_phone" value="yes">
 				Yes
-			<input type="radio" name="cell_phone2" value="yes">
+			<input type="radio" name="fringe_cell_phone" value="yes">
 				No </p>
 		<p>Travel Stipend
-		<input type="radio" name="travel1" value="yes">
+		<input type="radio" name="fringe_travel_stipend" value="yes">
 				Yes
-			<input type="radio" name="travel2" value="yes">
+			<input type="radio" name="fringe_travel_stipend" value="yes">
 				No </p>
 		<p>Medical Co-Premium Deduction
-		<input type="radio" name="deduction1" value="yes">
+		<input type="radio" name="fringe_medical_prem_deduction" value="yes">
 				Yes
-			<input type="radio" name="deduction2" value="yes">
+			<input type="radio" name="fringe_medical_prem_deduction" value="yes">
 				No <br/><br/></p>
 			</form>
 

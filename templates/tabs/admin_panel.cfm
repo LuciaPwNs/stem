@@ -14,12 +14,13 @@
 
 		$('#newEmployee').submit(function (e) {
 		    e.preventDefault();
-		    addNewEmployee($(this).children('#newEmpFirstName').val(), $(this).children('#newEmpLastName').val());
+		    console.log('$(this).serializeArray();',$(this).serializeArray())
+		    var newEmployeeInfo = $(this).serializeArray();
+		    addNewEmployee(newEmployeeInfo[0].value, newEmployeeInfo[1].value);
 		});
 
 		$('#newAdmin').submit(function (e) {
 		    e.preventDefault();
-		    console.log('$(this).serialize()', $(this).serialize());
 		    var newAdminInfo = $(this).serializeArray();
 		    addNewAdmin(newAdminInfo[0].value,newAdminInfo[1].value, newAdminInfo[2].value);
 	    });

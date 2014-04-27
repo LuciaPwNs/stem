@@ -1,19 +1,30 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		//Load form when the document is completely done loading
-		//console.log('Currently Loaded Employee', JSON.parse(window.localStorage.employee));
 
+		//Load form when the document is completely done loading
+		//*ASL Probably shouldnt parse the localstorage data for EVERY element
 		$('form[name="employeeDataForm"] :input').each(function() {
 	        if (typeof window.localStorage.employee !== 'undefined') {
 		        //use this.name to get the value for that field from document.employee
 		        var employeeData = JSON.parse(window.localStorage.employee);
+		        //console.log('employeeData',employeeData);
+
 		      	//ignore the submit input
 		        if ($(this).attr('type') !== "submit") {
 		        	//update everything that isnt a submit button
+		        	console.log('this.name', this.name);
 		        	$(this).val(employeeData[this.name]);
 	        	}
 	        }
 	    });
+
+		//load any pdfs they might have saved into the uploadedForms div
+	    $('form[name="employeeDataForm"] #uploadedForms').each(function() {
+	    	console.log('form id', $(this).attr('id'));
+	    	var employeeData = JSON.parse(window.localStorage.employee);
+
+			<!---$(this).append("<iframe src='\stem\uploads\Calendar-Emp.pdf'></iframe>");--->
+	    })
 
 	    //load basic info on top of page
 	    $('#basicInfo').children('span').each(function() {
@@ -23,13 +34,12 @@
 		        //use $(this).attr('name') to get the value for that field from document.employee
 		        $(this).text(employeeData[$(this).attr('name')]);
 	    	}
-	    	
-	        
 	    });
 
 	    //When the event "cfSessionLoaded" fires us use the session variable to get employee data
 		//Load employee data when session.selectedEmployee is set or after search
 		$(document).on( "cfSessionLoaded", "reloadEmployeeData", function() {
+			console.log('go get employee data')
 	        getEmployeeData(window.localStorage.selectedEmployee);
 	    });
 	    
@@ -56,9 +66,15 @@
 			e.preventDefault();
 			var newAdminInfo = $(this).serializeArray();
 			searchForEmployee(newAdminInfo[0].value);
-		});
-	    
-	})  
+		});	    
+	})
+	//Clear currently selected employee
+	function clearEmployee () {
+		window.localStorage.removeItem('employee');
+		window.localStorage.removeItem('selectedEmployee');
+		console.log('window.localStorage.employee cleared', window.localStorage.employee);
+		location.reload();
+	}  
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>
 <div id="container">

@@ -28,11 +28,7 @@
 			});
 			*/
 						
-			function clearEmployee () {
-				window.localStorage.removeItem('employee');
-				console.log('window.localStorage.employee cleared', window.localStorage.employee);
-				location.reload();
-			}
+
 		</script>
 
 		<cfajaximport/>	

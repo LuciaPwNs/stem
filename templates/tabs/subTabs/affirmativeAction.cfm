@@ -20,7 +20,7 @@
 		and kept confidential in accordance with applicable laws and regulations.</p>
 		
 		<h3>Applicant Information</h3> 
-			<input type="text" name="first_name" size="50" placeholder="First Name"><br/>
+			<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
 			<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
 			
 			<input type="text" name="address_1" size="50" placeholder="Address"><br/>

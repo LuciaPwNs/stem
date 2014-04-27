@@ -1,14 +1,4 @@
-<div id="uploadedForms">
-		<!--Repeat over files and output them-->
-	
-</div>
-<div id="uploadPDFButton">
-	<!---
-	<form id="uploadPDF" enctype="multipart/form-data" method="post">
-		<input type="file" name="FiletoUpload"><br/>
-		<input type="submit" value="Upload"> 
-	</form>
---->
+<div id="uploadPDF">
 	<cfif isDefined("fileUpload")>
 	  <cffile action="upload"
 	     fileField="fileUpload"
@@ -16,7 +6,11 @@
 	     <p>Thankyou, your file has been uploaded.</p>
 	</cfif>
 	<form enctype="multipart/form-data" method="post">
-		<input type="file" name="fileUpload" /><br />
+		<input type="file" name="fileUpload" />
 		<input type="submit" value="Upload File" />
 	</form>
+	<div id="uploadedForms">
+		<!--Repeat over files and output them-->
+	
+	</div>
 </div>

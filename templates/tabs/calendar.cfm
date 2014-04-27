@@ -2,7 +2,7 @@
 	<button type="button" class="side_nav_button">Vacation Calendar</button>
 </div>
 <div id="employee_info">
-	<form name='employeeDataForm' id='calendar'>
+	<form name='employeeDataForm' id='employee_vacation.location'>
 		<cfinclude template="subTabs/importPDF.cfm">
 	</form>
 </div>

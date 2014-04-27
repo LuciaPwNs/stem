@@ -78,7 +78,7 @@
 				</cfloop>
 			</cfloop>
 		</cfloop>
-		
+
 		<cfreturn #employeeData#>
 	</cffunction>
 
@@ -109,12 +109,12 @@
 		    <cfcase value="affirmativeaction">
 		       	<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
 					UPDATE employee SET 
-						first_name = '#employeeData.first_name#',
-						last_name = '#employeeData.last_name#',
-						address_1 = '#employeeData.address_1#',
-						address_2 = '#employeeData.address_2#',
-						cell_phone = '#employeeData.cell_phone#' 
-					WHERE id = '#employeeData.id#';
+						first_name = '#employeeData.employee.first_name#',
+						last_name = '#employeeData.employee.last_name#',
+						address_1 = '#employeeData.employee.address_1#',
+						address_2 = '#employeeData.employee.address_2#',
+						cell_phone = '#employeeData.employee.cell_phone#' 
+					WHERE id = '#employeeData.employee.id#';
 				</cfquery>
 				
 				<cfdump var="#queryStatus#"/>

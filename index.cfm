@@ -8,9 +8,7 @@
 		<script type="text/javascript">
 			//Check if Query is loaded
 			if (typeof jQuery != 'undefined') {
-			    console.log("jQuery library is loaded!");
-			} else {
-			    
+			    //console.log("jQuery library is loaded!");
 			}
 			
 			/*Make a global variable session to match document.cookie (just in case we decide to use it)

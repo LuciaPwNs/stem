@@ -12,7 +12,6 @@
 		      	//ignore the submit input
 		        if ($(this).attr('type') !== "submit") {
 		        	//update everything that isnt a submit button
-		        	console.log('this.name', this.name);
 		        	$(this).val(employeeData[this.name]);
 	        	}
 	        }
@@ -20,10 +19,11 @@
 
 		//load any pdfs they might have saved into the uploadedForms div
 	    $('form[name="employeeDataForm"] #uploadedForms').each(function() {
-	    	console.log('form id', $(this).attr('id'));
-	    	var employeeData = JSON.parse(window.localStorage.employee);
 
-			<!---$(this).append("<iframe src='\stem\uploads\Calendar-Emp.pdf'></iframe>");--->
+	    	var pdfName = $(this).parent().parent().attr('id');
+	    	var employeeData = JSON.parse(window.localStorage.employee);
+	    	console.log('employeeData', employeeData);
+			$(this).append("<iframe src='" + employeeData[pdfName] + "'></iframe>");
 	    })
 
 	    //load basic info on top of page
@@ -94,11 +94,11 @@
 	        <img src="images/profile_default.png"/>
 	    </div>
 	    <div id="basicInfo">
-	        ID: <span name="id"></span><br/>
-	        First Name: <span name="first_name"></span><br/>
-	        Last Name: <span name="last_name"></span><br/>
-	        Address: <span name="address_1"></span><br/>
-	                 <span name="address_2"></span><br/> 
+	        ID: <span name="employee.id"></span><br/>
+	        First Name: <span name="employee.first_name"></span><br/>
+	        Last Name: <span name="employee.last_name"></span><br/>
+	        Address: <span name="employee.address_1"></span><br/>
+	                 <span name="employee.address_2"></span><br/> 
 	    </div>
 	</div>
 	<a id="admin_panel" href="index.cfm?adminPanel">Admin Panel</a>

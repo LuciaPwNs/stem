@@ -17,17 +17,7 @@ function getEmployeeData (selectedEmployee) {
 				}
 		    },
 		    success: function (data) {
-				console.log('data', data);
-				/*
-	    		var employee = {};
-	    		for(var i = 0; i < data.COLUMNS.length; i++) {
-	    			console.log('employee[data.COLUMNS[i].toLowerCase()]', data.COLUMNS[i].toLowerCase());
-	    			employee[data.COLUMNS[i].toLowerCase()] = data.DATA[0][i];
-	    		}
-				*/
 	    		window.localStorage.setItem('employee', JSON.stringify(data));
-
-
 	    		$(document).trigger('employeeDataReady');
 	    		location.reload();
 			},

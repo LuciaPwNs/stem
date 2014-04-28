@@ -70,8 +70,6 @@
 			<option value="WY">WY</option>
 		</select></p>
 
-</form><br/>
-
 		<input type="text" name="zip" size="20" placeholder="Zip Code"><br/>
 
 		<input type="text" name="social_security" size="20" placeholder="Social Security Number"><br/><br/>
@@ -89,6 +87,11 @@
 		<input type="text" name="eit_rate" size="50" placeholder="Total Resident EIT Rate"><br/><br><br/>
 
 	<h3>Employer Information - Employment Location</h3>
+
+		
+	<input type="text" name="jhjke" size="50" placeholder="Daytime Phone Number" readonly><br/>
+
+	<input type="text" name="zip" size="20" value="Zip Code"><br/>
 
 		<p>Employee Business Name (Use Federal ID Name): 
 			<select name="Employee Business Name">

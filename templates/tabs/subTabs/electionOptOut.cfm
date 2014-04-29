@@ -22,17 +22,20 @@
 			<input type="date" name="hire_date" width="50"> Date of Hire<br/><br/>
 
 		<script type="text/javascript">
-		//<![CDATA[
-		<!--- javascript to make health plan buttons inactive if opted out AND if EPO/PPO is selected first, it auto selects OPT IN--->
-		//]]>
+			$(document).ready(function(){	
+				$("input.healthplan_type[type='radio']").change(function(){
+					$(this).prev().prop("checked", true);
+					console.log("this", $(this).prev());
+				})
+			})	
 		</script>
 
 		<b>2. Medical / Vision / Dental Insurance</b><br/>
 
 			<input type="radio" name="fullCoverage" value="yes">
 				I hearby elect the following medical/vision/dental coverage under the plan and hereby agree to pay for the coverage in the specified for each pay period, through payroll deduction.<br/>
-			<input type="radio" name="health_plan" value="yes"> EPO
-			<input type="radio" name="health_plan" value="yes"> PPO<br/><br/>
+			<input type="radio" name="health_plan" value="yes" class="healthplan_type"> EPO
+			<input type="radio" name="health_plan" value="yes" class="healthplan_type"> PPO<br/><br/>
 			<input type="radio" name="fullCoverage" value="no">
 				I hereby elect to <b>OPT OUT</b> for the medical, vision, and dental coverage.<br/><br/>
 			<table class="table">

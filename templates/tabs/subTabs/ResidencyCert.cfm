@@ -70,8 +70,6 @@
 			<option value="WY">WY</option>
 		</select></p>
 
-</form><br/>
-
 		<input type="text" name="zip" size="20" placeholder="Zip Code"><br/>
 
 		<input type="text" name="social_security" size="20" placeholder="Social Security Number"><br/><br/>
@@ -82,73 +80,35 @@
 
 		<input type="text" name="county" size="50" placeholder="County"><br/>
 
-		<input type="text" name="day_phone" size="50" placeholder="Daytime Phone Number"><br/>
-
 		<input type="text" name="residency_psd_code" size="50" placeholder="Residency PSD Code"><br/>
 
 		<input type="text" name="eit_rate" size="50" placeholder="Total Resident EIT Rate"><br/><br><br/>
 
 	<h3>Employer Information - Employment Location</h3>
 
-		<p>Employee Business Name (Use Federal ID Name): 
-			<select name="Employee Business Name">
-			    <option value="">- Please select one -</option>
-				<option value="business_name1">Somerset Trust Company
-			</select></p>
+		<input type="text" name="employer_business_name" size="50" value="Somerset Trust Company"><br/>
+		
+		<input type="text" name="employer_street_addres" size="50" value="151 West Main Street"><br/>
 
-		<p>Street Address Where Above Employee Reports to Work: 
-			<select name="Street Address Where Above Employee Reports to Work">
-			    <option value="">- Please select one -</option>
-				<option value="employer_address1">151 West Main Street
-			</select></p>
+ 		<input type="text" name="employer_city" size="50" value="Somerset"><br/>
 
-		<p>City: 
-			<select name="City">
-			    <option value="">- Please select one -</option>
-				<option value="employer_address1">Somerset
-			</select></p>
-	
-		<p>State:
-		<select name="state_1">
-			<option value="">- Please select one -</option>
-			<option value="PA">PA</option>
-		</select></p>
+	<input type="text" name="employer_state" size="20" value="PA"><br/>
 
-		<p>Zip Code: 
-			<select name="Zip Code">
-			    <option value="">- Please select one -</option>
-				<option value="employer_zip1">15501
-			</select></p>
+		<input type="text" name="employer_zip" size="20" value="15501"><br/>
 
-		<p>Phone Number: 
-			<select name="Phone Number">
-			    <option value="">- Please select one -</option>
-				<option value="employer_phone1">814-443-9200
-			</select></p>
+		<input type="text" name="employer_fein" size="20" value="250807970"><br/><br/>
 
-		<p>Municipality: 
-			<select name="Municipality">
-			    <option value="">- Please select one -</option>
-				<option value="employer_municipality1">Somerset Boro
-			</select></p>
+		<input type="text" name="employer_phone" size="50" value="814-443-9200"><br/>
 
-		<p>County: 
-			<select name="County">
-			    <option value="">- Please select one -</option>
-				<option value="employer_county1">Somerset
-			</select></p>
+		<input type="text" name="employer_municipality" size="50" value="Somerset Boro"><br/>
 
-		<p>Work Location PSD Code: 
-			<select name="Work Location PSD Code">
-			    <option value="">- Please select one -</option>
-				<option value="employer_psd1">560903
-			</select></p>
+		<input type="text" name="employer_county" size="50" value="Somerset"><br/>
 
-		<p>Work Location Non-Resident EIT Rate: 
-			<select name="Work Location Non-Resident EIT Rate:">
-			    <option value="">- Please select one -</option>
-				<option value="employer_address1">.50
-			</select></p><br/>
+		<input type="text" name="employer_psd_code" size="50" value="560903"><br/>
+
+		<input type="text" name="employer_eit_rate" size="50" value=".50"><br/><br><br/>
+ 
+		
 
 	<h3>Certification</h3>
 

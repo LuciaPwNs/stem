@@ -20,22 +20,22 @@
 		and kept confidential in accordance with applicable laws and regulations.</p>
 		
 		<h3>Applicant Information</h3> 
-			<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
+			<input type="text" name="first_name" size="50" placeholder="First Name"><br/>
 			<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
 			
 			<input type="text" name="address_1" size="50" placeholder="Address"><br/>
 			<input type="text" name="address_2" size="50"><br/>
 
-			<input type="text" name="state_1" size="50" placeholder="State"><br/>
+			<input type="text" name="state" size="50" placeholder="State"><br/>
 
-			<input type="text" name="zip_code" size="50" placeholder="Zip Code"><br/>
+			<input type="text" name="zip" size="50" placeholder="Zip Code"><br/>
 			
-			<input type="text" name="Tele_phone" size="50" placeholder="Telephone #"><br/> 
+			<input type="text" name="cell_phone" size="50" placeholder="Telephone #"><br/> 
 
-			<input type="text" name="Positions_Applied" size="50" placeholder="Position(s) applied for "><br/> 
+			<input type="text" name="positions_applied" size="50" placeholder="Position(s) applied for "><br/> 
 			
 			<br/><h3>Referral Source</h3>
-			<select name="Referral Source">
+			<select name="referral_source">
 			    <option value="">- Please select one -</option>
 				<option value="referral1">Walk-in
 				<option value="referral2">Employee
@@ -47,7 +47,7 @@
 				<option value="referral8">Private Employment Agency
 				<option value="referral9">Other
 			</select>
-			<input type="text" name="Other" size="25" placeholder="Other"><br/> 
+			<input type="text" name="referral_extra_info" size="25" placeholder="Other"><br/> 
 
 			
 			<br/><h3>Gender</h3>
@@ -59,17 +59,17 @@
 
 
 			<br/><h3>Please select one of the following Equal Employment Opportunity Identification Groups:</h3>
-			<select name="Referral Source">
+			<select name="employee_ethnicity">
 			    <option value="">- Please select one -</option>
-				<option value="Group1">Native American Indian/Alaskan Native
-				<option value="Group2">African American
-				<option value="Group3">White
-				<option value="Group4">Hispanic or Latino
-				<option value="Group5">Native Hawaiian or Other Pacific Islander
-				<option value="Group6">Two or more Races
-				<option value="Group7">Other
+				<option value="Native American Indian/Alaskan Native">Native American Indian/Alaskan Native
+				<option value="African American">African American
+				<option value="White">White
+				<option value="Hispanic or Latino">Hispanic or Latino
+				<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander
+				<option value="Two or more Races">Two or more Races
+				<option value="Other">Other
 			</select>
-			<input type="text" name="Other" size="25" placeholder="Other"><br/> 
+			<input type="text" name="referral_extra_info" size="25" placeholder="Other"><br/> 
 
 			<br/><br/><b>If American Indian, check if any of the following are applicable:</b>
 
@@ -117,7 +117,7 @@
 
 			<br/><br/><b>Notes:</b>
 
-			<br/><textarea name="comments" cols="25" rows="5">
+			<br/><textarea name="notes" cols="25" rows="5">
 			</textarea><br>
 			
 			<br/><input type="text" name="zip_code" size="50" placeholder="Completed by:"><br/>

@@ -89,7 +89,7 @@
 	<h3>Employer Information - Employment Location</h3>
 
 		
-	<input type="text" name="jhjke" size="50" placeholder="Daytime Phone Number" readonly><br/>
+	<input type="text" name="jhjke" size="50" value="Daytime Phone Number" text="sext"><br/>
 
 	<input type="text" name="zip" size="20" value="Zip Code"><br/>
 

@@ -124,7 +124,10 @@
 						expiration_date = '#employeeData.expiration_date#',
 						driver_license_state = '#employeeData.driver_license_state#',
 						email = '#employeeData.email#',
-						local_tax = '#employeeData.local_tax#'
+						local_tax = '#employeeData.local_tax#',
+						deposit_account_number = '#employeeData.deposit_account_number#',
+						deposit_account = '#employeeData.deposit_account#',
+						marital_status = '#employeeData.marital_status#'
 					WHERE id = '#employeeData.employee.id#';
 				</cfquery>
 				

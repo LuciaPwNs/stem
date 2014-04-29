@@ -8,9 +8,7 @@
 		<script type="text/javascript">
 			//Check if Query is loaded
 			if (typeof jQuery != 'undefined') {
-			    console.log("jQuery library is loaded!");
-			} else {
-			    
+			    //console.log("jQuery library is loaded!");
 			}
 			
 			/*Make a global variable session to match document.cookie (just in case we decide to use it)
@@ -28,11 +26,7 @@
 			});
 			*/
 						
-			function clearEmployee () {
-				window.localStorage.removeItem('employee');
-				console.log('window.localStorage.employee cleared', window.localStorage.employee);
-				location.reload();
-			}
+
 		</script>
 
 		<cfajaximport/>	

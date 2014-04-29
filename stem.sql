@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2014 at 11:14 PM
+-- Generation Time: Apr 27, 2014 at 06:13 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -30,21 +30,20 @@ USE `stem`;
 
 CREATE TABLE IF NOT EXISTS `admins` (
   `id` int(25) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(25) DEFAULT NULL,
-  `last_name` varchar(25) DEFAULT NULL,
-  `permission` tinyint(1) DEFAULT NULL,
-  `password` varchar(25) DEFAULT NULL,
-  `roles` varchar(11) DEFAULT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `permission` tinyint(1) NOT NULL,
+  `password` varchar(25) NOT NULL,
+  `roles` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123465 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=123457 ;
 
 --
 -- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`id`, `first_name`, `last_name`, `permission`, `password`, `roles`) VALUES
-(123456, 'Brooke', 'Engle', 1, 'pass', 'admin'),
-(123458, 'Adam', 'Lucia', NULL, 'test', 'admin');
+(123456, 'Brooke', 'Engle', 1, 'pass', 'admin');
 
 -- --------------------------------------------------------
 
@@ -75,12 +74,13 @@ CREATE TABLE IF NOT EXISTS `eeo_job_classifications` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-  `401k_location` varchar(50) DEFAULT NULL,
+  `401k_location` varchar(250) DEFAULT NULL,
   `id` int(25) NOT NULL AUTO_INCREMENT,
   `password` varchar(25) DEFAULT NULL,
   `roles` varchar(25) DEFAULT NULL,
-  `photo` varchar(50) DEFAULT NULL,
-  `last_modified` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `photo` varchar(250) DEFAULT NULL,
+  `last_modified` date DEFAULT NULL,
+  `birthdate` date NOT NULL,
   `first_name` varchar(25) DEFAULT NULL,
   `last_name` varchar(25) DEFAULT NULL,
   `address_1` varchar(25) DEFAULT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `social_security` varchar(9) DEFAULT NULL,
   `cell_phone` varchar(10) DEFAULT NULL,
   `home_phone` varchar(10) DEFAULT NULL,
-  `driver_license` varchar(25) DEFAULT NULL,
+  `driver_license` varchar(250) DEFAULT NULL,
   `issue_date` date DEFAULT NULL,
   `expiration_date` date DEFAULT NULL,
   `driver_license_state` varchar(25) DEFAULT NULL,
@@ -119,20 +119,21 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `fringe_cell_phone` tinyint(1) DEFAULT NULL,
   `fringe_travel_stipend` tinyint(1) DEFAULT NULL,
   `fringe_medical_prem_deduction` tinyint(1) DEFAULT NULL,
-  `employment_proposal` varchar(25) DEFAULT NULL,
+  `employment_proposal` varchar(250) DEFAULT NULL,
   `status` varchar(25) DEFAULT NULL,
   `hire_date` date DEFAULT NULL,
   `w4_exemptions` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1247 ;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
-('', 123, 'password', '', '', '2014-02-13 05:00:00', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know'),
-(NULL, 1348, 'EPQRC', NULL, NULL, '2014-04-24 14:21:57', 'Adam ', 'Lucia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `birthdate`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
+('', 123, 'password', '', '', '2014-02-13', '0000-00-00', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know'),
+(NULL, 1245, 'NRZDY', NULL, NULL, NULL, '0000-00-00', 'adam', 'lucia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(NULL, 1246, 'HYWTX', NULL, NULL, NULL, '0000-00-00', 'undefined', 'undefined', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -141,24 +142,15 @@ INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `la
 --
 
 CREATE TABLE IF NOT EXISTS `employee_affirmative_action` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `positions_applied` varchar(25) DEFAULT NULL,
-  `referral_source` varchar(25) DEFAULT NULL,
-  `referral_extra_info` varchar(25) DEFAULT NULL,
-  `employee_ethnicity` varchar(25) DEFAULT NULL,
-  `american_indian_options` varchar(25) DEFAULT NULL,
-  `notes` varchar(25) DEFAULT NULL,
-  `afirmative_action_completed_by_sig` varchar(25) DEFAULT NULL,
-  `affirmative_action_date` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
-
---
--- Dumping data for table `employee_affirmative_action`
---
-
-INSERT INTO `employee_affirmative_action` (`id`, `positions_applied`, `referral_source`, `referral_extra_info`, `employee_ethnicity`, `american_indian_options`, `notes`, `afirmative_action_completed_by_sig`, `affirmative_action_date`) VALUES
-(1348, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+  `positions_applied` varchar(25) NOT NULL,
+  `referral_source` varchar(25) NOT NULL,
+  `referral_extra_info` varchar(25) NOT NULL,
+  `employee_ethnicity` varchar(25) NOT NULL,
+  `american_indian_options` varchar(25) NOT NULL,
+  `notes` varchar(250) NOT NULL,
+  `afirmative_action_completed_by_sig` varchar(25) NOT NULL,
+  `affirmative_action_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -167,19 +159,11 @@ INSERT INTO `employee_affirmative_action` (`id`, `positions_applied`, `referral_
 --
 
 CREATE TABLE IF NOT EXISTS `employee_health_welfare` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `opt_out` tinyint(1) DEFAULT NULL,
-  `insurance_type` varchar(25) DEFAULT NULL,
-  `insurance_coverage` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
-
---
--- Dumping data for table `employee_health_welfare`
---
-
-INSERT INTO `employee_health_welfare` (`id`, `opt_out`, `insurance_type`, `insurance_coverage`) VALUES
-(1348, NULL, NULL, NULL);
+  `id` varchar(25) NOT NULL,
+  `opt_out` tinyint(1) NOT NULL,
+  `insurance_type` varchar(25) NOT NULL,
+  `insurance_coverage` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -188,21 +172,12 @@ INSERT INTO `employee_health_welfare` (`id`, `opt_out`, `insurance_type`, `insur
 --
 
 CREATE TABLE IF NOT EXISTS `employee_health_welfare_dependents` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `dependent_first_name` varchar(25) DEFAULT NULL,
-  `dependent_last_name` varchar(25) DEFAULT NULL,
-  `dependent_middle_name` varchar(25) DEFAULT NULL,
-  `dependent_dob` date DEFAULT NULL,
-  `dependent_ssn` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
-
---
--- Dumping data for table `employee_health_welfare_dependents`
---
-
-INSERT INTO `employee_health_welfare_dependents` (`id`, `dependent_first_name`, `dependent_last_name`, `dependent_middle_name`, `dependent_dob`, `dependent_ssn`) VALUES
-(1348, NULL, NULL, NULL, NULL, NULL);
+  `dependent_type` varchar(30) NOT NULL,
+  `id` varchar(25) NOT NULL,
+  `dependent_name` varchar(40) NOT NULL,
+  `dependent_birthdate` date NOT NULL,
+  `dependent_social_security` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -211,10 +186,9 @@ INSERT INTO `employee_health_welfare_dependents` (`id`, `dependent_first_name`, 
 --
 
 CREATE TABLE IF NOT EXISTS `employee_indian_options` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `options` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `id` varchar(25) NOT NULL,
+  `options` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -223,17 +197,9 @@ CREATE TABLE IF NOT EXISTS `employee_indian_options` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee_pension_plan` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `location` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
-
---
--- Dumping data for table `employee_pension_plan`
---
-
-INSERT INTO `employee_pension_plan` (`id`, `location`) VALUES
-(1348, NULL);
+  `id` varchar(25) NOT NULL,
+  `location` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -242,38 +208,30 @@ INSERT INTO `employee_pension_plan` (`id`, `location`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `employee_reference` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(25) DEFAULT NULL,
-  `middle_name` varchar(25) DEFAULT NULL,
-  `last_name` varchar(25) DEFAULT NULL,
-  `organization` varchar(25) DEFAULT NULL,
-  `position` varchar(25) DEFAULT NULL,
-  `home_telephone` varchar(10) DEFAULT NULL,
-  `work_phone` varchar(10) DEFAULT NULL,
-  `cell_telephone` varchar(10) DEFAULT NULL,
-  `date_called` date DEFAULT NULL,
-  `reference_type` varchar(25) DEFAULT NULL,
-  `position_held` varchar(25) DEFAULT NULL,
-  `relationship_length` varchar(25) DEFAULT NULL,
-  `good_absentee_record` tinyint(1) DEFAULT NULL,
-  `professional` tinyint(1) DEFAULT NULL,
-  `analytical_skills` tinyint(1) DEFAULT NULL,
-  `trustworthy` tinyint(1) DEFAULT NULL,
-  `good_work_ethics` tinyint(1) DEFAULT NULL,
-  `dependable` tinyint(1) DEFAULT NULL,
-  `quick_learner` tinyint(1) DEFAULT NULL,
-  `motivated` tinyint(1) DEFAULT NULL,
-  `good_comm_skills` tinyint(1) DEFAULT NULL,
-  `good_cust_service_skills` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
-
---
--- Dumping data for table `employee_reference`
---
-
-INSERT INTO `employee_reference` (`id`, `first_name`, `middle_name`, `last_name`, `organization`, `position`, `home_telephone`, `work_phone`, `cell_telephone`, `date_called`, `reference_type`, `position_held`, `relationship_length`, `good_absentee_record`, `professional`, `analytical_skills`, `trustworthy`, `good_work_ethics`, `dependable`, `quick_learner`, `motivated`, `good_comm_skills`, `good_cust_service_skills`) VALUES
-(1348, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+  `id` varchar(25) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `middle_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `organization` varchar(25) NOT NULL,
+  `position` varchar(25) NOT NULL,
+  `home_telephone` varchar(10) NOT NULL,
+  `work_phone` varchar(10) NOT NULL,
+  `cell_telephone` varchar(10) NOT NULL,
+  `date_called` date NOT NULL,
+  `reference_type` varchar(25) NOT NULL,
+  `position_held` varchar(25) NOT NULL,
+  `relationship_length` varchar(25) NOT NULL,
+  `good_absentee_record` tinyint(1) NOT NULL,
+  `professional` tinyint(1) NOT NULL,
+  `analytical_skills` tinyint(1) NOT NULL,
+  `trustworthy` tinyint(1) NOT NULL,
+  `good_work_ethics` tinyint(1) NOT NULL,
+  `dependable` tinyint(1) NOT NULL,
+  `quick_learner` tinyint(1) NOT NULL,
+  `motivated` tinyint(1) NOT NULL,
+  `good_comm_skills` tinyint(1) NOT NULL,
+  `good_cust_service_skills` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -282,17 +240,9 @@ INSERT INTO `employee_reference` (`id`, `first_name`, `middle_name`, `last_name`
 --
 
 CREATE TABLE IF NOT EXISTS `employee_stock_ownership` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `location` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1349 ;
-
---
--- Dumping data for table `employee_stock_ownership`
---
-
-INSERT INTO `employee_stock_ownership` (`id`, `location`) VALUES
-(1348, NULL);
+  `id` varchar(25) NOT NULL,
+  `location` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -301,10 +251,9 @@ INSERT INTO `employee_stock_ownership` (`id`, `location`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `employee_type` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
-  `type` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `id` varchar(25) NOT NULL,
+  `type` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -314,17 +263,10 @@ CREATE TABLE IF NOT EXISTS `employee_type` (
 
 CREATE TABLE IF NOT EXISTS `employee_vacation` (
   `id` varchar(25) NOT NULL,
-  `vacation_start` date DEFAULT NULL,
-  `vacation_end` date DEFAULT NULL,
-  `location` varchar(25) DEFAULT NULL
+  `vacation_start` date NOT NULL,
+  `vacation_end` date NOT NULL,
+  `location` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `employee_vacation`
---
-
-INSERT INTO `employee_vacation` (`id`, `vacation_start`, `vacation_end`, `location`) VALUES
-('1348', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

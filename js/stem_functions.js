@@ -10,21 +10,14 @@ function getEmployeeData (selectedEmployee) {
 		    	//if current selected employee is loaded dont get data again.
 				var employee = JSON.parse(window.localStorage.employee);
 				if(employee['id'] === selectedEmployee){
+					$(document).trigger('employeeDataReady');
 					return false;
 				} else {
 					return true;
 				}
 		    },
 		    success: function (data) {
-				//console.log('data', data);
-	    		var employee = {};
-	    		for(var i = 0; i < data.COLUMNS.length; i++) {
-	    			employee[data.COLUMNS[i].toLowerCase()] = data.DATA[0][i];
-	    		}
-
-	    		window.localStorage.setItem('employee', JSON.stringify(employee));
-
-	    		console.log('localStorage.employee', JSON.parse(localStorage.employee));
+	    		window.localStorage.setItem('employee', JSON.stringify(data));
 	    		$(document).trigger('employeeDataReady');
 	    		location.reload();
 			},

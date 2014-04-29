@@ -4,19 +4,82 @@
     <cffunction name="searchForEmployee" access="remote" returnFormat="JSON">
 		<cfargument name="searchValue" type="string" required="yes">
     	<cfquery datasource="stem" name="employeeSearch" result="employee" debug="true" cachedWithin = "#CreateTimeSpan(0, 0, 60, 0)#">
-			SELECT * FROM employee where id = #searchValue#;
+			SELECT * FROM employee WHERE id = #searchValue#;
 		</cfquery>
 		<!---output file that displays list of employees to pick from? After user clicks it redirect and set selectedEmployee--->
 		<cfreturn employeeSearch.id>
     </cffunction>
 
-<!--Load Employee data --->
+<!---Load Employee data --->
 	<cffunction name="getEmployeeData" access="remote" returnFormat="JSON">
 		<cfargument name="selectedEmployee" type="string" required="yes">
-		<cfquery datasource="stem" name="basic_employee_info" result="employee" debug="true">
-			SELECT * FROM employee where id = #selectedEmployee#;
+
+		<cfquery datasource="stem" name="employee_data" result="basic_employee_info" debug="true">
+			SELECT * FROM employee
+			WHERE employee.id = #selectedEmployee#;
 		</cfquery>
-		<cfreturn basic_employee_info>
+
+		<cfquery datasource="stem" name="employee_affirmative_action_data" result="" debug="true">
+			SELECT * FROM employee_affirmative_action
+			WHERE employee_affirmative_action.id = #selectedEmployee#;
+		</cfquery>
+
+		<cfquery datasource="stem" name="employee_health_welfare_data" result="" debug="true">
+			SELECT * FROM employee_health_welfare
+			WHERE employee_health_welfare.id = #selectedEmployee#;
+		</cfquery>
+
+		<cfquery datasource="stem" name="employee_health_welfare_dependents_data" result="" debug="true">
+			SELECT * FROM employee_health_welfare_dependents
+			WHERE employee_health_welfare_dependents.employee_id = #selectedEmployee#;
+		</cfquery>
+
+		<cfquery datasource="stem" name="employee_pension_plan_data" result="" debug="true">
+			SELECT * FROM employee_pension_plan
+			WHERE employee_pension_plan.id = #selectedEmployee#;
+		</cfquery>
+
+		<cfquery datasource="stem" name="employee_reference_data" result="" debug="true">
+			SELECT * FROM employee_reference
+			WHERE employee_reference.id = #selectedEmployee#;
+		</cfquery>
+
+		<cfquery datasource="stem" name="employee_stock_ownership_data" result="" debug="true">
+			SELECT * FROM employee_stock_ownership
+			WHERE employee_stock_ownership.id = #selectedEmployee#;
+		</cfquery>
+
+		<cfquery datasource="stem" name="employee_vacation_data" result="" debug="true">
+			SELECT * FROM employee_vacation
+			WHERE employee_vacation.id = #selectedEmployee#;
+		</cfquery>
+
+		<cfset data = [
+			#employee_data#, 
+			#employee_affirmative_action_data#, 
+			#employee_health_welfare_data#, 
+			#employee_health_welfare_dependents_data#,
+			#employee_pension_plan_data#,
+			#employee_reference_data#,
+			#employee_stock_ownership_data#,
+			#employee_vacation_data#
+		]>
+		<cfset employeeData = StructNew()>
+		<cfloop array="#data#" index="query">
+			<cfloop query="query">
+				<cfscript>
+					narrowQuery = REMatchNoCase("from\s*(.*?)\s*?where", query.getMetaData().getExtendedMetaData().sql);
+					removedFrom = ReplaceNoCase(ToString(#narrowQuery[1]#), "from", "");
+					removedWhere = ReplaceNoCase(ToString(#removedFrom#), "where", "");
+					tableName = trim(ToString(#removedWhere#));
+				</cfscript>
+				<cfloop list="#query.columnlist#" index="field">
+					<cfset employeeData[tableName & "." & LCASE(field)] = query[field][query.CurrentRow]>
+				</cfloop>
+			</cfloop>
+		</cfloop>
+
+		<cfreturn #employeeData#>
 	</cffunction>
 
 
@@ -62,7 +125,7 @@
 						driver_license_state = '#employeeData.driver_license_state#',
 						email = '#employeeData.email#',
 						local_tax = '#employeeData.local_tax#'
-					WHERE id = '#employeeData.id#';
+					WHERE id = '#employeeData.employee.id#';
 				</cfquery>
 				
 				<cfdump var="#queryStatus#"/>
@@ -116,7 +179,7 @@
 		</cfquery>
 
 		<cfquery datasource="stem" name="newEmployeeHealthWelfareDependents" result="result2" debug="true">
-			INSERT INTO employee_health_welfare_dependents (id)
+			INSERT INTO employee_health_welfare_dependents (employee_id)
 				VALUES('#result1.generated_key#');
 		</cfquery>
 

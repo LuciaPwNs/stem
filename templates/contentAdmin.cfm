@@ -1,12 +1,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		//Load form when the document is completely done loading
-		//console.log('Currently Loaded Employee', JSON.parse(window.localStorage.employee));
 
+		//Load form when the document is completely done loading
+		//*ASL Probably shouldnt parse the localstorage data for EVERY element
 		$('form[name="employeeDataForm"] :input').each(function() {
 	        if (typeof window.localStorage.employee !== 'undefined') {
 		        //use this.name to get the value for that field from document.employee
 		        var employeeData = JSON.parse(window.localStorage.employee);
+		        //console.log('employeeData',employeeData);
+
 		      	//ignore the submit input
 		        if ($(this).attr('type') !== "submit") {
 		        	//update everything that isnt a submit button
@@ -14,6 +16,15 @@
 	        	}
 	        }
 	    });
+
+		//load any pdfs they might have saved into the uploadedForms div
+	    $('form[name="employeeDataForm"] #uploadedForms').each(function() {
+
+	    	var pdfName = $(this).parent().parent().attr('id');
+	    	var employeeData = JSON.parse(window.localStorage.employee);
+	    	console.log('employeeData', employeeData);
+			$(this).append("<iframe src='" + employeeData[pdfName] + "'></iframe>");
+	    })
 
 	    //load basic info on top of page
 	    $('#basicInfo').children('span').each(function() {
@@ -23,13 +34,12 @@
 		        //use $(this).attr('name') to get the value for that field from document.employee
 		        $(this).text(employeeData[$(this).attr('name')]);
 	    	}
-	    	
-	        
 	    });
 
 	    //When the event "cfSessionLoaded" fires us use the session variable to get employee data
 		//Load employee data when session.selectedEmployee is set or after search
 		$(document).on( "cfSessionLoaded", "reloadEmployeeData", function() {
+			console.log('go get employee data')
 	        getEmployeeData(window.localStorage.selectedEmployee);
 	    });
 	    
@@ -56,9 +66,15 @@
 			e.preventDefault();
 			var newAdminInfo = $(this).serializeArray();
 			searchForEmployee(newAdminInfo[0].value);
-		});
-	    
-	})  
+		});	    
+	})
+	//Clear currently selected employee
+	function clearEmployee () {
+		window.localStorage.removeItem('employee');
+		window.localStorage.removeItem('selectedEmployee');
+		console.log('window.localStorage.employee cleared', window.localStorage.employee);
+		location.reload();
+	}  
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>
 <div id="container">
@@ -78,11 +94,11 @@
 	        <img src="images/profile_default.png"/>
 	    </div>
 	    <div id="basicInfo">
-	        ID: <span name="id"></span><br/>
-	        First Name: <span name="first_name"></span><br/>
-	        Last Name: <span name="last_name"></span><br/>
-	        Address: <span name="address_1"></span><br/>
-	                 <span name="address_2"></span><br/> 
+	        ID: <span name="employee.id"></span><br/>
+	        First Name: <span name="employee.first_name"></span><br/>
+	        Last Name: <span name="employee.last_name"></span><br/>
+	        Address: <span name="employee.address_1"></span><br/>
+	                 <span name="employee.address_2"></span><br/> 
 	    </div>
 	</div>
 	<a id="admin_panel" href="index.cfm?adminPanel">Admin Panel</a>

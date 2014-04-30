@@ -36,11 +36,10 @@
 </script>
 <div id="login_error"></div>
 <div id="login_box">
+    <img src="images/logo.png">
 	<cfform id="login" action="javascript:submitForm()">
-		<label for="id">ID: </label>
-		<cfinput type="text" name="id" validateat="onSubmit" required="true" message="Please enter something"><br/>
-		<label for="password">Password: </label>
-		<cfinput type="password" name="password" required="false"><br/>
+		<cfinput type="text" name="id" validateat="onSubmit" required="true" message="Please enter something" placeholder="ID"><br/>
+		<cfinput type="password" name="password" required="false" placeholder="Password"><br/>
 		<cfinput type="submit" name="submit" value="Submit">
 	</cfform>
 

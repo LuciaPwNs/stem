@@ -133,9 +133,9 @@
 				
 				<cfdump var="#queryStatus#"/>
 				<cfif #queryStatus.recordcount# eq 1>
-					<cfset status = 'User information saved!'>
+					<cfset queryStatus = 'User information saved!'>
 				<cfelse>
-					<cfset status = 'Something went wrong, contact tech support.'>
+					<cfset queryStatus = 'Something went wrong, contact tech support.'>
 				</cfif>
 				
 		    </cfcase> 
@@ -158,7 +158,7 @@
 		    </cfdefaultcase> 
 		</cfswitch> 
 		<!---output file that displays list of employees to pick from? After user clicks it redirect and set selectedEmployee--->
-		<cfreturn #status#>
+		<cfreturn #queryStatus#>
     </cffunction>
 
 <!---Add new Employee--->

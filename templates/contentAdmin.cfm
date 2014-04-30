@@ -1,6 +1,17 @@
 <script type="text/javascript">
+	
+	//Clear currently selected employee
+	function clearEmployee () {
+		window.localStorage.removeItem('employee');
+		window.localStorage.removeItem('selectedEmployee');
+		console.log('window.localStorage.employee cleared', window.localStorage.employee);
+		location.reload();
+	} 
+	
+	//define function name so it can be called out of document.ready
+	var deletePDF;
 	$(document).ready(function() {
-
+		
 		//Load form when the document is completely done loading
 		//*ASL Probably shouldnt parse the localstorage data for EVERY element
 		$('form[name="employeeDataForm"] :input').each(function() {
@@ -21,9 +32,11 @@
 	    $('form[name="employeeDataForm"] #uploadedForms').each(function() {
 
 	    	var pdfName = $(this).parent().parent().attr('id');
+	    	console.log('pdfname', pdfName);
 	    	var employeeData = JSON.parse(window.localStorage.employee);
-	    	console.log('employeeData', employeeData);
-			$(this).append("<iframe src='" + employeeData[pdfName] + "'></iframe>");
+			$(this).append('<div class="pdfContainer">' + 
+				'<span class="delete" onclick="javascript:deletePDF(' + pdfName + ')">X</span>' + 
+				'<iframe src="' + employeeData[pdfName] + '"></iframe></div>');
 	    })
 
 	    //load basic info on top of page
@@ -50,6 +63,7 @@
 		    event.preventDefault();
 		    console.log('submitting form!');
 		    console.log("$(this).attr('id')", $(this).attr('id'));
+
 		    saveEmployeeData($(this).attr('id'));
 		});
 
@@ -66,15 +80,17 @@
 			e.preventDefault();
 			var newAdminInfo = $(this).serializeArray();
 			searchForEmployee(newAdminInfo[0].value);
-		});	    
+		});
+
+		deletePDF = function(pdf){
+
+			var pdfToDelete = pdf + '.location'; 
+			var employeeData = JSON.parse(window.localStorage.employee);
+			console.log('look here', pdfToDelete);
+			employeeData[pdfToDelete] = ""; 
+			location.reload();
+		}	    
 	})
-	//Clear currently selected employee
-	function clearEmployee () {
-		window.localStorage.removeItem('employee');
-		window.localStorage.removeItem('selectedEmployee');
-		console.log('window.localStorage.employee cleared', window.localStorage.employee);
-		location.reload();
-	}  
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>
 <div id="container">

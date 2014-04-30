@@ -9,24 +9,7 @@
 			//Check if Query is loaded
 			if (typeof jQuery != 'undefined') {
 			    //console.log("jQuery library is loaded!");
-			}
-			
-			/*Make a global variable session to match document.cookie (just in case we decide to use it)
-			$.ajax({
-			    type: 'GET',
-			    url: 'components/stem_components.cfc?method=getSession',
-			    dataType: "json"
-			})
-			.done(function (data) {
-	    		document.session = data;
-	    		$(document).trigger('cfSessionLoaded');
-			})
-	  		.fail(function(jqXHR, textStatus) {
-				console.log( "Request failed: " + textStatus );
-			});
-			*/
-						
-
+			}			
 		</script>
 
 		<cfajaximport/>	
@@ -43,6 +26,4 @@
 		</cfif>
 		<br/>
 	</body>
-		All the browser cookies currently set and their values:<cfdump var="#cookie#" label="Current Cookies"></cfdump>
-		All the session variable that are set (CFID and CFTOKEN are by coldfusion to verify access):<cfdump var="#Session#" label="Current Session"></cfdump><br/><br/>
 </html>

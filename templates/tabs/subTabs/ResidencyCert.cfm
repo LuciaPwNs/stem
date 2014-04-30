@@ -8,15 +8,15 @@
 	<p>This form is to be used by employers and/or taxpayers to report essentialinformation for the collection and distribution of Locan Earned Income Taxes. This form must be utilized by employers when a new employee is hired or when a current employee notifies employer of a name and/or address change.</p><br><br/>
 
 	<h3>Employee Information - Residence Location</h3>
-		<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
-		<input type="text" name="first_name" size="50" placeholder="First Name"><br/>
-		<input type="text" name="mi_initial" size="50" placeholder="Middle Initial"><br/>
-		<input type="text" name="address_1" size="50" placeholder="Address"><br/>
-		<input type="text" name="address_2" size="50" placeholder="Address Line Two"><br/>
-		 		<input type="text" name="city" size="50" placeholder="City"><br/>
+		<input type="text" name="employee.last_name" size="50" placeholder="Last Name"><br/>
+		<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
+		<input type="text" name="employee.mi_initial" size="50" placeholder="Middle Initial"><br/>
+		<input type="text" name="employee.address_1" size="50" placeholder="Address"><br/>
+		<input type="text" name="employee.address_2" size="50" placeholder="Address Line Two"><br/>
+		 		<input type="text" name="employee.city" size="50" placeholder="City"><br/>
 
 	<p>State:
-		<select name="state_1">
+		<select name="employee.state">
 			<option value="AL">AL</option>
 			<option value="AK">AK</option>
 			<option value="AZ">AZ</option>
@@ -70,19 +70,19 @@
 			<option value="WY">WY</option>
 		</select></p>
 
-		<input type="text" name="zip" size="20" placeholder="Zip Code"><br/>
+		<input type="text" name="employee.zip" size="20" placeholder="Zip Code"><br/>
 
-		<input type="text" name="social_security" size="20" placeholder="Social Security Number"><br/><br/>
+		<input type="text" name="employee.social_security" size="20" placeholder="Social Security Number"><br/><br/>
 
-		<input type="text" name="day_phone" size="50" placeholder="Daytime Phone Number"><br/>
+		<input type="text" name="employee.day_phone" size="50" placeholder="Daytime Phone Number"><br/>
 
-		<input type="text" name="municipality" size="50" placeholder="Municipality (City, Borough, or Township)"><br/>
+		<input type="text" name="employee.municipality" size="50" placeholder="Municipality (City, Borough, or Township)"><br/>
 
-		<input type="text" name="county" size="50" placeholder="County"><br/>
+		<input type="text" name="employee.county" size="50" placeholder="County"><br/>
 
-		<input type="text" name="residency_psd_code" size="50" placeholder="Residency PSD Code"><br/>
+		<input type="text" name="employee.residency_psd_code" size="50" placeholder="Residency PSD Code"><br/>
 
-		<input type="text" name="eit_rate" size="50" placeholder="Total Resident EIT Rate"><br/><br><br/>
+		<input type="text" name="employee.eit_rate" size="50" placeholder="Total Resident EIT Rate"><br/><br><br/>
 
 	<h3>Employer Information - Employment Location</h3>
 
@@ -114,11 +114,15 @@
 
 			<p>Under penalties of perjury, I (we) declare that I (we) have examined this information, including all accompanying schedules and statements and to the best of my (our) belief, they are true, correct and complete.</p>
 
-		<input type="date" name="cert_date" width="50"> Date<br/><br/>
+		<input type="date" name="employee.cert_date" width="50"> Date<br/><br/>
 		
-		<input type="text" name="home_phone" size="50" placeholder="Phone Number"><br/>
+		<input type="text" name="employee.home_phone" size="50" placeholder="Phone Number"><br/>
 
-		<input type="text" name="email" size="50" placeholder="Email"><br/><br><br/>
+		<input type="text" name="employee.email" size="50" placeholder="Email"><br/><br><br/>
 
 		<p>For information on obtaining the appropriate MUNICIPALITY (City, Borough, Township), PSD CODES and EIT (Earned Income Tax) RATES, please refer to the Pennsylvania Department of Community & Economic Development website:<br><br/><center><b>www.newPA.com</b></center></p>
 
+			<br/><div id="message"></div>
+			<input type="submit" value="Submit">
+		</form>
+	</div>

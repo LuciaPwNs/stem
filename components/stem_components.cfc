@@ -176,9 +176,33 @@
 		    <cfcase value="residencyCert"> 
 		       	<cfquery datasource="stem" name="saveEmployee" result="employee">
 					UPDATE employee SET  
-
+						last_name = '#employee.last_name#',
+						first_name = '#employee.first_name#',
+						mi_initial = '#employee.mi_initial#',
+						address_1 = '#employee.address_1#',
+						address_2 = '#employee.address_2#',
+						city = '#employee.city#',
+						state = '#employee.state#',
+						zip = '#employee.zip#',
+						social_security = '#employee.social_security#',
+						day_phone = '#employee.day_phone#',
+						municipality = '#employee.municipality#',
+						county = '#employee.county#',
+						residency_psd_code = '#employee.residency_psd_code#',
+						eit_rate = '#employee.eit_rate#',
+						cert_date = '#employee.cert_date#',
+						home_phone = '#employee.home_phone#',
+						email = '#employee.email#'
 					WHERE id = #searchValue#;
 				</cfquery>
+				
+				<cfdump var="#queryStatus#"/>
+
+				<cfif #queryStatus.recordcount# eq 1>
+					<cfset status = 'User information saved!'>
+				<cfelse>
+					<cfset status = 'Something went wrong, contact tech support.'>
+				</cfif>
 				--->
 		    </cfcase> 
 		    <cfdefaultcase> 

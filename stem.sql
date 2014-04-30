@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2014 at 10:52 PM
+-- Generation Time: Apr 30, 2014 at 02:10 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -122,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `employment_proposal` varchar(250) DEFAULT NULL,
   `status` varchar(25) DEFAULT NULL,
   `hire_date` date DEFAULT NULL,
+  `resume_location` varchar(250) DEFAULT NULL,
   `w4_exemptions` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1247 ;
@@ -130,8 +131,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `birthdate`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `w4_exemptions`) VALUES
-('', 123, 'password', '', '', '2014-02-13', '2014-04-27', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', 'i don''t know');
+INSERT INTO `employee` (`401k_location`, `id`, `password`, `roles`, `photo`, `last_modified`, `birthdate`, `first_name`, `last_name`, `address_1`, `address_2`, `city`, `state`, `zip`, `social_security`, `cell_phone`, `home_phone`, `driver_license`, `issue_date`, `expiration_date`, `driver_license_state`, `email`, `local_tax`, `bank_account`, `bank_type`, `marital_status`, `accept_stc_policy`, `accept_stc_policy_date`, `branch`, `dept`, `file_number`, `company_email`, `type`, `adjusted_seniority`, `job_title`, `officer`, `eeo_class`, `pay_type_salary`, `resident_psd_code`, `gender`, `ethnicity`, `veteran_status`, `fringe_cell_phone`, `fringe_travel_stipend`, `fringe_medical_prem_deduction`, `employment_proposal`, `status`, `hire_date`, `resume_location`, `w4_exemptions`) VALUES
+('', 123, 'password', '', '', '2014-02-13', '2014-04-27', 'Brooke', 'Engle', '580 Haysmill Road', '', 'Meyersdale', 'PA', '15552', '123456789', '7248756148', '8146348138', '1234567', '2013-05-13', '2017-05-13', 'Pennsylvania', 'ENG1585@calu.edu', 1, 'Somerset Trust', 'checking', 'married', 1, '2014-02-13', 'Johnstown', 'IT', '12345', 'engle@somersettrust.com', 'full time', '2014-02-13', 'DBA', 1, '123', 1, '123abc', 'Female', 'White', '0', 1, 1, 1, 'blah blah blarg', 'active', '2014-01-01', NULL, 'i don''t know');
 
 -- --------------------------------------------------------
 
@@ -319,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `employee_vacation` (
 --
 
 INSERT INTO `employee_vacation` (`id`, `vacation_start`, `vacation_end`, `location`) VALUES
-(123, NULL, NULL, NULL);
+(123, NULL, NULL, 'uploads\\Calendar-Emp.pdf');
 
 -- --------------------------------------------------------
 

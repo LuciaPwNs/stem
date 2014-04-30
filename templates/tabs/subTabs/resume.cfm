@@ -1,3 +1,7 @@
 <div id="employee_info">
-	<cfinclude template="importPDF.cfm">
+	<form name='employeeDataForm' id='calendar'>
+		<div id="employee_vacation.location">
+			<cfinclude template="subTabs/importPDF.cfm">
+		</div>
+	</form>
 </div>

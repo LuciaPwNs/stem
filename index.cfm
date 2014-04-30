@@ -1,6 +1,7 @@
 <html>
 
 	<head>
+		<link REL="SHORTCUT ICON" HREF="images/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/css_reset.css">
 		<link rel="stylesheet" type="text/css" href="/stem/css/site_template.css">
 		<script src="bin/jquery-1.11.0.js"></script>

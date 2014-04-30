@@ -32,11 +32,14 @@
 	    $('form[name="employeeDataForm"] #uploadedForms').each(function() {
 
 	    	var pdfName = $(this).parent().parent().attr('id');
-	    	console.log('pdfname', pdfName);
+	    	console.log('pdfname', employeeData[pdfName]);
 	    	var employeeData = JSON.parse(window.localStorage.employee);
-			$(this).append('<div class="pdfContainer">' + 
+
+	    	if(employeeData[pdfName]){
+				$(this).append('<div class="pdfContainer">' + 
 				'<span class="delete" onclick="javascript:deletePDF(' + pdfName + ')">X</span>' + 
 				'<iframe src="' + employeeData[pdfName] + '"></iframe></div>');
+			}
 	    })
 
 	    //load basic info on top of page
@@ -99,7 +102,6 @@
 	        <a id="clear" href="javascript:clearEmployee()">Clear</a>
 	        <input type="text" name="searchValue">
 	        <input type="submit" value="search"/>
-	        <br/>search for employee 123 (only one in database)
 	    </form>
 	</div>
 

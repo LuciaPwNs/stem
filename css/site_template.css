@@ -71,6 +71,10 @@ input {
 	color: rgba(85, 85, 85, 1);
 }
 
+a:visited {
+	color:rgb(0, 0, 238);
+}
+
 /*SITE WIDE CSS */
 #message {
 	color: rgba(7, 209, 0, 1);

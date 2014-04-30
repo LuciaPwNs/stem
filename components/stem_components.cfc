@@ -209,8 +209,7 @@
 		        default
 		    </cfdefaultcase> 
 		</cfswitch> 
-		<!---output file that displays list of employees to pick from? After user clicks it redirect and set selectedEmployee--->
-		<cfreturn #queryStatus#>
+		<cfreturn #status#>
     </cffunction>
 
 <!---Add new Employee--->

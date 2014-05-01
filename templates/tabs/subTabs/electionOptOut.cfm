@@ -22,12 +22,12 @@
 			<input type="date" name="hire_date" width="50"> Date of Hire<br/><br/>
 
 		<script type="text/javascript">
-			$(document).ready(function(){	
+			<!---$(document).ready(function(){	
 				$("input.healthplan_type[type='radio']").change(function(){
 					$(this).prev().prop("checked", true);
 					console.log("this", $(this).prev());
 				})
-			})	
+			})--->	
 		</script>
 
 		<b>2. Medical / Vision / Dental Insurance</b><br/>
@@ -173,21 +173,35 @@
 
 		I understand that the above elections will remain in effect until the last day of the Period of Coverage noted above. I understand further that the payroll deduction elections set forth above will continue in effect notwithstanding any reductions in the health benefits I have elected above. In addition, I understand that, except in certain cases involving a significant reduction in health coverage or a significant increase in the cost of health coverage under the Plan for which the Employer permits me to change my health coverage elections, I may change the above elections during the Period of Coverage noted above only (I) if I experience a "status change", as defined under applicable law, and if my change in elections is consistent with that "status change" or (II) if I exercise Special Enrollment Period Rights (as described in the Notice of Special Enrollment Periods that accompanies this Election Form).  I understand further that, if I do not complete and file a new Election Form during the next annual election period, the above elections will terminate as of the end of the Period of Coverage noted above and I will not participate in the Plan for the next Plan year.  I understand that the elections noted above may need to be modified by the Employer to insure that the Plan complies with applicable tax rules.  Finally, as a condition of participation in the Plan, <i>I hereby consent, in my individual capacity and on behalf of others covered through me under the Plan, to any investigations or inquires into my medical condition, or the medical condition of those individuals, that are deemed necessary or appropriate by the Plan Administrator, and I hereby consent again, in my individual capacity and on behalf of others covered through me under the Plan, to any disclosures of medical records deemed necessary or appropriate by the Plan Administrator in connection there with.</i><br/><br/>
 
-		<select>
-		  <option value="null">Select a relation</option>
-		  <option value="spouse">Spouse</option>
-		  <option value="children">Child</option>
-		</select>
+		<div id="dependent_div">
+			<select>
+			  <option value="null">Select a relation</option>
+			  <option value="spouse">Spouse</option>
+			  <option value="children">Child</option>
+			</select>
 
-		<input type="text" name="dependent_name" size="25" placeholder="Name">
-		<input type="date" name="dependent_birthdate" width="10">
-		<input type="text" name="dependent_social_security" size="10" placeholder="SSN"><br/><br/>
+			<input type="text" name="dependent_name" size="25" placeholder="Name">
+			<input type="date" name="dependent_birthdate" width="10">
+			<input type="text" name="dependent_social_security" size="10" placeholder="SSN"><br/><br/>
+		</div>
 
-		<button name="add_more" type="button" value="Add Dependent"></button>
+		<button id="add_more" type="button" value="Add Dependent">Add Dependent</button>
 		<script type="text/javascript">
-		//<![CDATA[
-		<!---adds extra row for dependent f user presses button--->
-		//]]>
+			$(document).ready(function(){	
+				$("#add_more").click (function(e){
+					e.preventDefault();
+					$("#dependent_div").append('<select>' +
+			  		'<option value="null">Select a relation</option>' +
+			  		'<option value="spouse">Spouse</option>' +
+			  		'<option value="children">Child</option>' +
+					'</select>' +
+					
+					'<input type="text" name="dependent_name" size="25" placeholder="Name">' +
+					'<input type="date" name="dependent_birthdate" width="10">' +
+					'<input type="text" name="dependent_social_security" size="10" placeholder="SSN">' +
+					'<br/><br/>');
+				})
+			})	
 		</script>
 	</cfform>
 </div>

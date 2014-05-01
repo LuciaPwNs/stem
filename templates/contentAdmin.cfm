@@ -8,40 +8,24 @@
 		location.reload();
 	} 
 	
-	//define function name so it can be called out of document.ready
-	var deletePDF;
 	$(document).ready(function() {
-		
+	
 		//Load form when the document is completely done loading
-		//*ASL Probably shouldnt parse the localstorage data for EVERY element
 		$('form[name="employeeDataForm"] :input').each(function() {
 	        if (typeof window.localStorage.employee !== 'undefined') {
 		        //use this.name to get the value for that field from document.employee
 		        var employeeData = JSON.parse(window.localStorage.employee);
 		        //console.log('employeeData',employeeData);
 
-		      	//ignore the submit input
-		        if ($(this).attr('type') !== "submit") {
+		      	//ignore the submit input and file elements
+		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file") {
 		        	//update everything that isnt a submit button
 		        	$(this).val(employeeData[this.name]);
 	        	}
 	        }
 	    });
 
-		//load any pdfs they might have saved into the uploadedForms div
-	    $('form[name="employeeDataForm"] #uploadedForms').each(function() {
-
-	    	var pdfName = $(this).parent().parent().attr('id');
-	    	console.log('pdfname', employeeData[pdfName]);
-	    	var employeeData = JSON.parse(window.localStorage.employee);
-
-	    	if(employeeData[pdfName]){
-				$(this).append('<div class="pdfContainer">' + 
-				'<span class="delete" onclick="javascript:deletePDF(' + pdfName + ')">X</span>' + 
-				'<iframe src="' + employeeData[pdfName] + '"></iframe></div>');
-			}
-	    })
-
+		
 	    //load basic info on top of page
 	    $('#basicInfo').children('span').each(function() {
 	    	if (typeof window.localStorage.employee !== 'undefined') {
@@ -55,7 +39,6 @@
 	    //When the event "cfSessionLoaded" fires us use the session variable to get employee data
 		//Load employee data when session.selectedEmployee is set or after search
 		$(document).on( "cfSessionLoaded", "reloadEmployeeData", function() {
-			console.log('go get employee data')
 	        getEmployeeData(window.localStorage.selectedEmployee);
 	    });
 	    
@@ -64,14 +47,11 @@
 		$('form[name="employeeDataForm"]').on('submit', function(event) {
 		    //when the form a form submits save data to correct table
 		    event.preventDefault();
-		    console.log('submitting form!');
-		    console.log("$(this).attr('id')", $(this).attr('id'));
-
 		    saveEmployeeData($(this).attr('id'));
 		});
 
 
-		//This should happen when an admin saves a form that updates employee information.
+		//This should happen when an admin changes an input
 		$('form[name="employeeDataForm"] :input').change(function(){
 			var employeeData = JSON.parse(window.localStorage.employee);
 			employeeData[this.name] = this.value;
@@ -83,16 +63,7 @@
 			e.preventDefault();
 			var newAdminInfo = $(this).serializeArray();
 			searchForEmployee(newAdminInfo[0].value);
-		});
-
-		deletePDF = function(pdf){
-
-			var pdfToDelete = pdf + '.location'; 
-			var employeeData = JSON.parse(window.localStorage.employee);
-			console.log('look here', pdfToDelete);
-			employeeData[pdfToDelete] = ""; 
-			location.reload();
-		}	    
+		});		
 	})
 </script>
 <script type="text/javascript" src="js/stem_functions.js"></script>

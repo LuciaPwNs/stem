@@ -45,7 +45,8 @@ function saveEmployeeData (formID) {
 		
 		$('#message').html(data);
 		//after the message fade it out after like 5 seconds
-		
+		var employeeData = JSON.parse(window.localStorage.employee);
+		getEmployeeData(employeeData['id']);
 
 	})
 	.fail(function(jqXHR, textStatus) {

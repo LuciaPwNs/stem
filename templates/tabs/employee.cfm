@@ -7,8 +7,6 @@
 	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?employee&W4'">W4</button>
 	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?employee&PayEntry'">Pay Entry</button>
 	<button type="button" class="side_nav_button" onclick="window.location.href='index.cfm?employee&Identification'">Idenification</button>
-
-	<button name="exportToPDF" class="export">Export</button>
 </div>
 
 <cfif isDefined('URL.affirmativeAction')>

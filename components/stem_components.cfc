@@ -95,39 +95,64 @@
 
 <!---Save Employee Data--->
     <cffunction name="saveEmployeeData" access="remote" returnFormat="JSON">
-
-    	<!---Get the data from the ajax request--->
-    	<!---Get the form id so we know what tables we are going to use to save the data--->
-    	<!---Case statement to send function down appropriate saving path?--->
-
-    	<!---!!!!IMPORTANT Nothing can be put between cffunctiona and the cfargument tag--->
-    	<cfargument name="formBeingUpdated" type="string" required="yes">
-
+    	<!---!!!!IMPORTANT Nothing can be put between cffunction and the cfargument tag--->
+    	<cfargument name="formBeingUpdated" type="string" required="no">
     	<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />
+    	<cfdump var="#employeeData#">
+    	<!---NOTE!!!!! We are just going to save all the fields everytime. that way we dont have to have
+    	a bunch of redundent code--->
+		<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
+			UPDATE employee SET 
+				first_name = '#employeeData.employee.first_name#',
+				last_name = '#employeeData.employee.last_name#',
+				address_1 = '#employeeData.employee.address_1#',
+				address_2 = '#employeeData.employee.address_2#',
+				city = '#employeeData.employee.city#',
+				state = '#employeeData.employee.state#',
+				zip = '#employeeData.employee.zip#',
+				social_security = '#employeeData.employee.social_security#',
+				<!---birthdate = '#employeeData.employee.birthdate#',--->
+				home_phone = '#employeeData.employee.home_phone#',
+				driver_license = '#employeeData.employee.driver_license#',
+				<!---issue_date = '#employeeData.employee.issue_date#',
+				expiration_date = '#employeeData.employee.expiration_date#',
+				driver_license_state = '#employeeData.driver_license_state#',--->
+				email = '#employeeData.employee.email#',
+				local_tax = '#employeeData.employee.local_tax#',
+				marital_status = '#employeeData.employee.marital_status#'
+			WHERE id = '#employeeData.employee.id#';
+		</cfquery>
+
+		<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
+			UPDATE employee_vacation SET 
+				location = '#employeeData.employee_vacation.location#'
+			WHERE id = '#employeeData.employee.id#';
+		</cfquery>
+
+		<!---
+    	
     	<cfdump var="#employeeData#">
     	<cfswitch expression="#LCase(formBeingUpdated)#"> 
 		    <cfcase value="affirmativeaction">
 		       	<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
 					UPDATE employee SET 
-						first_name = '#employeeData.first_name#',
-						last_name = '#employeeData.last_name#',
-						address_1 = '#employeeData.address_1#',
-						address_2 = '#employeeData.address_2#',
-						city = '#employeeData.city#',
-						state = '#employeeData.state#',
-						zip = '#employeeData.zip#',
-						social_security = '#employeeData.social_security#',
-						birthdate = '#employeeData.birthdate#',
-						home_phone = '#employeeData.home_phone#',
-						driver_license = '#employeeData.driver_license#',
-						issue_date = '#employeeData.issue_date#',
-						expiration_date = '#employeeData.expiration_date#',
+						first_name = '#employeeData.employee.first_name#',
+						last_name = '#employeeData.employee.last_name#',
+						address_1 = '#employeeData.employee.address_1#',
+						address_2 = '#employeeData.employee.address_2#',
+						city = '#employeeData.employee.city#',
+						state = '#employeeData.employee.state#',
+						zip = '#employeeData.employee.zip#',
+						social_security = '#employeeData.employee.social_security#',
+						birthdate = '#employeeData.employee.birthdate#',
+						home_phone = '#employeeData.employee.home_phone#',
+						driver_license = '#employeeData.employee.driver_license#',
+						issue_date = '#employeeData.employee.issue_date#',
+						expiration_date = '#employeeData.employee.expiration_date#',
 						driver_license_state = '#employeeData.driver_license_state#',
-						email = '#employeeData.email#',
-						local_tax = '#employeeData.local_tax#',
-					<!---	deposit_account_number = '#employeeData.deposit_account_number#',
-						deposit_account = '#employeeData.deposit_account#',--->
-						marital_status = '#employeeData.marital_status#'
+						email = '#employeeData.employee.email#',
+						local_tax = '#employeeData.employee.local_tax#',
+						marital_status = '#employeeData.employee.marital_status#'
 					WHERE id = '#employeeData.employee.id#';
 				</cfquery>
 				
@@ -176,23 +201,23 @@
 		    <cfcase value="residencyCert"> 
 		       	<cfquery datasource="stem" name="saveEmployee" result="employee">
 					UPDATE employee SET  
-						last_name = '#employee.last_name#',
-						first_name = '#employee.first_name#',
-						mi_initial = '#employee.mi_initial#',
-						address_1 = '#employee.address_1#',
-						address_2 = '#employee.address_2#',
-						city = '#employee.city#',
-						state = '#employee.state#',
-						zip = '#employee.zip#',
-						social_security = '#employee.social_security#',
-						day_phone = '#employee.day_phone#',
-						municipality = '#employee.municipality#',
-						county = '#employee.county#',
-						residency_psd_code = '#employee.residency_psd_code#',
-						eit_rate = '#employee.eit_rate#',
-						cert_date = '#employee.cert_date#',
-						home_phone = '#employee.home_phone#',
-						email = '#employee.email#'
+						last_name = '#employeeData.employee.last_name#',
+						first_name = '#employeeData.employee.first_name#',
+						mi_initial = '#employeeData.employee.mi_initial#',
+						address_1 = '#employeeData.employee.address_1#',
+						address_2 = '#employeeData.employee.address_2#',
+						city = '#employeeData.employee.city#',
+						state = '#employeeData.employee.state#',
+						zip = '#employeeData.employee.zip#',
+						social_security = '#employeeData.employee.social_security#',
+						day_phone = '#employeeData.employee.day_phone#',
+						municipality = '#employeeData.employee.municipality#',
+						county = '#employeeData.employee.county#',
+						residency_psd_code = '#employeeData.employee.residency_psd_code#',
+						eit_rate = '#employeeData.employee.eit_rate#',
+						cert_date = '#employeeData.employee.cert_date#',
+						home_phone = '#employeeData.employee.home_phone#',
+						email = '#employeeData.employee.email#'
 					WHERE id = #searchValue#;
 				</cfquery>
 				
@@ -203,13 +228,28 @@
 				<cfelse>
 					<cfset status = 'Something went wrong, contact tech support.'>
 				</cfif>
-				--->
+		    </cfcase>
+		    <cfcase value="resume"> 
+		       	<cfquery datasource="stem" name="saveEmployee" result="employee">
+					UPDATE employee SET  
+						resume_location = '#employee.resume_location#',
+					WHERE id = #searchValue#;
+				</cfquery>
+				
+				<cfdump var="#queryStatus#"/>
+
+				<cfif #queryStatus.recordcount# eq 1>
+					<cfset status = 'User information saved!'>
+				<cfelse>
+					<cfset status = 'Something went wrong, contact tech support.'>
+				</cfif>
 		    </cfcase> 
 		    <cfdefaultcase> 
-		        default
+		        <cfset status = 'Opps! Something went wrong while saving employee data.'>
 		    </cfdefaultcase> 
 		</cfswitch> 
-		<cfreturn #status#>
+		--->
+		<cfreturn >
     </cffunction>
 
 <!---Add new Employee--->
@@ -373,6 +413,33 @@
 		<cfreturn status>
 	</cffunction>
 
+<!---Upload file--->
+	<cffunction name="uploadFile" access="remote">
+		<cfargument name="file" type="string" required="true">
+		<cfargument name="id" type="string" required="true">
+		<cfset fileID = CreateUUID()>
 
+		<cffile action="upload" fileField="fileUpload" destination="#ExpandPath('/stem/uploads/')#" result="result">
+    	<cffile action="rename" destination="#ExpandPath('/stem/uploads/')##fileID#.#result.SERVERFILEEXT#" source="#ExpandPath('/stem/uploads/')##result.CLIENTFILE#" result="result1">
+
+    	<cfset p = ListToArray(file, '.')>
+	  	<cfquery datasource="stem" name="saveEmployee" result="result">
+			UPDATE #p[1]# SET  
+				#p[2]# = '#fileID#.#result.SERVERFILEEXT#' 
+			WHERE id = #id#;
+		</cfquery>
+		
+		<cflocation url="#CGI.HTTP_REFERER#" addtoken="no">
+		<cfreturn result>
+	</cffunction>
+
+<!---Delete file--->
+	<cffunction name="deleteFile" access="remote">
+		<cfargument name="file" type="string" required="true">
+		<cfargument name="id" type="string" required="true">
+
+		<cffile action="delete" file="#ExpandPath('/stem/uploads/')##file#">
+		<cfreturn>
+	</cffunction>
 
 </cfcomponent>

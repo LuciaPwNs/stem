@@ -17,6 +17,7 @@ function getEmployeeData (selectedEmployee) {
 				}
 		    },
 		    success: function (data) {
+		    	console.log('loadedd emploiyee data', data);
 	    		window.localStorage.setItem('employee', JSON.stringify(data));
 	    		$(document).trigger('employeeDataReady');
 	    		location.reload();

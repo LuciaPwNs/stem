@@ -1,3 +1,7 @@
 <div id="employee_info">
-	pdfImportTemplate.cfm
+	<div id='photos'>
+		<div id="employee_photos.location">
+			<cfinclude template="importPDF.cfm">
+		</div>
+	</div>
 </div>

@@ -1,3 +1,7 @@
 <div id="employee_info">
-	<cfinclude template="importPDF.cfm">
+	<div id='crimincalReport'>
+		<div id="employee.criminal_report_location">
+			<cfinclude template="importPDF.cfm">
+		</div>
+	</div>
 </div>

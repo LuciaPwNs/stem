@@ -1,3 +1,7 @@
 <div id="employee_info">
-	pdfImportTemplate.cfm
+	<div id='careerPath'>
+		<div id="employee.career_path_location">
+			<cfinclude template="importPDF.cfm">
+		</div>
+	</div>
 </div>

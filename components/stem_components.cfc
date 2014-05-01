@@ -111,7 +111,7 @@
 				state = '#employeeData.employee.state#',
 				zip = '#employeeData.employee.zip#',
 				social_security = '#employeeData.employee.social_security#',
-				<!---birthdate = '#employeeData.employee.birthdate#',--->
+			<!---	birthdate = '#employeeData.employee.birthdate#',  --->
 				home_phone = '#employeeData.employee.home_phone#',
 				driver_license = '#employeeData.employee.driver_license#',
 				<!---issue_date = '#employeeData.employee.issue_date#',
@@ -283,7 +283,7 @@
 		</cfquery>
 
 		<cfquery datasource="stem" name="newEmployeeRecords" result="result2" debug="true">
-			INSERT INTO employee_reference (id)
+			INSERT INTO employee_reference (employee_id)
 				VALUES('#result1.generated_key#');
 		</cfquery>
 

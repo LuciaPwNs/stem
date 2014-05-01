@@ -68,19 +68,20 @@
 
 		<input type="text" name="employee.zip" size="20" placeholder="Zip Code"><br/>
 
-		<input type="text" name="employee.social_security" size="20" placeholder="Social Security Number"><br/><br/>
+		<input type="text" name="employee.social_security" size="20" placeholder="Social Security Number"><br/>
 
-		<input type="date" name="employee.birthdate" width="50"> Date of Birth<br/><br/>
+		<input type="date" name="employee.birthdate" width="50"> Date of Birth<br/>		
 
-		<input type="text" name="employee.home_phone" size="50" placeholder="Home Phone Number"><br/>
+		<input type="text" name="employee.home_phone" size="20" placeholder="Home Phone Number"><br/>
 
-		<input type="text" name="employee.driver_license" size="20" placeholder="Driver License Number">
+		<input type="text" name="employee.driver_license" size="20" placeholder="Driver License Number"><br/>
 
-		<input type="date" name="employee.issue_date" width="49"> Issue Date<br/>
-
+		<input type="date" name="employee.issue_date" width="50"> Issue Date<br/>
+		
 		<input type="date" name="employee.expiration_date" width="50"> Expiration Date<br/>
 
-		<p>State:</p>
+
+		<p>Driver License State:
 		<select name="employee.driver_license_state">
 			<option value="AL">AL</option>
 			<option value="AK">AK</option>
@@ -138,10 +139,10 @@
 		<input type="text" name="employee.email" size="50" placeholder="Email Address"><br/><br><br/>
 
 		<p>1. Have you paid the Local Service Tax for the city/township in which you are working? <br/>
-		<input type="radio" name="employee.local_tax" value="yes">
+		<input type="radio" name="employee.local_tax" value="1">
 				Yes 
 
-			<input type="radio" name="employee.local_tax" value="yes">
+			<input type="radio" name="employee.local_tax" value="0">
 				No <br/><br/>
 
 		<i>If yes, please complete local service tax form and provide a pay voucher.</i></p><br/><br/>
@@ -150,10 +151,10 @@
 
 			<input type="text" name="employee.deposit_account_number" size="50" placeholder="Account Number"><br/>
 
-			<input type="radio" name="employee.deposit_account" value="yes">
+			<input type="radio" name="employee.deposit_account" value="checking">
 				Checking 
 
-			<input type="radio" name="employee.deposit_account" value="yes">
+			<input type="radio" name="employee.deposit_account" value="savings">
 				Savings <br/><br/></p>
 		<p>3. Marital Status: 
 			<select name="employee.marital_status">
@@ -195,9 +196,9 @@
 		<input type="text" name="employee.file_number" size="50" placeholder="File Number">
 		<input type="text" name="employee.company_email" size="50" placeholder="STC Email Address"><br/>
 		<p>Employee Status: 
-		<input type="radio" name="employee.status" value="yes">
+		<input type="radio" name="employee.status" value="active">
 				Active
-			<input type="radio" name="employee.status" value="yes">
+			<input type="radio" name="employee.status" value="inactive">
 				Inactive <br/><br/></p>
 		<p>Employee Type: 
 			<select name="employee.employee_type">
@@ -210,12 +211,12 @@
 				<option value="pt_1300_hires">PT 1300 Hires
 			</select></p>
 		<input type="date" name="employee.hire_date" width="50"> Hire Date<br/>
-		<input type="date" name="employee.adjusted_seniority" width="50"> Adjusted Seniority"<br/>
+		<input type="date" name="employee.adjusted_seniority" width="50"> Adjusted Seniority<br/>
 		<input type="text" name="employee.job_title" size="50" placeholder="Job Title"><br/>
 		<p>Officer: 
-		<input type="radio" name="employee.officer" value="yes">
+		<input type="radio" name="employee.officer" value="1">
 				Yes
-			<input type="radio" name="employee.officer" value="yes">
+			<input type="radio" name="employee.officer" value="0">
 				No <br/><br/></p>
 		<p>EEO Class: 
 			<select name="employee.eeo_class">
@@ -232,9 +233,9 @@
 		<input type="text" name="employee.w4_exemptions" size="50" placeholder="W4 Exemptions"><br/>
 		<input type="text" name="employee.resident_psd_code" size="50" placeholder="Resident PSD Code"><br/>
 		<p>Gender: 
-		<input type="radio" name="employee.gender" value="yes">
+		<input type="radio" name="employee.gender" value="male">
 				Male
-			<input type="radio" name="employee.gender" value="yes">
+			<input type="radio" name="employee.gender" value="female">
 				Female <br/><br/></p>
 		<p>Ethnicity: 
 			<select name="employee.ethnicity">
@@ -255,19 +256,19 @@
 			</select></p><br><br/>
 		<p><b>Fringe:</b></p>
 		<p>Cell Phone
-		<input type="radio" name="employee.fringe_cell_phone" value="yes">
+		<input type="radio" name="employee.fringe_cell_phone" value="1">
 				Yes
-			<input type="radio" name="employee.fringe_cell_phone" value="yes">
+			<input type="radio" name="employee.fringe_cell_phone" value="0">
 				No </p>
 		<p>Travel Stipend
-		<input type="radio" name="employee.fringe_travel_stipend" value="yes">
+		<input type="radio" name="employee.fringe_travel_stipend" value="1">
 				Yes
-			<input type="radio" name="employeefringe_travel_stipend" value="yes">
+			<input type="radio" name="employeefringe_travel_stipend" value="0">
 				No </p>
 		<p>Medical Co-Premium Deduction
-		<input type="radio" name="employee.fringe_medical_prem_deduction" value="yes">
+		<input type="radio" name="employee.fringe_medical_prem_deduction" value="1">
 				Yes
-			<input type="radio" name="employee.fringe_medical_prem_deduction" value="yes">
+			<input type="radio" name="employee.fringe_medical_prem_deduction" value="0">
 				No <br/><br/></p>
 
 		<br/><div id="message"></div>

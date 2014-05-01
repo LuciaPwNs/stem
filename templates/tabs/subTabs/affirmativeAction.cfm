@@ -17,112 +17,162 @@
 		
 		<p>Please be advised that this survey is not part of your official application for 
 		employment. It will not be used in any hiring decision. The information will be used 
-		and kept confidential in accordance with applicable laws and regulations.</p>
+		and kept confidential in accordance with applicable laws and regulations.</p><br></br>
 		
 		<h3>Applicant Information</h3> 
 			<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
-			<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
+			<input type="text" name="employee.last_name" size="50" placeholder="Last Name"><br/>
 			
-			<input type="text" name="address_1" size="50" placeholder="Address"><br/>
-			<input type="text" name="address_2" size="50"><br/>
+			<input type="text" name="employee.address_1" size="50" placeholder="Address"><br/>
 
-			<input type="text" name="state" size="50" placeholder="State"><br/>
+			<input type="text" name="employee.address_2" size="50" placeholder="Address Line Two"><br/>
 
-			<input type="text" name="zip" size="50" placeholder="Zip Code"><br/>
+			<input type="text" name="employee.city" size="50" placeholder="City"><br/>
+
+			<p>State:</p>
+			<select name="employee.driver_license_state">
+			<option value="AL">AL</option>
+			<option value="AK">AK</option>
+			<option value="AZ">AZ</option>
+			<option value="AR">AR</option>
+			<option value="CA">CA</option>
+			<option value="CO">CO</option>
+			<option value="CT">CT</option>
+			<option value="DE">DE</option>
+			<option value="DC">DC</option>
+			<option value="FL">FL</option>
+			<option value="GA">GA</option>
+			<option value="HI">HI</option>
+			<option value="ID">ID</option>
+			<option value="IL">IL</option>
+			<option value="IN">IN</option>
+			<option value="IA">IA</option>
+			<option value="KS">KS</option>
+			<option value="KY">KY</option>
+			<option value="LA">LA</option>
+			<option value="ME">ME</option>
+			<option value="MD">MD</option>
+			<option value="MA">MA</option>
+			<option value="MI">MI</option>
+			<option value="MN">MN</option>
+			<option value="MS">MS</option>
+			<option value="MO">MO</option>
+			<option value="MT">MT</option>
+			<option value="NE">NE</option>
+			<option value="NV">NV</option>
+			<option value="NH">NH</option>
+			<option value="NJ">NJ</option>
+			<option value="NM">NM</option>
+			<option value="NY">NY</option>
+			<option value="NC">NC</option>
+			<option value="ND">ND</option>
+			<option value="OH">OH</option>
+			<option value="OK">OK</option>
+			<option value="OR">OR</option>
+			<option value="PA">PA</option>
+			<option value="RI">RI</option>
+			<option value="SC">SC</option>
+			<option value="SD">SD</option>
+			<option value="TN">TN</option>
+			<option value="TX">TX</option>
+			<option value="UT">UT</option>
+			<option value="VT">VT</option>
+			<option value="VA">VA</option>
+			<option value="WA">WA</option>
+			<option value="WV">WV</option>
+			<option value="WI">WI</option>
+			<option value="WY">WY</option>
+		</select></p>
+
+			<input type="text" name="employee.zip" size="50" placeholder="Zip Code"><br/>
 			
-			<input type="text" name="cell_phone" size="50" placeholder="Telephone #"><br/> 
+			<input type="text" name="employee.cell_phone" size="50" placeholder="Telephone #"><br/> 
 
 			<input type="text" name="positions_applied" size="50" placeholder="Position(s) applied for "><br/> 
 			
-			<br/><h3>Referral Source</h3>
-			<select name="referral_source">
+			<br/><p>Referral Source:
+			<select name="referral_source.referral_source">
 			    <option value="">- Please select one -</option>
-				<option value="referral1">Walk-in
-				<option value="referral2">Employee
-				<option value="referral3">Relative
-				<option value="referral4">Friend
-				<option value="referral5">Employment Agency
-				<option value="referral6">Advertisment
-				<option value="referral7">School
-				<option value="referral8">Private Employment Agency
-				<option value="referral9">Other
-			</select>
-			<input type="text" name="referral_extra_info" size="25" placeholder="Other"><br/> 
+				<option value="walk_in">Walk-in
+				<option value="employee">Employee
+				<option value="relative">Relative
+				<option value="friend">Friend
+				<option value="employment_agency">Employment Agency
+				<option value="advertisement">Advertisement
+				<option value="school">School
+				<option value="private_employment_agency">Private Employment Agency
+				<option value="other">Other
+			</select></p>
+			<input type="text" name="referal_source.referral_info" size="25" placeholder="Specify Other"><br/>
 
 			
-			<br/><h3>Gender</h3>
-			<input type="radio" name="Gender1" value="yes">
-				Female <br/><br/>
+			<br/><p>Gender:
+			<input type="radio" name="employee.gender" value="male">
+				Male
 
-			<input type="radio" name="Gender2" value="yes">
-				Male <br/><br/>
+			<input type="radio" name="employee.gender" value="female">
+				Female <br/><br/></p>
 
 
-			<br/><h3>Please select one of the following Equal Employment Opportunity Identification Groups:</h3>
-			<select name="employee_ethnicity">
+			<br/><p>Please select one of the following Equal Employment Opportunity Identification Groups:
+			<select name="employee.ethnicity">
 			    <option value="">- Please select one -</option>
-				<option value="Native American Indian/Alaskan Native">Native American Indian/Alaskan Native
-				<option value="African American">African American
-				<option value="White">White
-				<option value="Hispanic or Latino">Hispanic or Latino
-				<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander
-				<option value="Two or more Races">Two or more Races
-				<option value="Other">Other
-			</select>
-			<input type="text" name="referral_extra_info" size="25" placeholder="Other"><br/> 
+				<option value="indian_alaskan">Native American Indian/Alaskan Native
+				<option value="african_american">African American
+				<option value="white">White
+				<option value="hispanic_latino">Hispanic or Latino
+				<option value="hawaiian_islander">Native Hawaiian or Other Pacific Islander
+				<option value="two_races">Two or more Races
+				<option value="other">Other
+			</select></p>
+			<input type="text" name="ethnicity_info" size="25" placeholder="Specify Other"><br/> 
 
 			<br/><br/><b>If American Indian, check if any of the following are applicable:</b>
 
-			<br/><br/><input type="checkbox" name="Group" value="checkbox5">Former member of a particular tribe
+			<br/><br/><input type="checkbox" name="american_indian.american_indian1" value="former_member">Former member of a particular tribe
 			
-			<br/><input type="checkbox" name="Group" value="checkbox4">Have a membership card issued by the tribe
+			<br/><input type="checkbox" name="american_indian.amerian_indian2" value="membership_card">Have a membership card issued by the tribe
 
-			<br/><input type="checkbox" name="Group" value="checkbox3">Have a Certificate of Degree of Indian Blood issued by the Bureau of American Indian Affairs
+			<br/><input type="checkbox" name="american_indian.american_indian3" value="certificate">Have a Certificate of Degree of Indian Blood issued by the Bureau of American Indian Affairs
 
-			<br/><input type="checkbox" name="Group" value="checkbox2">Are considered an American Indian in your community
+			<br/><input type="checkbox" name="american_indian.american_indian4" value="community">Are considered an American Indian in your community
 
-			<br/><input type="checkbox" name="Group" value="checkbox1">Used an American Indian School or hospital
+			<br/><input type="checkbox" name="american_indian.american_indian5" value="school_hospital">Used an American Indian School or hospital<br/>
 
-			<br/><br/><b>AN EQUAL OPPORTUNITY EMPLOYER</b>
+			<br/><b><p>AN EQUAL OPPORTUNITY EMPLOYER</b></p>
 
-			<br/><br/><br/><h3>*For Administrative Use only*</h3>
-			<b>Hired</b><br/><br/>
-			<input type="radio" name="yes" value="yes">
-				Yes <br/><br/>
+			<br></br><br></br><h2>For Bank Use</h2>
+			<p>Hired: 
+			<input type="radio" name="employee.hired" value="1">
+				Yes 
 
-			<input type="radio" name="no" value="yes">
+			<input type="radio" name="employee.hired" value="0">
 				No <br/><br/>
 
-			<input type="text" name="hired" size="50" placeholder="Position(s) hired for"><br/>
+			<input type="text" name="employee.hired_position" size="50" placeholder="Position(s) hired for"><br/>
 
-			<input type="text" name="hired" size="50" placeholder="Date of Hire"><br/>	
+			<input type="date" name="employee.hire_date" width="50">Date of Hire<br/>	<br></br>
 
+			<p>From the EEO job classifications listed below, which one best describes the position filled?</p>
+			<select name="eeo_job_classifications.eeo_job_classification">
+			    <option value="">- Please select one -</option>
+				<option value="exec_senior">Exec/Senior Level Officials and Managers
+				<option value="first_mid">First/Mid Level Officials & Managers
+				<option value="professional">Professionals
+				<option value="technician">Technicians
+				<option value="administrative">Administrative Support Workers
+				<option value="craft_worker">Craft Workers (formerly "Craft Workers")(Skilled)
+				<option value="operative">Operative(formerly "Operatives")(Semi-Skilled)
+			</select></p><br><br/>
 
-			<br/><br/><b>From the EEO job classifications listed below, which one best describes the position filled?</b>
+			<b>Notes:</b>
 
-			<br/><br/><input type="checkbox" name="Group" value="checkbox5">Exec/Senior Level Officials and Managers
-			
-			<br/><input type="checkbox" name="Group" value="checkbox4">First/Mid Level Officials & Managers
-
-			<br/><input type="checkbox" name="Group" value="checkbox3">Professionals
-
-			<br/><input type="checkbox" name="Group" value="checkbox2">Technicians
-
-			<br/><input type="checkbox" name="Group" value="checkbox1">Administrative Support Workers
-
-			<br/><input type="checkbox" name="Group" value="checkbox1">Craft Workers (formerly "Craft Workers")(Skilled)
-
-			<br/><input type="checkbox" name="Group" value="checkbox1">Operative(formerly "Operatives")(Semi-Skilled)
-
-
-			<br/><br/><b>Notes:</b>
-
-			<br/><textarea name="notes" cols="25" rows="5">
+			<br/><textarea name="employee_affirmative_action.notes" cols="25" rows="5">
 			</textarea><br>
 			
-			<br/><input type="text" name="zip_code" size="50" placeholder="Completed by:"><br/>
+			<br/><input type="text" name="employee.complete_name" size="50" placeholder="Completed by:"><br/>
 
-			<input type="text" name="zip_code" size="50" placeholder="Todays Date:"><br/>
+			<input type="date" name="employee.complete_date" witdth="50"> Complete Date<br></br>
 
 			<br/><div id="message"></div>
 			<input type="submit" value="Submit">

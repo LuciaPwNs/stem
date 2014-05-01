@@ -1,3 +1,7 @@
 <div id="employee_info">
-	pdfImportTemplate.cfm
+	<div id='retirement'>
+		<div id="employee.retirement_location">
+			<cfinclude template="subTabs/importPDF.cfm">
+		</div>
+	</div>
 </div>

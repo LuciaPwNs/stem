@@ -10,7 +10,9 @@
 	
 	$(document).ready(function() {
 	
+	
 		//Load form when the document is completely done loading
+		//*ASL Radio buttons need loaded correctly
 		$('form[name="employeeDataForm"] :input').each(function() {
 	        if (typeof window.localStorage.employee !== 'undefined') {
 		        //use this.name to get the value for that field from document.employee
@@ -20,7 +22,17 @@
 		      	//ignore the submit input and file elements
 		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file") {
 		        	//update everything that isnt a submit button
-		        	$(this).val(employeeData[this.name]);
+
+		        	if(this.type === "radio"){
+		        		if(this.value === employeeData[this.name]){
+		        			$(this).prop("checked", true);
+		        		}
+		        		
+		        	}else{
+		        		$(this).val(employeeData[this.name]);
+		        	}
+
+		        	
 	        	}
 	        }
 	    });
@@ -48,12 +60,12 @@
 		    //when the form a form submits save data to correct table
 		    event.preventDefault();
 		    saveEmployeeData($(this).attr('id'));
-		});
-
+		}); 
 
 		//This should happen when an admin changes an input
 		$('form[name="employeeDataForm"] :input').change(function(){
 			var employeeData = JSON.parse(window.localStorage.employee);
+																														
 			employeeData[this.name] = this.value;
 		   	window.localStorage.setItem('employee', JSON.stringify(employeeData));
 		});

@@ -139,6 +139,7 @@
 
 			<br/><input type="checkbox" name="american_indian.american_indian5" value="school_hospital">Used an American Indian School or hospital<br/>
 
+
 			<br/><b><p>AN EQUAL OPPORTUNITY EMPLOYER</b></p>
 
 			<br></br><br></br><h2>For Bank Use</h2>

@@ -1,6 +1,8 @@
 <div id="employee_info">
 	<form name='employeeDataForm' id='newHireSheet'>
 
+<center><h2>New Hire Reporting Program</h2></center>
+
 <b><center>Commonwealth of Pennsylvania</center></b>
 <b><center>P.O. Box 69400</center></b>
 <b><center>Harrisburg, PA 17106-9400</center></b>

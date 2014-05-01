@@ -20,7 +20,7 @@
 		and kept confidential in accordance with applicable laws and regulations.</p>
 		
 		<h3>Applicant Information</h3> 
-			<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
+			<input type="text" name="first_name" size="50" placeholder="First Name"><br/>
 			<input type="text" name="last_name" size="50" placeholder="Last Name"><br/>
 			
 			<input type="text" name="address_1" size="50" placeholder="Address"><br/>
@@ -73,15 +73,15 @@
 
 			<br/><br/><b>If American Indian, check if any of the following are applicable:</b>
 
-			<br/><br/><input type="checkbox" name="Group" value="checkbox5">Former member of a particular tribe
+			<br/><br/><input type="checkbox" name="american_indian_options" value="Former member of a particular tribe">Former member of a particular tribe
 			
-			<br/><input type="checkbox" name="Group" value="checkbox4">Have a membership card issued by the tribe
+			<br/><input type="checkbox" name="american_indian_options" value="Have a membership card issued by the tribe">Have a membership card issued by the tribe
 
-			<br/><input type="checkbox" name="Group" value="checkbox3">Have a Certificate of Degree of Indian Blood issued by the Bureau of American Indian Affairs
+			<br/><input type="checkbox" name="american_indian_options" value="Have a Certificate of Degree of Indian Blood issued by the Bureau of American Indian Affairs">Have a Certificate of Degree of Indian Blood issued by the Bureau of American Indian Affairs
 
-			<br/><input type="checkbox" name="Group" value="checkbox2">Are considered an American Indian in your community
+			<br/><input type="checkbox" name="american_indian_options" value="Are considered an American Indian in your community">Are considered an American Indian in your community
 
-			<br/><input type="checkbox" name="Group" value="checkbox1">Used an American Indian School or hospital
+			<br/><input type="checkbox" name="american_indian_options" value="Used an American Indian School or hospital">Used an American Indian School or hospital
 
 			<br/><br/><b>AN EQUAL OPPORTUNITY EMPLOYER</b>
 
@@ -120,9 +120,9 @@
 			<br/><textarea name="notes" cols="25" rows="5">
 			</textarea><br>
 			
-			<br/><input type="text" name="zip_code" size="50" placeholder="Completed by:"><br/>
+			<br/><input type="text" name="afirmative_action_completed_by_sig" size="50" placeholder="Completed by:"><br/>
 
-			<input type="text" name="zip_code" size="50" placeholder="Todays Date:"><br/>
+			<input type="text" name="affirmative_action_date" size="50" placeholder="Todays Date:"><br/>
 
 			<br/><div id="message"></div>
 			<input type="submit" value="Submit">

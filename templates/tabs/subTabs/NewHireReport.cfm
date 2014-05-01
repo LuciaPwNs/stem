@@ -1,3 +1,6 @@
+<div id="employee_info">
+	<form name='employeeDataForm' id='NewHireReport'>
+	
 <center><h2>NEW HIRE REPORTING PROGRAM</h2></center>
 <b><center>Commonwealth of Pennsylvania</center></b>
 <b><center>P.O. Box 69400</center></b>
@@ -27,10 +30,13 @@ height="70px" width="160px"/></center>
 			
 <input type="text" name="address_1" size="50" placeholder="Address:"><br/>
 
-<input type="text" name="social security #" size="50" placeholder="Social Security #:"><br/>
+<input type="text" name="social_security" size="50" placeholder="Social Security #:"><br/>
 
-<input type="text" name="Hire_Date" size="50" placeholder="Hire Date:">
+<input type="text" name="hire_date" size="50" placeholder="Hire Date:">
 <br/>
 
 <input type="text" name="birthdate" size="50" placeholder="Date of Birth:">
 <br/>
+
+	</form>
+</div>

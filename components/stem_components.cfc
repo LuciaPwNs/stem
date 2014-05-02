@@ -91,8 +91,6 @@
 		</cftry>
 	</cffunction>
 
-
-
 <!---Save Employee Data--->
     <cffunction name="saveEmployeeData" access="remote" returnFormat="JSON">
     	<!---!!!!IMPORTANT Nothing can be put between cffunction and the cfargument tag--->
@@ -330,10 +328,9 @@
 		<!---!!!!IMPORTANT Nothing can be put between cffunctiona and the cfargument tag--->
 		<cfargument name="page" type="string">
 		<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />		
-	
 		<cfswitch expression="#LCase(page)#"> 
-		    <cfcase value="employeelogin">
-		       	<cfdocument format="pdf" name="employeeLoginInfo" filename="../output.pdf" overwrite="yes">
+		    <cfcase value="newemployee">
+		       	<cfdocument format="pdf" name="employeeLoginInfo" filename="#ExpandPath('/stem/')#output.pdf" overwrite="yes">
 	       			<div>
 						First Name: <cfoutput>#employeeData.first#</cfoutput> <br/>
 						Last Name: <cfoutput>#employeeData.last#</cfoutput> <br/>

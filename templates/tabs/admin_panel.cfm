@@ -4,11 +4,11 @@
 	}
 </style>
 <script type="text/javascript">
+	var printThis;
 	$(document).ready(function(){
 		//since the element is there when the page loads, we can directly bind an event to the form that fires when the its submitted
 		$('#newEmployee').submit(function (e) {
 		    e.preventDefault();
-		    console.log('$(this).serializeArray();',$(this).serializeArray())
 		    var newEmployeeInfo = $(this).serializeArray();
 		    addNewEmployee(newEmployeeInfo[0].value, newEmployeeInfo[1].value);
 		});
@@ -30,8 +30,8 @@
 		    editAdmin(newAdminInfo[0].value, newAdminInfo[1].value, newAdminInfo[2].value, newAdminInfo[3].value, clickedButton[0].value);
 		});
 
-		function print () {
-			printPage('employeeLogin', window.localStorage.newestEmployee);
+		printThis = function (page) {
+			printPage(page, window.localStorage.newestEmployee);
 		}
 
 		//fetch admin records when page loads

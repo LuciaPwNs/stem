@@ -17,7 +17,6 @@ function getEmployeeData (selectedEmployee) {
 				}
 		    },
 		    success: function (data) {
-		    	console.log('loadedd emploiyee data', data);
 	    		window.localStorage.setItem('employee', JSON.stringify(data));
 	    		$(document).trigger('employeeDataReady');
 	    		location.reload();
@@ -85,7 +84,7 @@ function addNewEmployee (first_name, last_name) {
 	})
 	.done(function (data) {
 		window.localStorage.setItem('newestEmployee', JSON.stringify(data));
-		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:print()">Click here to print employees login information.</a>');
+		$('#message').html('<a id="printEmployeeLogin"  onclick="javascript:printThis(\'newEmployee\')">Click here to print employees login information.</a>');
 
 	})
 	.fail(function(jqXHR, textStatus) {
@@ -160,14 +159,17 @@ function getAdmins () {
 }
 
 
-function printPage (page, dataToPrint) {
+function printPage (page, data) {
+	console.log('data', data);
+	
 	$.ajax({
 	    type: 'POST',
 	    url: 'components/stem_components.cfc?method=printPage&page=' + page,
 	    contentType: 'application/json',
-	    data: JSON.parse(window.localStorage.newestEmployee),
+	    data: JSON.parse(data),
 	})
 	.done(function (data) {
+		
 		//after the pdf is created open a new window that displays it
 		window.open('output.pdf');
 

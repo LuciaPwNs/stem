@@ -5,8 +5,8 @@
 		<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
 		<input type="text" name="employee.last_name" size="50" placeholder="Last Name"><br/>
 			
-		<input type="text" name="employee.address_1" size="50" placeholder="Address"><br/>
-		<input type="text" name="employee.address_2" size="50" placeholder="Address Line Two"><br/>
+		<input type="text" name="employee.address_1" size="50" placeholder="Address Line 1"><br/>
+		<input type="text" name="employee.address_2" size="50" placeholder="Address Line 2"><br/>
 		<input type="text" name="employee.city" size="50" placeholder="City"><br/>
 
 	<p>State:

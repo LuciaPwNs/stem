@@ -93,15 +93,15 @@
 			<br/><p>Referral Source:
 			<select name="referral_source.referral_source">
 			    <option value="">- Please select one -</option>
-				<option value="walk_in">Walk-in
-				<option value="employee">Employee
-				<option value="relative">Relative
-				<option value="friend">Friend
-				<option value="employment_agency">Employment Agency
-				<option value="advertisement">Advertisement
-				<option value="school">School
-				<option value="private_employment_agency">Private Employment Agency
-				<option value="other">Other
+				<option value="walk_in">Walk-in</option>
+				<option value="employee">Employee</option>
+				<option value="relative">Relative</option>
+				<option value="friend">Friend</option>
+				<option value="employment_agency">Employment Agency</option>
+				<option value="advertisement">Advertisement</option>
+				<option value="school">School</option>
+				<option value="private_employment_agency">Private Employment Agency</option>
+				<option value="other">Other</option>
 			</select></p>
 			<input type="text" name="referal_source.referral_info" size="25" placeholder="Specify Other"><br/>
 
@@ -142,38 +142,6 @@
 
 			<br/><b><p>AN EQUAL OPPORTUNITY EMPLOYER</b></p>
 
-			<br></br><br></br><h2>For Bank Use</h2>
-			<p>Hired: 
-			<input type="radio" name="employee.hired" value="1">
-				Yes 
-
-			<input type="radio" name="employee.hired" value="0">
-				No <br/><br/>
-
-			<input type="text" name="employee.hired_position" size="50" placeholder="Position(s) hired for"><br/>
-
-			<input type="date" name="employee.hire_date" width="50">Date of Hire<br/>	<br></br>
-
-			<p>From the EEO job classifications listed below, which one best describes the position filled?</p>
-			<select name="eeo_job_classifications.eeo_job_classification">
-			    <option value="">- Please select one -</option>
-				<option value="exec_senior">Exec/Senior Level Officials and Managers
-				<option value="first_mid">First/Mid Level Officials & Managers
-				<option value="professional">Professionals
-				<option value="technician">Technicians
-				<option value="administrative">Administrative Support Workers
-				<option value="craft_worker">Craft Workers (formerly "Craft Workers")(Skilled)
-				<option value="operative">Operative(formerly "Operatives")(Semi-Skilled)
-			</select></p><br><br/>
-
-			<b>Notes:</b>
-
-			<br/><textarea name="employee_affirmative_action.notes" cols="25" rows="5">
-			</textarea><br>
-			
-			<br/><input type="text" name="employee.complete_name" size="50" placeholder="Completed by:"><br/>
-
-			<input type="date" name="employee.complete_date" witdth="50"> Complete Date<br></br>
 
 			<br/><div id="message"></div>
 			<input type="submit" value="Submit">

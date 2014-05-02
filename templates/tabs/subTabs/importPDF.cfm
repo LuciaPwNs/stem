@@ -1,6 +1,6 @@
 <script type="text/javascript">
 //define function name so it can be called out of document.ready
-var deletePDF;
+var deletePDF, refresh;
 $(document).ready(function(){
 	var employeeData = JSON.parse(window.localStorage.employee);
 	$("#uploadPDF form").attr('action', "/stem/components/stem_components.cfc?method=uploadFile&file=" + $("#uploadPDF").parent().attr('id') + '&id=' + employeeData['employee.id']);
@@ -39,19 +39,21 @@ $(document).ready(function(){
 			$('#message').html(data);
 			getEmployeeData(employeeData['employee.id']);
 			location.reload();
-			
-
 		})
 		.fail(function(jqXHR, textStatus) {
 			console.log( "Request failed: " + textStatus );
 		});
-	}	    
+	}
+
+	refresh = function () {
+		searchForEmployee(JSON.parse(window.localStorage.selectedEmployee));
+	}
 })
 </script>
 <div id="uploadPDF">
 	<form method="post" enctype="multipart/form-data" action="">
 		<input type="file" id="file" name="fileUpload" />
-		<input type="submit" value="Upload File" />
+		<input type="submit" value="Upload File" /><input type="button" value="Refresh Files" onclick="javascript:refresh()"/>
 	</form>
 
 	<div id="uploadedForms">

@@ -3,47 +3,79 @@
 	padding:25px;
 	overflow: hidden;
 }
-
-#currentEmployeeInfo {
-	margin: 0px 0px 0px 50px;
-	display: inline;
-	position: absolute;
-	top: 15px;
-	left: 270px;
-	border: 1px solid grey;
-	padding: 2px;
+#navigation {
+	margin-bottom: -5px;
+	padding:0px 0px 0px 5px;
+	z-index: 99;
 }
 
-#currentEmployeeInfo span{
-	padding: 0px;
-	margin: 0px;
-	background: none;
-	border: none;
-	display: inline-block;
+#navigation .nav_button {
+	
+	background: rgba(38, 157, 14, 1);
+	margin: 0px -4px;
+	padding: 10px;
+	min-width: 145px;
+	border:none;
+	
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+
+	-moz-border-top-left-radius: 0px;
+	-moz-border-top-right-radius: 0px;
+	-moz-border-bottom-right-radius: 0px;
+	-moz-border-bottom-left-radius: 0px;
+
+	
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+	color: rgba(255, 255, 206, 1);
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	/*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	opacity: 1;
+
 }
 
-#currentEmployeeInfo #employeePhoto {
-	display: inline-block;
-	float: left;
-	margin-right: 5px;
-	border: 1px solid grey; 
-}
-#currentEmployeeInfo #employeePhoto  img{
-	width: 100px;
-	height: 100px;
+#navigation .nav_button:hover {
+    
+    
+	-moz-box-shadow: 0 0px 20px rgba(0,0,0,1);
+	-webkit-box-shadow: 0px 0px 20px rgba(0,0,0,1);
+
+	color: rgba(240, 245, 239, 1);
+	
+
 }
 
-#currentEmployeeInfo #basicInfo {
-	height: 100px;
-	display: inline-block;
-	float: right;
+
+#navigation .end_right{
+	border-top-right-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+}
+
+#navigation .end_left{
+	border-top-left-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
 }
 
 #content {
-	background: rgba(255,255,255,1);
-	width:800px;
-	height:600px;
+	width: 890px;
+	height:auto;
 	padding: 15px;
+	background: rgba(255, 255, 255, 1);
+	overflow: hidden;
 
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -52,4 +84,17 @@
 	-webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+#content #employee_info {
+	padding: 50px;
+}
+
+#logout {
+	position: absolute;
+	top:80px;
+	left:825px;
+	text-decoration: none;
+	float:right;
+	padding:25px;
 }

@@ -17,17 +17,14 @@
 	        if (typeof window.localStorage.employee !== 'undefined') {
 		        //use this.name to get the value for that field from document.employee
 		        var employeeData = JSON.parse(window.localStorage.employee);
-		        //console.log('employeeData',employeeData);
-
 		      	//ignore the submit input and file elements
-		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file") {
+		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file" && $(this).attr('class') !== "default") {
 		        	//update everything that isnt a submit button
 
 		        	if(this.type === "radio"){
 		        		if(this.value === employeeData[this.name]){
 		        			$(this).prop("checked", true);
 		        		}
-		        		
 		        	}else{
 		        		$(this).val(employeeData[this.name]);
 		        	}
@@ -78,7 +75,6 @@
 		});		
 	})
 </script>
-<script type="text/javascript" src="js/stem_functions.js"></script>
 <div id="container">
 	<div id="search_box">
 	    <form id="searchBox">

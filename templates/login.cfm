@@ -14,11 +14,9 @@
 </cfquery> 
 
 
-<cfoutput query="login">
+<cfoutput>
 	#login.id#
 </cfoutput>
-<br/>
-<cfdump var="#login1#">
 
 <cfif login1.recordcount eq 1>
 	<cfset Cookie.logged_in = #login.id[1]#>
@@ -26,8 +24,5 @@
 		<cfset Cookie.admin = true>
 	</cfif>
 <cfelse>
-
 	<cfoutput>user id or password is incorrect</cfoutput>
 </cfif> 
-
-<!---<cflocation url="../index.cfm" addtoken="false">--->

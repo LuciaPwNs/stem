@@ -1,80 +1,25 @@
-<div id="employee_info">
-	<form name='employeeDataForm' id='electionOptOut'>
-
+<div id="employee_info" class="clearfix">
+	<cfform>
 		<center><b>Somerset Trust Company Health and Welfare Benefits Plan Election Form</b></center>
 		<b>1. Personal Data</b> (Required whether or not you are a participant)<br/>
 		
-			<input type="text" name="employee.first_name" size="25" placeholder="First Name">
-			<input type="text" name="employee.last_name" size="25" placeholder="Last Name"><br/>
+			<input type="text" name="first_name" size="25" placeholder="First Name">
+			<input type="text" name="last_name" size="25" placeholder="Last Name"><br/>
 		
-			<input type="text" name="employee.address_1" size="59" placeholder="Address Line 1"><br/>
-			<input type="text" name="employee.address_2" size="59" placeholder="Address Line 2"><br/>
+			<input type="text" name="address_1" size="59" placeholder="Address Line 1"><br/>
+			<input type="text" name="address_2" size="59" placeholder="Address Line 2"><br/>
 
-			<input type="text" name="employee.city" size="34" placeholder="City">
+			<input type="text" name="city" size="34" placeholder="City">
 
-			<p>State:
-		<select name="employee.state">
-			<option value="AL">AL</option>
-			<option value="AK">AK</option>
-			<option value="AZ">AZ</option>
-			<option value="AR">AR</option>
-			<option value="CA">CA</option>
-			<option value="CO">CO</option>
-			<option value="CT">CT</option>
-			<option value="DE">DE</option>
-			<option value="DC">DC</option>
-			<option value="FL">FL</option>
-			<option value="GA">GA</option>
-			<option value="HI">HI</option>
-			<option value="ID">ID</option>
-			<option value="IL">IL</option>
-			<option value="IN">IN</option>
-			<option value="IA">IA</option>
-			<option value="KS">KS</option>
-			<option value="KY">KY</option>
-			<option value="LA">LA</option>
-			<option value="ME">ME</option>
-			<option value="MD">MD</option>
-			<option value="MA">MA</option>
-			<option value="MI">MI</option>
-			<option value="MN">MN</option>
-			<option value="MS">MS</option>
-			<option value="MO">MO</option>
-			<option value="MT">MT</option>
-			<option value="NE">NE</option>
-			<option value="NV">NV</option>
-			<option value="NH">NH</option>
-			<option value="NJ">NJ</option>
-			<option value="NM">NM</option>
-			<option value="NY">NY</option>
-			<option value="NC">NC</option>
-			<option value="ND">ND</option>
-			<option value="OH">OH</option>
-			<option value="OK">OK</option>
-			<option value="OR">OR</option>
-			<option value="PA">PA</option>
-			<option value="RI">RI</option>
-			<option value="SC">SC</option>
-			<option value="SD">SD</option>
-			<option value="TN">TN</option>
-			<option value="TX">TX</option>
-			<option value="UT">UT</option>
-			<option value="VT">VT</option>
-			<option value="VA">VA</option>
-			<option value="WA">WA</option>
-			<option value="WV">WV</option>
-			<option value="WI">WI</option>
-			<option value="WY">WY</option>
-		</select></p>
+			<input type="text" name="state" size="2" placeholder="State">
 
+			<input type="text" name="zip" size="5" placeholder="Zip Code"><br/>
 
-			<input type="text" name="employee.zip" size="5" placeholder="Zip Code"><br/>
+			<input type="text" name="social_security" size="9" placeholder="SSN"><br/><br/>
 
-			<input type="text" name="employee.social_security" size="9" placeholder="Social Security Number"><br/><br/>
+			<input type="date" name="birthdate" width="50"> Date of Birth<br/><br/>
 
-			<input type="date" name="birthdate" width="50"> Date of Birth<br/>
-
-			<input type="date" name="hire_date" width="50"> Date of Hire<br/>
+			<input type="date" name="hire_date" width="50"> Date of Hire<br/><br/>
 
 		<script type="text/javascript">
 			<!---$(document).ready(function(){	
@@ -89,9 +34,9 @@
 
 			<input type="radio" name="fullCoverage" value="yes">
 				I hearby elect the following medical/vision/dental coverage under the plan and hereby agree to pay for the coverage in the specified for each pay period, through payroll deduction.<br/>
-			<input type="radio" name="health_plan" value="epo" class="healthplan_type"> EPO
-			<input type="radio" name="health_plan" value="ppo" class="healthplan_type"> PPO<br/><br/>
-			<input type="radio" name="fullCoverage" value="optOut">
+			<input type="radio" name="health_plan" value="yes" class="healthplan_type"> EPO
+			<input type="radio" name="health_plan" value="yes" class="healthplan_type"> PPO<br/><br/>
+			<input type="radio" name="fullCoverage" value="no">
 				I hereby elect to <b>OPT OUT</b> for the medical, vision, and dental coverage.<br/><br/>
 			<table class="table">
 				<tr>
@@ -258,5 +203,5 @@
 				})
 			})	
 		</script>
-	</form>
+	</cfform>
 </div>

@@ -152,7 +152,8 @@
 
 			<input type="text" name="employee.hired_position" size="50" placeholder="Position(s) hired for"><br/>
 
-			<input type="date" name="employee.hire_date" width="50">Date of Hire<br/>	<br></br>
+			Date of Hire<input class="datepicker" name="employee.hire_date" type="text"><br/>
+			
 
 			<p>From the EEO job classifications listed below, which one best describes the position filled?</p>
 			<select name="eeo_job_classifications.eeo_job_classification">
@@ -173,7 +174,8 @@
 			
 			<br/><input type="text" name="employee.complete_name" size="50" placeholder="Completed by:"><br/>
 
-			<input type="date" name="employee.complete_date" witdth="50"> Complete Date<br></br>
+			Complete Date<input class="datepicker" name="employee.complete_date" type="text"><br/>
+			
 
 			<br/><div id="message"></div>
 			<input type="submit" value="Submit">

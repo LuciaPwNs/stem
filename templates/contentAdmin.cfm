@@ -10,7 +10,8 @@
 	
 	$(document).ready(function() {
 	
-	
+		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+
 		//Load form when the document is completely done loading
 		//*ASL Radio buttons need loaded correctly
 		$('form[name="employeeDataForm"] :input').each(function() {
@@ -98,6 +99,7 @@
 	                 <span name="employee.address_2"></span><br/> 
 	    </div>
 	</div>
+	<a id="quick_print" href="" onclick="javascript:window.print()">Quick Print</a>
 	<a id="admin_panel" href="index.cfm?adminPanel">Admin Panel</a>
 	<div id="main_section" class="clearfix">
 	    <div id="navigation">

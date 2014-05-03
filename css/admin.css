@@ -40,6 +40,14 @@
 	text-decoration: none;
 }
 
+#quick_print {
+	display: inline;
+	position: absolute;
+	top: 105px;
+	left: 715px;
+	text-decoration: none;
+}
+
 #logout {
 	position: absolute;
 	top:80px;

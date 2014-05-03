@@ -92,9 +92,9 @@
 
 #logout {
 	position: absolute;
-	top:80px;
-	left:825px;
+	top: 90px;
+	left: 900px;
 	text-decoration: none;
-	float:right;
-	padding:25px;
+	float: right;
+	padding: 25px;
 }

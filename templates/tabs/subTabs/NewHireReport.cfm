@@ -94,11 +94,11 @@ height="70px" width="160px"/></center>
 
 	<input type="text" name="employee.social_security" size="20" placeholder="Social Security Number"><br/>
 
-	<input type="date" name="eployee.hire_date" width="50">Hire Date
-	<br/>
+	Hire Date<input class="datepicker" name="employee.hire_date" type="text"><br/>
+	
+	Date of Birth<input class="datepicker" name="employee.birthdate" type="text"><br/>
 
-	<input type="date" name="employee.birthdate" width="50">Date of Birth
-	<br/>
+
 
 		<center><br/><div id="message"></div>
 			<input type="submit" value="Submit"></center>

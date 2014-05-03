@@ -69,16 +69,13 @@
 			<input type="text" name="employee.zip" size="20" placeholder="Zip Code"><br/>
 
 			<input type="text" name="employee.social_security" size="20" placeholder="Social Security Number"><br/>
-
-			<input type="date" name="employee.birthdate" width="50"> Date of Birth<br/>		
+			Date of Birth<input class="datepicker" name="employee.birthdate" type="text"><br/>		
 
 			<input type="text" name="employee.home_phone" size="20" placeholder="Home Phone Number"><br/>
 
 			<input type="text" name="employee.driver_license" size="20" placeholder="Driver License Number"><br/>
-
-			<input type="date" name="employee.issue_date" width="50"> Issue Date<br/>
-			
-			<input type="date" name="employee.expiration_date" width="50"> Expiration Date<br/>
+			Issue Date<input class="datepicker" name="employee.issue_date" type="text"><br/>
+			Expiration Date<input class="datepicker" name="employee.expiration_date" type="text"><br/>
 
 
 			<p>Driver License State:

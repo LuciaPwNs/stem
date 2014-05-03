@@ -1,6 +1,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		
+
+		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+
 		if(window.localStorage.loggedInEmployee) {
 			window.localStorage.selectedEmployee = window.localStorage.loggedInEmployee;
 			delete(window.localStorage.loggedInEmployee);
@@ -16,7 +18,7 @@
 		        //console.log('employeeData',employeeData);
 
 		      	//ignore the submit input and file elements
-		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file") {
+		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file" && $(this).attr('class') !== "default") {
 		        	//update everything that isnt a submit button
 
 		        	if(this.type === "radio"){
@@ -57,6 +59,9 @@
 
 		//This should happen when an admin changes an input
 		$('form[name="employeeDataForm"] :input').change(function(){
+			if(this.type === "date") {
+				
+			}
 			var employeeData = JSON.parse(window.localStorage.employee);
 																														
 			employeeData[this.name] = this.value;

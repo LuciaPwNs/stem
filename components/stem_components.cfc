@@ -96,7 +96,7 @@
     	<!---!!!!IMPORTANT Nothing can be put between cffunction and the cfargument tag--->
     	<cfargument name="formBeingUpdated" type="string" required="no">
     	<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />
-    	<cfdump var="#employeeData#">
+    	<!---<cfdump var="#employeeData#">--->
     	<!---NOTE!!!!! We are just going to save all the fields everytime. that way we dont have to have
     	a bunch of redundent code--->
 		<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
@@ -109,12 +109,14 @@
 				state = '#employeeData.employee.state#',
 				zip = '#employeeData.employee.zip#',
 				social_security = '#employeeData.employee.social_security#',
-			<!---	birthdate = '#employeeData.employee.birthdate#',  --->
+		<!---		birthdate = '#employeeData.employee.birthdate#', --->
 				home_phone = '#employeeData.employee.home_phone#',
 				driver_license = '#employeeData.employee.driver_license#',
-				<!---issue_date = '#employeeData.employee.issue_date#',
-				expiration_date = '#employeeData.employee.expiration_date#',
-				driver_license_state = '#employeeData.driver_license_state#',--->
+			<!---	issue_date = '#employeeData.employee.issue_date#',
+				expiration_date = '#employeeData.employee.expiration_date#', --->
+				driver_license_state = '#employeeData.employee.driver_license_state#',
+			<!---	hire_date = '#employeeData.employee.hire_date#', --->
+			<!---	complete_date = '#employeeData.employee.complete_date#', --->
 				email = '#employeeData.employee.email#',
 				local_tax = '#employeeData.employee.local_tax#',
 				marital_status = '#employeeData.employee.marital_status#'
@@ -247,7 +249,8 @@
 		    </cfdefaultcase> 
 		</cfswitch> 
 		--->
-		<cfreturn >
+		<cfset response = 'Employee information Saved!'>
+		<cfreturn response >
     </cffunction>
 
 <!---Add new Employee--->

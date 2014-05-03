@@ -8,10 +8,14 @@
 
 		<script src="bin/jquery-1.11.0.js"></script>
 		<script src="bin/jquery-1.10.2.js"></script>
+
+		<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			//Check if Query is loaded
 			if (typeof jQuery != 'undefined') {
-			    //console.log("jQuery library is loaded!");
+			    console.log("jQuery library is loaded!");
 			}			
 		</script>
 		<script type="text/javascript" src="js/stem_functions.js"></script>

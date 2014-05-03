@@ -114,7 +114,7 @@
 
 			<p>Under penalties of perjury, I (we) declare that I (we) have examined this information, including all accompanying schedules and statements and to the best of my (our) belief, they are true, correct and complete.</p>
 
-		<input type="date" name="employee.cert_date" width="50"> Date<br/><br/>
+		Certification Date<input class="datepicker" name="employee.complete_date" type="text"><br/>
 		
 		<input type="text" name="employee.home_phone" size="50" placeholder="Phone Number"><br/>
 

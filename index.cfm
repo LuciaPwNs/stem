@@ -7,16 +7,19 @@
 		<link rel="stylesheet" type="text/css" href="/stem/css/site_template.css">
 
 		<script src="bin/jquery-1.11.0.js"></script>
-		<script src="bin/jquery-1.10.2.js"></script>
+		<script src="bin/jquery.validate.js"></script>
+		<script src="bin/jquery-ui-1.10.4.custom.js"></script>
 
-		<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
 		<script type="text/javascript">
 			//Check if Query is loaded
 			if (typeof jQuery != 'undefined') {
 			    console.log("jQuery library is loaded!");
-			}			
+			}
+
+			$(document).ready(function(){
+				$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+			})		
 		</script>
 		<script type="text/javascript" src="js/stem_functions.js"></script>
 

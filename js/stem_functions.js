@@ -38,13 +38,12 @@ function saveEmployeeData (formID) {
 	    data: window.localStorage.employee,
 	})
 	.done(function (data) {
-		//fetch employee data and refresg form data???
-
-		//display message informing the user what is going on
 		console.log('data',data);
 		
+		//display message informing the user what is going on
 		$('#message').html(data);
-		//after the message fade it out after like 5 seconds
+		//after the message fade it out after like 5 seconds *NEED TO DO*
+
 		var employeeData = JSON.parse(window.localStorage.employee);
 		getEmployeeData(employeeData['id']);
 

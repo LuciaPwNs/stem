@@ -73,12 +73,12 @@
 					removedWhere = ReplaceNoCase(ToString(#removedFrom#), "where", "");
 					tableName = trim(ToString(#removedWhere#));
 				</cfscript>
-				<cfloop list="#query.columnlist#" index="field">
+				<cfloop list="#query.columnlist#" index="field">				
 					<cfset employeeData[tableName & "." & LCASE(field)] = query[field][query.CurrentRow]>
 				</cfloop>
 			</cfloop>
 		</cfloop>
-
+		<!---<cfdump var="#employeeData#">--->
 		<cfreturn #employeeData#>
 	</cffunction>
 
@@ -96,10 +96,9 @@
     	<!---!!!!IMPORTANT Nothing can be put between cffunction and the cfargument tag--->
     	<cfargument name="formBeingUpdated" type="string" required="no">
     	<cfset employeeData = deserializeJSON(toString(getHttpRequestData().content)) />
-    	<!---<cfdump var="#employeeData#">--->
-    	<!---NOTE!!!!! We are just going to save all the fields everytime. that way we dont have to have
-    	a bunch of redundent code--->
-		<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
+    	<cfdump var="#employeeData#">
+    	
+    	<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
 			UPDATE employee SET 
 				first_name = '#employeeData.employee.first_name#',
 				last_name = '#employeeData.employee.last_name#',
@@ -109,14 +108,14 @@
 				state = '#employeeData.employee.state#',
 				zip = '#employeeData.employee.zip#',
 				social_security = '#employeeData.employee.social_security#',
-		<!---		birthdate = '#employeeData.employee.birthdate#', --->
+				birthdate = '#employeeData.employee.birthdate#',
 				home_phone = '#employeeData.employee.home_phone#',
 				driver_license = '#employeeData.employee.driver_license#',
-			<!---	issue_date = '#employeeData.employee.issue_date#',
-				expiration_date = '#employeeData.employee.expiration_date#', --->
+				issue_date = '#employeeData.employee.issue_date#',
+				expiration_date = '#employeeData.employee.expiration_date#',
 				driver_license_state = '#employeeData.employee.driver_license_state#',
-			<!---	hire_date = '#employeeData.employee.hire_date#', --->
-			<!---	complete_date = '#employeeData.employee.complete_date#', --->
+				hire_date = '#employeeData.employee.hire_date#',
+				complete_date = '#employeeData.employee.complete_date#',
 				email = '#employeeData.employee.email#',
 				local_tax = '#employeeData.employee.local_tax#',
 				marital_status = '#employeeData.employee.marital_status#'
@@ -129,126 +128,7 @@
 			WHERE id = '#employeeData.employee.id#';
 		</cfquery>
 
-		<!---
-    	
-    	<cfdump var="#employeeData#">
-    	<cfswitch expression="#LCase(formBeingUpdated)#"> 
-		    <cfcase value="affirmativeaction">
-		       	<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
-					UPDATE employee SET 
-						first_name = '#employeeData.employee.first_name#',
-						last_name = '#employeeData.employee.last_name#',
-						address_1 = '#employeeData.employee.address_1#',
-						address_2 = '#employeeData.employee.address_2#',
-						city = '#employeeData.employee.city#',
-						state = '#employeeData.employee.state#',
-						zip = '#employeeData.employee.zip#',
-						social_security = '#employeeData.employee.social_security#',
-						birthdate = '#employeeData.employee.birthdate#',
-						home_phone = '#employeeData.employee.home_phone#',
-						driver_license = '#employeeData.employee.driver_license#',
-						issue_date = '#employeeData.employee.issue_date#',
-						expiration_date = '#employeeData.employee.expiration_date#',
-						driver_license_state = '#employeeData.driver_license_state#',
-						email = '#employeeData.employee.email#',
-						local_tax = '#employeeData.employee.local_tax#',
-						marital_status = '#employeeData.employee.marital_status#'
-					WHERE id = '#employeeData.employee.id#';
-				</cfquery>
-				
-				<cfdump var="#queryStatus#"/>
-				<cfif #queryStatus.recordcount# eq 1>
-					<cfset queryStatus = 'User information saved!'>
-				<cfelse>
-					<cfset queryStatus = 'Something went wrong, contact tech support.'>
-				</cfif>
-				
-		    </cfcase> 
-		    <cfcase value="newEmployeeSheet"> 
-		       	<cfquery datasource="stem" name="saveEmployee" result="queryStatus">
-					UPDATE employee SET 
-						first_name = '#employeeData.employee.first_name#',
-						last_name = '#employeeData.employee.last_name#',
-						address_1 = '#employeeData.employee.address_1#',
-						address_2 = '#employeeData.employee.address_2#',
-						city = '#employeeData.employee.city#',
-						state = '#employeeData.employee.state#',
-						zip = '#employeeData.employee.zip#',
-						social_security = '#employeeData.employee.social_security#',
-						birthdate = '#employeeData.employee.birthdate#',
-						home_phone = '#employeeData.employee.home_phone#',
-						driver_license = '#employeeData.employee.driver_license#',
-						issue_date = '#employeeData.employee.issue_date#',
-						expiration_date = '#employeeData.employee.expiration_date#',
-						driver_license_state = '#employeeData.employee.driver_license_state#',
-						email = '#employeeData.employee.email#',
-						local_tax = '#employeeData.employee.local_tax#',
-					<!---	deposit_account_number = '#employeeData.employee.deposit_account_number#',
-						deposit_account = '#employeeData.employee.deposit_account#',--->
-						marital_status = '#employeeData.employee.marital_status#'
-					WHERE id = '#employeeData.employee.id#';
-				</cfquery>
-				
-				<cfdump var="#queryStatus#"/>
-
-				<cfif #queryStatus.recordcount# eq 1>
-					<cfset status = 'User information saved!'>
-				<cfelse>
-					<cfset status = 'Something went wrong, contact tech support.'>
-				</cfif>
-
-		    </cfcase> 
-		    <cfcase value="residencyCert"> 
-		       	<cfquery datasource="stem" name="saveEmployee" result="employee">
-					UPDATE employee SET  
-						last_name = '#employeeData.employee.last_name#',
-						first_name = '#employeeData.employee.first_name#',
-						mi_initial = '#employeeData.employee.mi_initial#',
-						address_1 = '#employeeData.employee.address_1#',
-						address_2 = '#employeeData.employee.address_2#',
-						city = '#employeeData.employee.city#',
-						state = '#employeeData.employee.state#',
-						zip = '#employeeData.employee.zip#',
-						social_security = '#employeeData.employee.social_security#',
-						day_phone = '#employeeData.employee.day_phone#',
-						municipality = '#employeeData.employee.municipality#',
-						county = '#employeeData.employee.county#',
-						residency_psd_code = '#employeeData.employee.residency_psd_code#',
-						eit_rate = '#employeeData.employee.eit_rate#',
-						cert_date = '#employeeData.employee.cert_date#',
-						home_phone = '#employeeData.employee.home_phone#',
-						email = '#employeeData.employee.email#'
-					WHERE id = #searchValue#;
-				</cfquery>
-				
-				<cfdump var="#queryStatus#"/>
-
-				<cfif #queryStatus.recordcount# eq 1>
-					<cfset status = 'User information saved!'>
-				<cfelse>
-					<cfset status = 'Something went wrong, contact tech support.'>
-				</cfif>
-		    </cfcase>
-		    <cfcase value="resume"> 
-		       	<cfquery datasource="stem" name="saveEmployee" result="employee">
-					UPDATE employee SET  
-						resume_location = '#employee.resume_location#',
-					WHERE id = #searchValue#;
-				</cfquery>
-				
-				<cfdump var="#queryStatus#"/>
-
-				<cfif #queryStatus.recordcount# eq 1>
-					<cfset status = 'User information saved!'>
-				<cfelse>
-					<cfset status = 'Something went wrong, contact tech support.'>
-				</cfif>
-		    </cfcase> 
-		    <cfdefaultcase> 
-		        <cfset status = 'Opps! Something went wrong while saving employee data.'>
-		    </cfdefaultcase> 
-		</cfswitch> 
-		--->
+		
 		<cfset response = 'Employee information Saved!'>
 		<cfreturn response >
     </cffunction>

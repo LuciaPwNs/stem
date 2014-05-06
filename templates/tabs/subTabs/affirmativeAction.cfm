@@ -20,7 +20,7 @@
 		and kept confidential in accordance with applicable laws and regulations.</p><br></br>
 		
 		<h3>Applicant Information</h3> 
-			<input type="text" name="employee.first_name" size="50" placeholder="First Name"><br/>
+			<input type="text" name="employee.first_name" size="50" placeholder="First Name" required><br/>
 			<input type="text" name="employee.last_name" size="50" placeholder="Last Name"><br/>
 			
 			<input type="text" name="employee.address_1" size="50" placeholder="Address Line 1"><br/>
@@ -178,6 +178,6 @@
 			
 
 			<br/><div id="message"></div>
-			<input type="submit" value="Submit">
+			<input type="submit" name="Submit" value="Submit">
 	</form>
 </div>

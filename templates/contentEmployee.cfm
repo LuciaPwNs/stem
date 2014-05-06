@@ -1,8 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
-
 		if(window.localStorage.loggedInEmployee) {
 			window.localStorage.selectedEmployee = window.localStorage.loggedInEmployee;
 			delete(window.localStorage.loggedInEmployee);

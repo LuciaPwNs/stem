@@ -9,8 +9,33 @@
 	} 
 	
 	$(document).ready(function() {
-	
-		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+		console.log('$("form[name=\'employeeDataForm"]\'")', $('form[name="employeeDataForm"]'));
+		
+		$('#affirmativeAction').validate({
+	  		debug: true,
+		  	/*"employee.first_name": "required",
+		  	"employee.last_name": "required",
+		  	"employee.address_1": "required",
+		  	"employee.city": "required",
+		  	"employee.driver_license_state": "required",
+		  	"employee.zip": "required",
+		  	"employee.cell_phone": "required",
+		  	"positions_applied": "required",
+		  	"referral_source.referral_source": "required",
+		  	"referal_source.referral_info": "required",
+		  	"employee.ethnicity": "required",
+		  	"ethnicity_info": "required",
+		  	"employee.hired": "required",
+		  	"employee.hired_position": "required",
+		  	"eeo_job_classifications.eeo_job_classification": "required",
+		  	"employee_affirmative_action.notes": "required",
+		  	"employee.complete_name": "required",
+		  	"employee.complete_date": "required",*/
+		 	submitHandler: function(form) {
+		    	saveEmployeeData($(this).attr('id'));
+		    	return false;
+		  	}
+		});
 
 		//Load form when the document is completely done loading
 		//*ASL Radio buttons need loaded correctly
@@ -21,16 +46,15 @@
 		      	//ignore the submit input and file elements
 		        if ($(this).attr('type') !== "submit" && $(this).attr('type') !== "file" && $(this).attr('class') !== "default") {
 		        	//update everything that isnt a submit button
-
 		        	if(this.type === "radio"){
 		        		if(this.value === employeeData[this.name]){
 		        			$(this).prop("checked", true);
 		        		}
+		        	}else if ($(this).attr('class') === "datepicker hasDatepicker"){
+	        		 	$(this).datepicker("setDate", new Date(employeeData[this.name]));
 		        	}else{
 		        		$(this).val(employeeData[this.name]);
-		        	}
-
-		        	
+		        	}		        	
 	        	}
 	        }
 	    });
@@ -52,13 +76,13 @@
 	        getEmployeeData(window.localStorage.selectedEmployee);
 	    });
 	    
-
+		/*
 		//This should happen when an admin saves a form that updates employee information.
 		$('form[name="employeeDataForm"]').on('submit', function(event) {
 		    //when the form a form submits save data to correct table
 		    event.preventDefault();
 		    saveEmployeeData($(this).attr('id'));
-		}); 
+		}); */
 
 		//This should happen when an admin changes an input
 		$('form[name="employeeDataForm"] :input').change(function(){
